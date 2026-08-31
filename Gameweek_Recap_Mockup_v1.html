@@ -43,7 +43,7 @@
     .display { font-family: "Archivo Black", Impact, sans-serif; text-transform: uppercase; }
 
     .welcome-screen { min-height: 100vh; display: grid; place-items: center; padding: 32px 20px; background: radial-gradient(circle at 15% 0%,rgba(202,168,75,.16),transparent 32rem),radial-gradient(circle at 95% 80%,rgba(37,87,164,.22),transparent 38rem),linear-gradient(145deg,#07152d,#070b13 58%,#02050a); }
-    .welcome-card { width: min(940px,100%); }
+    .welcome-card { width: min(1120px,100%); }
     .welcome-brand { display: flex; align-items: center; gap: 15px; margin-bottom: 58px; }
     .welcome-brand img { width: 66px; height: 66px; border-radius: 16px; border: 1px solid rgba(202,168,75,.5); object-fit: cover; }
     .welcome-brand b { display: block; font-size: 17px; }
@@ -51,7 +51,7 @@
     .welcome-eyebrow { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
     .welcome-title { max-width: 700px; margin: 12px 0 10px; font-size: clamp(38px,6vw,72px); line-height: .98; }
     .welcome-copy { max-width: 620px; margin: 0; color: #9ba6b7; font-size: 15px; line-height: 1.7; }
-    .welcome-options { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 42px; }
+    .welcome-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 42px; }
     .welcome-option { position: relative; min-height: 230px; padding: 25px; overflow: hidden; border: 1px solid rgba(255,255,255,.11); border-radius: 20px; color: var(--app-text); background: linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018)); text-align: left; transition: .2s ease; }
     .welcome-option:not(:disabled):hover { transform: translateY(-4px); border-color: rgba(202,168,75,.7); box-shadow: 0 22px 70px rgba(0,0,0,.35); }
     .welcome-option:disabled { cursor: not-allowed; opacity: .48; }
@@ -192,6 +192,9 @@
       font-size: 12px;
     }
     input:focus, select:focus { border-color: rgba(var(--accent-rgb),.75); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.1); }
+    input[type="color"] { padding: 4px; cursor: pointer; }
+    input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+    input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 6px; }
     .mini-card { margin-top: 10px; padding: 11px; border: 1px solid var(--app-line); border-radius: 11px; background: rgba(255,255,255,.018); }
     .mini-label { color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .upload-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
@@ -217,6 +220,9 @@
     .layout-choice[data-layout="podium-first"] .layout-thumb i:nth-child(1) { background: rgba(var(--accent-rgb),.72); }
     .layout-choice[data-layout="podium-first"] .layout-thumb i:nth-child(2) { background: #1f7046; }
     .layout-choice[data-layout="podium-first"] .layout-thumb i:nth-child(4) { background: linear-gradient(90deg,rgba(var(--accent-rgb),.5) 45%,rgba(255,92,112,.45) 45%); }
+    .layout-choice[data-layout="xi-focus"] .layout-thumb { grid-template-columns: 36% 1fr; grid-template-rows: repeat(4,1fr); }
+    .layout-choice[data-layout="xi-focus"] .layout-thumb i:nth-child(1), .layout-choice[data-layout="xi-focus"] .layout-thumb i:nth-child(3), .layout-choice[data-layout="xi-focus"] .layout-thumb i:nth-child(4) { grid-column: 1; }
+    .layout-choice[data-layout="xi-focus"] .layout-thumb i:nth-child(2) { grid-column: 2; grid-row: 1 / -1; background: #1f7046; }
     .choice-row { display: flex; align-items: center; gap: 9px; margin-top: 11px; }
     .choice-row .button { flex: 1; text-align: left; }
     .choice-value { color: var(--accent); font-size: 10px; font-weight: 800; }
@@ -324,7 +330,7 @@
     }
     .header-logo { position: absolute; top: 14px; left: 50%; width: var(--logo-size,76px); height: var(--logo-size,76px); transform: translateX(-50%); object-fit: cover; border-radius: 50%; border: 2px solid var(--poster-accent); box-shadow: 0 0 24px rgba(var(--poster-accent-rgb),.3); }
     .header-copy { position: absolute; z-index: 1; top: var(--copy-top,102px); left: 0; right: 0; }
-    .poster-league { color: var(--poster-accent); font-size: 12px; font-weight: 800; letter-spacing: .28em; }
+    .poster-league { color: var(--poster-accent); font-size: 14px; font-weight: 800; letter-spacing: .24em; }
     .poster-title { margin-top: 7px; font-size: 38px; line-height: 1; letter-spacing: .02em; }
     .poster-title span { color: var(--poster-accent); }
     .poster-title.title-metallic { color: #f8fbff; text-shadow: 0 1px 0 #b8c0cc,0 2px 0 #8993a2,0 3px 0 #5f6877,0 7px 14px rgba(0,0,0,.7); }
@@ -333,7 +339,7 @@
     .poster-title.title-outline { color: transparent; -webkit-text-stroke: 1.5px var(--poster-accent-2); text-shadow: 0 0 18px rgba(var(--poster-accent-rgb),.35); }
     .poster-title.title-outline span { color: transparent; -webkit-text-stroke-color: var(--poster-accent); }
     .poster-title.title-matchday { font-family: "Bebas Neue",Impact,sans-serif; font-size: 47px; font-style: italic; letter-spacing: .075em; transform: skewX(-4deg); }
-    .poster-subtitle { margin-top: 8px; padding: 0 50px; overflow: hidden; color: #8a97aa; font-size: 10px; font-weight: 800; letter-spacing: .24em; text-overflow: ellipsis; white-space: nowrap; }
+    .poster-subtitle { margin-top: 9px; padding: 0 50px; overflow: hidden; color: #aab5c5; font-size: 13px; font-weight: 800; letter-spacing: .18em; text-overflow: ellipsis; white-space: nowrap; }
     .poster-grid {
       flex: 1;
       min-height: 0;
@@ -347,15 +353,43 @@
     .poster.layout-mirror .poster-grid { grid-template-columns: 1fr 36%; grid-template-areas: "xi top4" "data data" "chips spicy"; }
     .poster.layout-bottom-swap .poster-grid { grid-template-columns: 36% 1fr; grid-template-areas: "top4 xi" "data data" "spicy chips"; }
     .poster.layout-podium-first .poster-grid { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0,.72fr) minmax(0,1.34fr) minmax(0,.42fr) minmax(0,.58fr); grid-template-areas: "top4 top4" "xi xi" "data data" "chips spicy"; }
+    .poster.layout-xi-focus .poster-grid { grid-template-columns: 36% 1fr; grid-template-rows: minmax(0,.8fr) minmax(0,.4fr) minmax(0,.37fr) minmax(0,.48fr); grid-template-areas: "top4 xi" "data xi" "chips xi" "chips spicy"; }
+    .poster.layout-xi-focus .xi-panel { padding: 20px; }
+    .poster.layout-xi-focus .pitch { margin-top: 15px; padding: 20px 18px 16px; grid-template-rows: repeat(4,minmax(135px,1fr)); row-gap: 8px; }
+    .poster.layout-xi-focus .pitch-row { min-height: 135px; }
+    .poster.layout-xi-focus .player { width: 92px; }
+    .poster.layout-xi-focus .player-image-wrap { width: 60px; height: 60px; }
+    .poster.layout-xi-focus .player-name { min-height: 0; margin-top: 4px; font-size: 12px; line-height: 1.08; }
+    .poster.layout-xi-focus .player-points { margin-top: 2px; padding: 3px 8px; font-size: 13px; }
+    .poster.layout-xi-focus .player-owned { margin-top: 3px; font-size: 10px; }
+    .poster.layout-xi-focus .formation { font-size: 11px; }
+    .poster.layout-xi-focus .top4-panel { padding: 14px 16px; }
+    .poster.layout-xi-focus .podium { height: calc(100% - 39px); padding-top: 6px; }
+    .poster.layout-xi-focus .podium-name { min-height: 25px; font-size: 12px; }
+    .poster.layout-xi-focus .podium-team { min-height: 18px; font-size: 10px; }
+    .poster.layout-xi-focus .podium-entry.first .podium-block { height: 116px; }
+    .poster.layout-xi-focus .podium-entry.second .podium-block { height: 96px; }
+    .poster.layout-xi-focus .podium-entry.third .podium-block { height: 82px; }
+    .poster.layout-xi-focus .podium-block { padding: 8px 5px 9px; }
+    .poster.layout-xi-focus .podium-points { font-size: 23px; }
+    .poster.layout-xi-focus .fourth { margin-top: 7px; padding: 6px 9px; }
+    .poster.layout-xi-focus .data-panel { grid-template-columns: 1fr; gap: 7px; }
+    .poster.layout-xi-focus .stat-card { min-height: 0; padding: 8px 12px; display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-rows: auto auto; place-items: initial; align-items: center; text-align: left; }
+    .poster.layout-xi-focus .stat-label { grid-column: 1; grid-row: 1; font-size: 11px; }
+    .poster.layout-xi-focus .stat-value { grid-column: 2; grid-row: 1 / 3; margin: 0; font-size: 25px; }
+    .poster.layout-xi-focus .stat-detail { grid-column: 1; grid-row: 2; margin-top: 3px; min-width: 0; display: flex; gap: 6px; align-items: baseline; }
+    .poster.layout-xi-focus .stat-person, .poster.layout-xi-focus .stat-team { margin: 0; font-size: 10px; }
+    .poster.layout-xi-focus.hide-chips .spicy-panel, .poster.layout-xi-focus.hide-spicy .chips-panel { grid-column: 1 / -1; }
+    .poster.layout-xi-focus.hide-both .poster-grid { grid-template-rows: minmax(0,.72fr) minmax(0,.34fr); grid-template-areas: "top4 xi" "data xi"; }
     .wide-podium { height: calc(100% - 38px); display: grid; grid-template-columns: 1.34fr repeat(3,1fr); align-items: center; gap: 10px; margin-top: 7px; }
     .wide-rank { min-width: 0; height: 100px; display: grid; grid-template-columns: 36px 1fr; grid-template-rows: 1fr auto; gap: 2px 10px; align-items: center; padding: 12px; border: 1px solid rgba(255,255,255,.09); border-radius: 12px; background: rgba(255,255,255,.028); }
     .wide-rank.first { height: 116px; border-color: rgba(var(--poster-accent-rgb),.48); background: linear-gradient(145deg,rgba(var(--poster-accent-rgb),.22),rgba(var(--poster-accent-rgb),.055)); }
     .wide-rank .rank-ball { grid-row: 1 / 3; width: 34px; height: 34px; margin: 0; }
     .wide-rank-copy { min-width: 0; }
-    .wide-rank-name { overflow: hidden; font-size: 12px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
-    .wide-rank-team { margin-top: 3px; overflow: hidden; color: #8290a3; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+    .wide-rank-name { overflow: hidden; font-size: 14px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+    .wide-rank-team { margin-top: 4px; overflow: hidden; color: #a5b0bf; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
     .wide-rank-points { align-self: end; color: var(--poster-accent); font-family: "Archivo Black"; font-size: 21px; }
-    .wide-rank-points small { color: #758195; font-family: Inter; font-size: 7px; letter-spacing: .12em; }
+    .wide-rank-points small { color: #9aa6b6; font-family: Inter; font-size: 10px; letter-spacing: .1em; }
     .wide-rank:nth-child(2) .rank-ball { color: #d4dae2; }
     .wide-rank:nth-child(3) .rank-ball { color: #d18450; }
     .wide-rank:nth-child(4) .rank-ball { color: #8792a2; }
@@ -378,15 +412,15 @@
     .data-panel { grid-area: data; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding: 0; border: 0; background: none; }
     .chips-panel { grid-area: chips; }
     .spicy-panel { grid-area: spicy; }
-    .section-title { font-size: 16px; letter-spacing: .025em; }
+    .section-title { font-size: 19px; letter-spacing: .02em; }
     .section-title span { color: var(--poster-accent); }
-    .section-sub { margin-top: 4px; color: #8b98aa; font-size: 10px; font-weight: 600; }
+    .section-sub { margin-top: 5px; color: #a9b4c4; font-size: 13px; font-weight: 650; line-height: 1.3; }
 
     .podium { height: calc(100% - 42px); display: flex; flex-direction: column; justify-content: center; padding-top: 12px; }
     .podium-main { display: flex; align-items: end; justify-content: center; gap: 8px; }
     .podium-entry { width: 31%; text-align: center; }
-    .podium-name { min-height: 29px; display: flex; align-items: end; justify-content: center; font-size: 10px; font-weight: 800; line-height: 1.2; }
-    .podium-team { min-height: 20px; color: #8c98a9; font-size: 8px; line-height: 1.1; }
+    .podium-name { min-height: 34px; display: flex; align-items: end; justify-content: center; font-size: 13px; font-weight: 800; line-height: 1.2; }
+    .podium-team { min-height: 24px; color: #a5b0bf; font-size: 11px; line-height: 1.15; }
     .podium-block { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 6px 14px; border-radius: 8px 8px 0 0; background: linear-gradient(#242b35,#131821); border-top: 3px solid #c9d0d9; }
     .podium-entry.first .podium-block { height: 177px; border-color: var(--poster-accent); background: linear-gradient(rgba(var(--poster-accent-rgb),.27),rgba(var(--poster-accent-rgb),.09)); }
     .podium-entry.second .podium-block { height: 139px; }
@@ -395,12 +429,31 @@
     .second .rank-ball { color: #cbd3dc; }
     .third .rank-ball { color: #d18450; }
     .podium-points { font-family: "Archivo Black"; font-size: 27px; }
-    .podium-points small { display: block; margin-top: 2px; color: #7d899a; font-family: Inter; font-size: 7px; letter-spacing: .18em; }
+    .podium-points small { display: block; margin-top: 3px; color: #9ba7b8; font-family: Inter; font-size: 10px; letter-spacing: .14em; }
     .fourth { margin-top: 12px; display: grid; grid-template-columns: 25px 1fr auto; gap: 9px; align-items: center; padding: 9px 11px; border: 1px solid rgba(255,255,255,.07); border-radius: 9px; background: rgba(255,255,255,.025); }
     .fourth .rank-ball { width: 23px; height: 23px; color: #7d899a; font-size: 9px; }
-    .fourth-name { font-size: 9px; font-weight: 800; }
-    .fourth-team { color: #8793a4; font-size: 8px; }
-    .fourth-points { font-family: "Archivo Black"; font-size: 14px; color: #c2cad5; }
+    .fourth-name { font-size: 12px; font-weight: 800; }
+    .fourth-team { color: #a3afbf; font-size: 10px; }
+    .fourth-points { font-family: "Archivo Black"; font-size: 16px; color: #d6dce5; }
+
+    .podium-scoreboard { height: calc(100% - 43px); max-width: 520px; margin: 9px auto 0; display: grid; align-content: center; gap: 7px; }
+    .podium-score-row { --rank-color: #9aa6b7; width: calc(100% - 36px); min-width: 0; display: grid; grid-template-columns: 34px minmax(0,1fr) auto; align-items: center; gap: 9px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.1); border-left: 4px solid var(--rank-color); border-radius: 9px; background: linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.025)); box-shadow: 0 5px 14px rgba(0,0,0,.16); }
+    .podium-score-row.rank-1 { --rank-color: var(--poster-accent); background: linear-gradient(90deg,rgba(var(--poster-accent-rgb),.18),rgba(255,255,255,.025)); }
+    .podium-score-row.rank-2 { --rank-color: #d5dde7; margin-left: 12px; }
+    .podium-score-row.rank-3 { --rank-color: #d18450; margin-left: 24px; background: linear-gradient(90deg,rgba(209,132,80,.13),rgba(255,255,255,.025)); }
+    .podium-score-row.rank-4 { --rank-color: #65bfff; margin-left: 36px; background: linear-gradient(90deg,rgba(101,191,255,.11),rgba(255,255,255,.025)); }
+    .podium-score-icon { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--rank-color); border-radius: 50%; color: var(--rank-color); background: rgba(2,8,15,.52); font-size: 15px; line-height: 1; }
+    .podium-score-copy { min-width: 0; }
+    .podium-score-name { overflow: hidden; color: #fff; font-size: 12px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+    .podium-score-team { margin-top: 2px; overflow: hidden; color: #a9b4c4; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .podium-score-points { color: var(--rank-color); font-family: "Archivo Black"; font-size: 18px; white-space: nowrap; }
+    .podium-score-points small { color: #9ba7b8; font-family: Inter,sans-serif; font-size: 8px; letter-spacing: .08em; }
+    .poster.layout-xi-focus .podium-scoreboard { height: calc(100% - 40px); gap: 5px; margin-top: 6px; }
+    .poster.layout-xi-focus .podium-score-row { grid-template-columns: 31px minmax(0,1fr) auto; gap: 7px; padding: 6px 8px; }
+    .poster.layout-xi-focus .podium-score-icon { width: 27px; height: 27px; font-size: 13px; }
+    .poster.layout-podium-first .podium-scoreboard { height: calc(100% - 38px); gap: 4px; margin-top: 4px; }
+    .poster.layout-podium-first .podium-score-row { padding: 4px 10px; }
+    .poster.layout-podium-first .podium-score-icon { width: 26px; height: 26px; font-size: 12px; }
 
     .pitch {
       position: relative;
@@ -408,9 +461,9 @@
       min-height: 0;
       margin-top: 12px;
       padding: 17px 12px 13px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: grid;
+      grid-template-rows: repeat(4,minmax(0,1fr));
+      align-items: stretch;
       border: 2px solid rgba(255,255,255,.16);
       border-radius: 12px;
       background:
@@ -420,78 +473,87 @@
     }
     .pitch::before { content: ""; position: absolute; top: 50%; left: 50%; width: 112px; height: 112px; transform: translate(-50%,-50%); border: 2px solid rgba(255,255,255,.13); border-radius: 50%; }
     .pitch::after { content: ""; position: absolute; bottom: -1px; left: 50%; width: 236px; height: 54px; transform: translateX(-50%); border: 2px solid rgba(255,255,255,.13); border-bottom: 0; border-radius: 6px 6px 0 0; }
-    .pitch-row { position: relative; z-index: 1; display: flex; align-items: start; justify-content: space-around; }
+    .pitch-row { position: relative; z-index: 1; min-height: 0; display: flex; align-items: center; justify-content: space-around; }
     .pitch-row.gk { justify-content: center; }
     .player { width: 78px; text-align: center; }
-    .player-image-wrap { position: relative; width: 47px; height: 47px; margin: 0 auto; }
-    .player img { width: 100%; height: 100%; object-fit: cover; object-position: center top; border: 2px solid rgba(255,255,255,.72); border-radius: 50%; background: #121b29; box-shadow: 0 3px 8px rgba(0,0,0,.45); }
-    .player-points { position: absolute; right: -5px; bottom: -3px; min-width: 20px; height: 20px; padding: 0 4px; display: grid; place-items: center; color: #08111e; background: var(--poster-accent); border: 2px solid #07101a; border-radius: 999px; font-size: 9px; font-weight: 900; }
-    .player-name { margin-top: 5px; overflow: hidden; color: white; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; font-weight: 800; text-shadow: 0 2px 4px #000; }
-    .player-owned { margin-top: 1px; color: #a9dfc0; font-size: 8px; font-weight: 650; }
-    .formation { margin-top: 9px; color: #8995a8; font-size: 8px; font-weight: 800; letter-spacing: .16em; }
+    .player-image-wrap { position: relative; width: 52px; height: 52px; margin: 0 auto; }
+    .player img, .player-placeholder { width: 100%; height: 100%; object-fit: cover; object-position: center top; border: 2px solid rgba(255,255,255,.72); border-radius: 50%; background: #121b29; box-shadow: 0 3px 8px rgba(0,0,0,.45); }
+    .player-placeholder { display: grid; place-items: center; color: var(--poster-accent); font-size: 20px; font-weight: 900; }
+    .player-points { width: max-content; min-width: 34px; margin: 3px auto 0; padding: 2px 7px; color: #07101a; background: linear-gradient(135deg,var(--poster-accent),var(--poster-accent-2)); border: 1px solid rgba(255,255,255,.28); border-radius: 999px; box-shadow: 0 3px 8px rgba(0,0,0,.28); font-family: "Archivo Black"; font-size: 12px; line-height: 1; }
+    .player-name { min-height: 0; margin-top: 4px; overflow: hidden; display: -webkit-box; color: white; -webkit-box-orient: vertical; -webkit-line-clamp: 2; font-size: 11px; font-weight: 850; line-height: 1.08; text-shadow: 0 2px 4px #000; }
+    .player-owned { margin-top: 2px; color: #b9e8ca; font-size: 10px; font-weight: 750; }
+    .formation { margin-top: 9px; color: #9da9ba; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
     .formation strong { color: var(--poster-accent); }
 
     .stat-card { display: grid; place-items: center; align-content: center; min-width: 0; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015)); text-align: center; }
-    .stat-label { color: #95a1b3; font-size: 9px; letter-spacing: .18em; }
+    .stat-label { color: #b2bdcc; font-size: 12px; letter-spacing: .14em; }
     .stat-value { margin-top: 7px; font-family: "Archivo Black"; font-size: 30px; line-height: 1; }
     .stat-card:nth-child(2) .stat-value { color: var(--poster-accent); }
     .stat-card:nth-child(3) .stat-value { color: var(--danger); }
-    .stat-value small { color: #7d8999; font-family: Inter; font-size: 9px; }
-    .stat-person { margin-top: 7px; font-size: 9px; font-weight: 800; }
-    .stat-team { margin-top: 2px; color: #8894a7; font-size: 8px; }
+    .stat-value small { color: #9ca8b8; font-family: Inter; font-size: 11px; }
+    .stat-person { margin-top: 7px; font-size: 12px; font-weight: 800; }
+    .stat-team { margin-top: 3px; color: #a3afc0; font-size: 10px; }
 
-    .chip-list { margin-top: 18px; display: grid; gap: 15px; }
-    .chip-row { display: grid; grid-template-columns: 86px 1fr 36px; align-items: center; gap: 10px; }
-    .chip-name { font-size: 10px; font-weight: 750; }
-    .chip-track { height: 8px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.07); }
-    .chip-fill { height: 100%; min-width: 3px; border-radius: inherit; background: linear-gradient(90deg,var(--poster-accent),var(--poster-accent-2)); }
-    .chip-value { text-align: right; font-family: "Archivo Black"; font-size: 10px; }
+    .performance-list { margin-top: 14px; display: grid; align-content: center; gap: 8px; }
+    .performance-row { min-width: 0; display: grid; grid-template-columns: 48px minmax(0,1fr) auto; align-items: center; gap: 11px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 11px; background: linear-gradient(90deg,rgba(255,255,255,.085),rgba(255,255,255,.025)); }
+    .performance-row img, .performance-photo-placeholder { width: 48px; height: 48px; object-fit: cover; object-position: center top; border: 2px solid var(--poster-accent); border-radius: 50%; background: #121b29; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
+    .performance-photo-placeholder { display: grid; place-items: center; color: var(--poster-accent); font-size: 18px; font-weight: 900; }
+    .performance-copy { min-width: 0; }
+    .performance-name { overflow: hidden; color: #fff; font-size: 14px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+    .performance-meta { margin-top: 4px; color: #aeb9c8; font-size: 11px; font-weight: 700; }
+    .performance-score { min-width: 52px; padding: 8px 7px; border-radius: 9px; color: #07101a; background: linear-gradient(135deg,var(--poster-accent),var(--poster-accent-2)); font-family: "Archivo Black"; font-size: 19px; line-height: 1; text-align: center; }
+    .performance-score small { display: block; margin-top: 4px; font-family: Inter,sans-serif; font-size: 8px; font-weight: 900; letter-spacing: .08em; }
+    .performance-list.count-4 { gap: 6px; }
+    .performance-list.count-4 .performance-row { grid-template-columns: 42px minmax(0,1fr) auto; gap: 9px; padding: 5px 8px; }
+    .performance-list.count-4 .performance-row img, .performance-list.count-4 .performance-photo-placeholder { width: 42px; height: 42px; }
+    .performance-list.count-4 .performance-name { font-size: 13px; }
+    .performance-list.count-4 .performance-meta { margin-top: 2px; font-size: 10px; }
+    .performance-list.count-4 .performance-score { min-width: 48px; padding: 6px; font-size: 17px; }
+    .mode-switch { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .mode-choice { padding: 10px; border: 1px solid var(--app-line); border-radius: 10px; color: var(--app-text); background: #111824; font-size: 10px; font-weight: 800; }
+    .mode-choice.active { border-color: var(--accent); color: var(--accent); background: rgba(var(--accent-rgb),.08); }
+    .performance-editor-actions { display: flex; gap: 8px; margin-top: 8px; }
     .spicy-cards { height: calc(100% - 45px); display: grid; align-content: center; gap: 10px; margin-top: 14px; }
     .spicy-cards.count-1 { grid-template-columns: 190px; justify-content: center; }
     .spicy-cards.count-2 { grid-template-columns: repeat(2,190px); justify-content: center; }
     .spicy-cards.count-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
-    .spicy-cards.count-4 { grid-template-columns: repeat(2,minmax(0,220px)); justify-content: center; }
-    .spicy-cards.count-5, .spicy-cards.count-6 { grid-template-columns: repeat(3,minmax(0,1fr)); }
     .spicy-card { --story-accent: var(--poster-accent); position: relative; min-width: 0; overflow: hidden; }
     .spicy-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--story-accent); box-shadow: 0 0 16px var(--story-accent); }
     .spicy-card:nth-child(2) { --story-accent: #ff7185; }
     .spicy-card:nth-child(3) { --story-accent: #5cc8ff; }
-    .spicy-card:nth-child(4) { --story-accent: #68df94; }
-    .spicy-card:nth-child(5) { --story-accent: #b493ff; }
-    .spicy-card:nth-child(6) { --story-accent: #ffb45c; }
     .spicy-copy { min-width: 0; }
     .spicy-index { width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid var(--story-accent); border-radius: 8px; color: var(--story-accent); background: rgba(255,255,255,.055); font-family: "Archivo Black"; font-size: 8px; }
-    .spicy-label { color: var(--story-accent); font-size: 8px; font-weight: 800; letter-spacing: .13em; }
-    .spicy-name { margin-top: 6px; font-size: 13px; font-weight: 850; }
-    .spicy-detail { margin-top: 3px; color: #aeb8c7; font-size: 9px; line-height: 1.35; }
-    .spicy-score { color: var(--story-accent); font-family: "Archivo Black"; font-size: 24px; line-height: .9; text-align: center; }
-    .spicy-score small { display: block; margin-top: 5px; color: #929daf; font-family: Inter; font-size: 6px; font-weight: 850; letter-spacing: .14em; }
+    .spicy-label { color: var(--story-accent); font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+    .spicy-name { margin-top: 6px; font-size: 16px; font-weight: 850; }
+    .spicy-detail { margin-top: 4px; color: #c0c9d6; font-size: 11px; line-height: 1.35; }
+    .spicy-score { color: var(--story-accent); font-family: "Archivo Black"; font-size: 27px; line-height: .9; text-align: center; }
+    .spicy-score small { display: block; margin-top: 5px; color: #aeb8c7; font-family: Inter; font-size: 9px; font-weight: 850; letter-spacing: .1em; }
 
     /* Option 1 — spotlight tiles */
     .spicy-style-spotlight .spicy-card { min-height: 106px; display: grid; grid-template-columns: 28px minmax(0,1fr) 38px; align-items: center; gap: 10px; padding: 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 14px; background: radial-gradient(circle at 88% 15%,rgba(255,255,255,.16),transparent 43%),linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.065)); box-shadow: inset 0 1px 0 rgba(255,255,255,.16),0 10px 24px rgba(0,0,0,.2); }
     .spicy-style-spotlight .spicy-index { align-self: start; }
-    .spicy-style-spotlight .spicy-cards.count-5 .spicy-card, .spicy-style-spotlight .spicy-cards.count-6 .spicy-card { min-height: 84px; padding: 10px; grid-template-columns: 24px minmax(0,1fr) 30px; gap: 7px; }
-    .spicy-style-spotlight .spicy-cards.count-5 .spicy-score, .spicy-style-spotlight .spicy-cards.count-6 .spicy-score { font-size: 18px; }
 
     /* Option 2 — compact broadcast scoreboard */
-    .spicy-style-scoreboard .spicy-cards { grid-template-columns: minmax(0,420px); justify-content: center; gap: 8px; }
-    .spicy-style-scoreboard .spicy-card { min-height: 58px; display: grid; grid-template-columns: 30px minmax(0,1fr) 48px; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.025)); box-shadow: inset 0 1px rgba(255,255,255,.06); }
+    .spicy-style-scoreboard .spicy-cards { height: calc(100% - 50px); grid-template-columns: minmax(0,1fr); justify-content: stretch; justify-items: start; gap: 7px; margin-top: 8px; padding: 0 5px; }
+    .spicy-style-scoreboard .spicy-card { width: 100%; min-height: 54px; display: grid; grid-template-columns: 30px minmax(0,1fr) 48px; align-items: center; gap: 10px; padding: 8px 11px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.025)); box-shadow: inset 0 1px rgba(255,255,255,.06); }
     .spicy-style-scoreboard .spicy-card::before { width: 3px; box-shadow: none; }
     .spicy-style-scoreboard .spicy-index { width: 24px; height: 24px; border: 0; border-radius: 50%; color: #07101a; background: var(--story-accent); }
-    .spicy-style-scoreboard .spicy-label { font-size: 7px; }
-    .spicy-style-scoreboard .spicy-name { margin-top: 3px; font-size: 11px; }
-    .spicy-style-scoreboard .spicy-detail { margin-top: 2px; font-size: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .spicy-style-scoreboard .spicy-label { font-size: 9px; }
+    .spicy-style-scoreboard .spicy-name { margin-top: 3px; font-size: 14px; }
+    .spicy-style-scoreboard .spicy-detail { margin-top: 2px; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .spicy-style-scoreboard .spicy-score { padding-left: 8px; border-left: 1px solid rgba(255,255,255,.1); font-size: 20px; }
-    .spicy-style-scoreboard .spicy-cards.count-3, .spicy-style-scoreboard .spicy-cards.count-4 { gap: 6px; }
-    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-card, .spicy-style-scoreboard .spicy-cards.count-4 .spicy-card { min-height: 44px; padding: 6px 10px; }
-    .spicy-style-scoreboard .spicy-cards.count-5, .spicy-style-scoreboard .spicy-cards.count-6 { gap: 4px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-card, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-card { min-height: 33px; grid-template-columns: 24px minmax(0,1fr) 42px; gap: 7px; padding: 3px 9px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-index, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-index { width: 20px; height: 20px; font-size: 7px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-label, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-label { font-size: 6px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-name, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-name { margin-top: 1px; font-size: 9px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-detail, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-detail { margin-top: 0; font-size: 6px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-score, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-score { font-size: 16px; }
-    .spicy-style-scoreboard .spicy-cards.count-5 .spicy-score small, .spicy-style-scoreboard .spicy-cards.count-6 .spicy-score small { margin-top: 2px; font-size: 5px; }
+    .spicy-style-scoreboard .spicy-cards.count-2 .spicy-card { width: calc(100% - 28px); }
+    .spicy-style-scoreboard .spicy-cards.count-2 .spicy-card:nth-child(2) { margin-left: 28px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 { gap: 5px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-card { width: calc(100% - 48px); min-height: 42px; padding: 5px 10px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-card:nth-child(2) { margin-left: 24px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-card:nth-child(3) { margin-left: 48px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-index { width: 22px; height: 22px; font-size: 7px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-label { font-size: 8px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-name { margin-top: 1px; font-size: 12px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-detail { margin-top: 0; font-size: 9px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-score { font-size: 18px; }
+    .spicy-style-scoreboard .spicy-cards.count-3 .spicy-score small { margin-top: 2px; font-size: 7px; }
 
     /* Option 3 — energetic matchday cards */
     .spicy-style-matchday .spicy-card { min-height: 116px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; gap: 8px; padding: 14px; border: 1px solid var(--story-accent); border-radius: 18px 6px 18px 6px; background: linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.055) 58%,rgba(3,8,15,.82)); box-shadow: 0 12px 26px rgba(0,0,0,.26),inset 0 1px rgba(255,255,255,.16); }
@@ -501,9 +563,7 @@
     .spicy-style-matchday .spicy-score { grid-column: 2; grid-row: 1; font-size: 28px; }
     .spicy-style-matchday .spicy-label { font-size: 8px; }
     .spicy-style-matchday .spicy-name { font-size: 14px; }
-    .spicy-style-matchday .spicy-cards.count-5 .spicy-card, .spicy-style-matchday .spicy-cards.count-6 .spicy-card { min-height: 88px; padding: 10px; }
-    .spicy-style-matchday .spicy-cards.count-5 .spicy-score, .spicy-style-matchday .spicy-cards.count-6 .spicy-score { font-size: 20px; }
-    .poster-footer { flex: 0 0 30px; display: grid; place-items: center; color: #596579; font-size: 8px; font-weight: 800; letter-spacing: .26em; }
+    .poster-footer { flex: 0 0 30px; display: grid; place-items: center; color: #78869a; font-size: 10px; font-weight: 800; letter-spacing: .2em; }
 
     .toast { position: fixed; right: 20px; bottom: 20px; z-index: 100; padding: 11px 14px; border: 1px solid rgba(var(--accent-rgb),.42); border-radius: 10px; color: var(--app-text); background: #111824; box-shadow: 0 16px 50px rgba(0,0,0,.4); font-size: 11px; opacity: 0; transform: translateY(10px); pointer-events: none; transition: .2s ease; }
     .toast.show { opacity: 1; transform: translateY(0); }
@@ -552,7 +612,8 @@
       <p class="welcome-copy">Build consistent, premium weekly graphics for your private Fantasy Premier League community.</p>
       <div class="welcome-options">
         <button class="welcome-option" id="openGameweekData"><span class="welcome-number">01</span><span class="welcome-badge">Available</span><h2>Gameweek Data</h2><p>Create the pre-deadline ownership, captaincy and league insights graphic.</p></button>
-        <button class="welcome-option" id="openRecap"><span class="welcome-number">02</span><span class="welcome-badge">Available</span><h2>Gameweek Recap</h2><p>Create the podium, League XI, chips and standout stories after the gameweek.</p></button>
+        <button class="welcome-option" id="openRecap"><span class="welcome-number">02</span><span class="welcome-badge">Available</span><h2>Gameweek Recap</h2><p>Create the podium, League XI, captain returns and standout stories after the gameweek.</p></button>
+        <button class="welcome-option" id="openDifferentials"><span class="welcome-number">03</span><span class="welcome-badge">New</span><h2>Top 3 Differentials</h2><p>Recommend three low-owned players with a clear case and their latest gameweek performance.</p></button>
       </div>
     </div>
   </section>
@@ -642,6 +703,7 @@
       silver: { label: "Silver", accent: "#aeb9c9", accent2: "#ffffff", rgb: "174,185,201", a: "#1a202a", b: "#0d1118", c: "#05070a", swatch: "linear-gradient(135deg,#1a202a,#aeb9c9,#ffffff)" }
     };
     const LAYOUTS = {
+      "xi-focus": "Default · XI focus",
       classic: "Classic",
       mirror: "Mirror",
       "bottom-swap": "Storyline left",
@@ -654,12 +716,13 @@
       outline: ["Neon outline", "High-energy line treatment"],
       matchday: ["Matchday italic", "Fast and expressive"]
     };
+    const SPICY_COLORS = ["#caa84b", "#ff7185", "#5cc8ff"];
     const DEFAULT_STATE = {
       league: "FPL Champions League",
       logo: "LOGO.jpg",
       gameweek: 1,
       palette: "champions",
-      layout: "classic",
+      layout: "xi-focus",
       logoScale: 1,
       titleStyle: "editorial",
       subtitle: "OFFICIAL GAMEWEEK MEDIA RECAP",
@@ -674,6 +737,7 @@
         { rank: 3, manager: "Niv Israel", team: "HTA", points: 81 },
         { rank: 4, manager: "Lidor Sofer", team: "Banzirim FC", points: 78 }
       ],
+      podiumStyle: "podium",
       formation: "3-4-3",
       xi: {
         GK: [{ name: "Verbruggen", own: 70, points: 6, photo: "XI IMEGES/Verbruggen.png" }],
@@ -694,20 +758,40 @@
           { name: "João Pedro", own: 95, points: 11, photo: "XI IMEGES/Joao Pedro.png" }
         ]
       },
-      chips: { wildcard: 0, freeHit: 0, tripleCaptain: 0, benchBoost: 51.7 },
+      highlightMode: "captains",
+      captains: [
+        { name: "Haaland", points: 4, captainPct: 46, photo: "XI IMEGES/Haaland.png" },
+        { name: "B. Fernandes", points: 4, captainPct: 39, photo: "XI IMEGES/B.Fernandes.png" },
+        { name: "João Pedro", points: 22, captainPct: 5, photo: "XI IMEGES/Joao Pedro.png" }
+      ],
+      topPlayers: [
+        { name: "João Pedro", points: 11, own: 95, photo: "XI IMEGES/Joao Pedro.png" },
+        { name: "Calafiori", points: 9, own: 85, photo: "XI IMEGES/Calafiori.png" },
+        { name: "Szoboszlai", points: 8, own: 33.3, photo: "XI IMEGES/Szoboszlai.png" }
+      ],
       spicyStyle: "spotlight",
       spicy: [
-        { title: "NO-CHIP WARRIOR", manager: "Shahar Lugaccy", points: 72, detail: "points · no chip used" },
-        { title: "BENCH DISASTER", manager: "Yehuda Sch", points: 26, detail: "points left on the bench" }
+        { title: "NO-CHIP WARRIOR", manager: "Shahar Lugaccy", points: 72, detail: "points · no chip used", color: "#caa84b" },
+        { title: "BENCH DISASTER", manager: "Yehuda Sch", points: 26, detail: "points left on the bench", color: "#ff7185" }
       ]
     };
 
     const clone = value => JSON.parse(JSON.stringify(value));
+    const validHex = value => /^#[0-9a-f]{6}$/i.test(String(value || ""));
+    function normalizeCollections(target) {
+      const spicyItems = Array.isArray(target.spicy) ? target.spicy : clone(DEFAULT_STATE.spicy);
+      target.spicy = spicyItems.slice(0,3).map((item,index) => ({...item,color:validHex(item.color) ? item.color : SPICY_COLORS[index]}));
+      const captainItems = Array.isArray(target.captains) ? target.captains : clone(DEFAULT_STATE.captains);
+      target.captains = captainItems.map((item,index) => ({...item,captainPct:Number.isFinite(Number(item.captainPct)) ? Number(item.captainPct) : Number(DEFAULT_STATE.captains[index]?.captainPct || 0)}));
+      target.podiumStyle = target.podiumStyle === "scoreboard" ? "scoreboard" : "podium";
+      return target;
+    }
     let state = (() => {
       try { return Object.assign(clone(DEFAULT_STATE), JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")); }
       catch { return clone(DEFAULT_STATE); }
     })();
     state.logoScale = Math.max(.9, Math.min(1.5, Number(state.logoScale || 1)));
+    normalizeCollections(state);
     let drafts = (() => {
       try { return JSON.parse(localStorage.getItem(DRAFTS_KEY) || "[]"); }
       catch { return []; }
@@ -720,6 +804,7 @@
         if (payload?.state) {
           state = Object.assign(clone(DEFAULT_STATE), payload.state);
           state.logoScale = Math.max(.9, Math.min(1.5, Number(state.logoScale || 1)));
+          normalizeCollections(state);
           activeDraftId = "";
           transferredForExport = !!payload.autoExport;
         }
@@ -730,18 +815,32 @@
 
     const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
     const pct = value => Number(value || 0) % 1 ? Number(value).toFixed(1) : String(Number(value || 0));
+    const storyAccent = (item,index) => validHex(item?.color) ? item.color : SPICY_COLORS[index] || SPICY_COLORS[0];
     const input = (label, path, value, type = "text", extra = "") => `<div class="field"><label>${label}</label><input data-path="${path}" type="${type}" value="${esc(value)}" ${extra}></div>`;
 
     function playerHTML(player) {
       return `<div class="player">
-        <div class="player-image-wrap"><img src="${esc(player.photo)}" alt=""><span class="player-points">${esc(player.points)}</span></div>
+        <div class="player-image-wrap">${player.photo?`<img src="${esc(player.photo)}" alt="">`:`<span class="player-placeholder">+</span>`}</div>
         <div class="player-name">${esc(player.name || "—")}</div>
+        <div class="player-points">${esc(player.points)} PTS</div>
         <div class="player-owned">${pct(player.own)}% owned</div>
       </div>`;
     }
 
     function pitchHTML() {
-      return ["FWD", "MID", "DEF", "GK"].map(position => `<div class="pitch-row ${position === "GK" ? "gk" : ""}">${(state.xi[position] || []).map(playerHTML).join("")}</div>`).join("");
+      const required = FORMATIONS[state.formation] || FORMATIONS["3-4-3"];
+      return ["FWD", "MID", "DEF", "GK"].map(position => {
+        const count = position === "GK" ? 1 : required[position];
+        return `<div class="pitch-row ${position === "GK" ? "gk" : ""}">${(state.xi[position] || []).slice(0,count).map(playerHTML).join("")}</div>`;
+      }).join("");
+    }
+
+    function performancePanelHTML() {
+      const captainsMode = state.highlightMode !== "topPlayers";
+      const items = captainsMode ? state.captains : state.topPlayers;
+      const title = captainsMode ? `CAPTAIN <span>RETURNS</span>` : `TOP <span>GAMEWEEK PLAYERS</span>`;
+      const subtitle = captainsMode ? "Points shown already include the captain multiplier" : "The gameweek's highest-scoring players";
+      return `<div class="section-title display">${title}</div><div class="section-sub">${subtitle}</div><div class="performance-list count-${items.length}">${items.map(item => `<div class="performance-row">${item.photo?`<img src="${esc(item.photo)}" alt="">`:`<span class="performance-photo-placeholder">+</span>`}<div class="performance-copy"><div class="performance-name">${esc(item.name || "—")}</div><div class="performance-meta">${captainsMode ? `${pct(item.captainPct)}% captained` : `${pct(item.own)}% league ownership`}</div></div><div class="performance-score">${esc(item.points)}<small>PTS</small></div></div>`).join("")}</div>`;
     }
 
     function podiumEntry(entry, ordinal) {
@@ -759,10 +858,24 @@
       }).join("")}</div>`;
     }
 
+    function podiumScoreboardHTML(ordered) {
+      const icons = ["🏆","🥈","🥉","⚽"];
+      return `<div class="podium-scoreboard">${[1,2,3,4].map(rank => {
+        const entry = ordered[rank] || {};
+        return `<div class="podium-score-row rank-${rank}"><span class="podium-score-icon" aria-label="Place ${rank}">${icons[rank-1]}</span><div class="podium-score-copy"><div class="podium-score-name">${esc(entry.manager || "—")}</div><div class="podium-score-team">${esc(entry.team || "")}</div></div><div class="podium-score-points">${esc(entry.points || 0)} <small>PTS</small></div></div>`;
+      }).join("")}</div>`;
+    }
+
+    function top4PanelHTML(ordered) {
+      if (state.podiumStyle === "scoreboard") return podiumScoreboardHTML(ordered);
+      if (state.layout === "podium-first") return widePodiumHTML(ordered);
+      const fourth = ordered[4] || {};
+      return `<div class="podium"><div class="podium-main">${podiumEntry(ordered[2] || {},2)}${podiumEntry(ordered[1] || {},1)}${podiumEntry(ordered[3] || {},3)}</div><div class="fourth"><span class="rank-ball">4</span><div><div class="fourth-name">${esc(fourth.manager)}</div><div class="fourth-team">${esc(fourth.team)}</div></div><div class="fourth-points">${esc(fourth.points)} PTS</div></div></div>`;
+    }
+
     function renderPoster() {
       const palette = PALETTES[state.palette] || PALETTES.champions;
       const ordered = Object.fromEntries(state.top4.map(item => [item.rank, item]));
-      const fourth = ordered[4] || {};
       const poster = document.getElementById("poster");
       const visibilityClass = !state.showChips && !state.showSpicy ? "hide-both" : !state.showChips ? "hide-chips" : !state.showSpicy ? "hide-spicy" : "";
       const logoSize = Math.round(76 * Math.max(.9, Math.min(1.5, state.logoScale || 1)));
@@ -783,30 +896,35 @@
         <div class="poster-grid">
           <section class="panel top4-panel">
             <div class="section-title display">THE <span>TOP 4</span></div><div class="section-sub">This gameweek's highest scoring managers</div>
-            ${state.layout === "podium-first" ? widePodiumHTML(ordered) : `<div class="podium"><div class="podium-main">${podiumEntry(ordered[2] || {},2)}${podiumEntry(ordered[1] || {},1)}${podiumEntry(ordered[3] || {},3)}</div>
-              <div class="fourth"><span class="rank-ball">4</span><div><div class="fourth-name">${esc(fourth.manager)}</div><div class="fourth-team">${esc(fourth.team)}</div></div><div class="fourth-points">${esc(fourth.points)} PTS</div></div>
-            </div>`}
+            ${top4PanelHTML(ordered)}
           </section>
           <section class="panel xi-panel">
             <div class="section-title display">THE <span>LEAGUE XI</span></div><div class="section-sub">The 11 most-owned players in the league</div>
             <div class="pitch">${pitchHTML()}</div><div class="formation">FORMATION <strong>${esc(state.formation)}</strong></div>
           </section>
           <section class="data-panel">
-            <div class="stat-card"><div class="stat-label display">AVERAGE SCORE</div><div class="stat-value">${esc(state.average)}<small> PTS</small></div></div>
-            <div class="stat-card"><div class="stat-label display">TOP POINTS</div><div class="stat-value">${esc(state.topPoints.points)}</div><div class="stat-person">${esc(state.topPoints.manager)}</div><div class="stat-team">${esc(state.topPoints.team)}</div></div>
-            <div class="stat-card"><div class="stat-label display">LOWEST POINTS</div><div class="stat-value">${esc(state.lowestPoints.points)}</div><div class="stat-person">${esc(state.lowestPoints.manager)}</div><div class="stat-team">${esc(state.lowestPoints.team)}</div></div>
+            <div class="stat-card"><div class="stat-label display">AVERAGE SCORE</div><div class="stat-value">${esc(state.average)}<small> PTS</small></div><div class="stat-detail"></div></div>
+            <div class="stat-card"><div class="stat-label display">TOP POINTS</div><div class="stat-value">${esc(state.topPoints.points)}</div><div class="stat-detail"><span class="stat-person">${esc(state.topPoints.manager)}</span><span class="stat-team">${esc(state.topPoints.team)}</span></div></div>
+            <div class="stat-card"><div class="stat-label display">LOWEST POINTS</div><div class="stat-value">${esc(state.lowestPoints.points)}</div><div class="stat-detail"><span class="stat-person">${esc(state.lowestPoints.manager)}</span><span class="stat-team">${esc(state.lowestPoints.team)}</span></div></div>
           </section>
           ${state.showChips ? `<section class="panel chips-panel">
-            <div class="section-title display">CHIP <span>CHECK</span></div><div class="section-sub">% of managers who used each chip</div>
-            <div class="chip-list">${[["Wildcard",state.chips.wildcard],["Free Hit",state.chips.freeHit],["Triple Captain",state.chips.tripleCaptain],["Bench Boost",state.chips.benchBoost]].map(([name,value]) => `<div class="chip-row"><div class="chip-name">${name}</div><div class="chip-track"><div class="chip-fill" style="width:${Math.max(1,Math.min(100,Number(value)||0))}%"></div></div><div class="chip-value">${pct(value)}%</div></div>`).join("")}</div>
+            ${performancePanelHTML()}
           </section>` : ""}
           ${state.showSpicy ? `<section class="panel spicy-panel spicy-style-${esc(state.spicyStyle || "spotlight")}">
             <div class="section-title display">SPICY <span>STATS</span></div><div class="section-sub">This gameweek's standout storylines</div>
-            <div class="spicy-cards count-${Math.max(1,Math.min(6,state.spicy.length))}">${state.spicy.map((item,index) => `<div class="spicy-card"><span class="spicy-index">${String(index+1).padStart(2,"0")}</span><div class="spicy-copy"><div class="spicy-label">${esc(item.title)}</div><div class="spicy-name">${esc(item.manager)}</div><div class="spicy-detail">${esc(item.detail)}</div></div><div class="spicy-score">${esc(item.points)}<small>PTS</small></div></div>`).join("")}</div>
+            <div class="spicy-cards count-${Math.max(1,Math.min(3,state.spicy.length))}">${state.spicy.slice(0,3).map((item,index) => `<div class="spicy-card" style="--story-accent:${storyAccent(item,index)}"><span class="spicy-index">${String(index+1).padStart(2,"0")}</span><div class="spicy-copy"><div class="spicy-label">${esc(item.title)}</div><div class="spicy-name">${esc(item.manager)}</div><div class="spicy-detail">${esc(item.detail)}</div></div><div class="spicy-score">${esc(item.points)}<small>PTS</small></div></div>`).join("")}</div>
           </section>` : ""}
         </div>
         <footer class="poster-footer">${esc(state.league.toUpperCase())} · GAMEWEEK ${esc(state.gameweek)}</footer>`;
       fitPoster();
+    }
+
+    function performanceEditorHTML() {
+      const captainsMode = state.highlightMode !== "topPlayers";
+      const key = captainsMode ? "captains" : "topPlayers";
+      const items = state[key];
+      const minimum = captainsMode ? 1 : 3;
+      return `<div class="mini-label">Choose what this block shows</div><div class="mode-switch"><button class="mode-choice ${captainsMode?"active":""}" data-highlight-mode="captains">Captain returns</button><button class="mode-choice ${!captainsMode?"active":""}" data-highlight-mode="topPlayers">Top gameweek players</button></div><div class="mini-label" style="margin-top:12px">${captainsMode?"1–4 captain picks · default 3":"3–4 leading players"}</div>${items.map((item,index) => `<div class="mini-card"><div class="mini-label">${captainsMode?"Captain":"Player"} ${index+1}</div><div class="upload-row"><img src="${esc(item.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`${key}.${index}.name`,item.name)}${input(captainsMode?"Captain pts":"Pts",`${key}.${index}.points`,item.points,"number")}${captainsMode?input("Captain %",`${key}.${index}.captainPct`,item.captainPct,"number",'min="0" max="100" step="0.1"'):input("Owned %",`${key}.${index}.own`,item.own,"number",'step="0.1"')}</div></div><div class="performance-editor-actions"><button class="upload-button" data-performance-upload="${key}.${index}">Replace photo</button><input hidden id="performanceUpload-${key}-${index}" type="file" accept="image/*"><button class="upload-button danger-button" data-remove-performance="${key}.${index}" ${items.length<=minimum?"disabled":""}>Remove</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-performance="${key}" ${items.length>=4?"disabled":""}>+ Add ${captainsMode?"captain":"player"}</button>`;
     }
 
     function renderEditor(openSection = "brand") {
@@ -826,7 +944,7 @@
           <div class="mini-label" style="margin-top:18px">Block arrangements</div>
           <div class="layout-grid">${Object.entries(LAYOUTS).map(([key,label]) => `<button class="layout-choice ${state.layout===key?"active":""}" data-layout="${key}"><span class="layout-thumb"><i></i><i></i><i></i><i></i></span>${label}</button>`).join("")}</div>
           <div class="mini-label" style="margin-top:18px">Optional blocks</div>
-          <label class="toggle-row"><span>Show Chip Check</span><input data-toggle-block="showChips" type="checkbox" ${state.showChips?"checked":""}></label>
+          <label class="toggle-row"><span>Show captain / top-player block</span><input data-toggle-block="showChips" type="checkbox" ${state.showChips?"checked":""}></label>
           <label class="toggle-row"><span>Show Spicy Stats</span><input data-toggle-block="showSpicy" type="checkbox" ${state.showSpicy?"checked":""}></label>
         </div></details>
         <details data-section="gameweek" ${openSection==="gameweek"?"open":""}><summary>Gameweek data</summary><div class="fields">
@@ -834,13 +952,13 @@
           <div class="mini-card"><div class="mini-label">Top points</div><div class="field-grid three">${input("Manager","topPoints.manager",state.topPoints.manager)}${input("Team","topPoints.team",state.topPoints.team)}${input("Pts","topPoints.points",state.topPoints.points,"number")}</div></div>
           <div class="mini-card"><div class="mini-label">Lowest points</div><div class="field-grid three">${input("Manager","lowestPoints.manager",state.lowestPoints.manager)}${input("Team","lowestPoints.team",state.lowestPoints.team)}${input("Pts","lowestPoints.points",state.lowestPoints.points,"number")}</div></div>
         </div></details>
-        <details data-section="top4" ${openSection==="top4"?"open":""}><summary>The Top 4</summary><div class="fields">${state.top4.map((entry,index) => `<div class="mini-card"><div class="mini-label">Rank ${entry.rank}</div><div class="field-grid three">${input("Manager",`top4.${index}.manager`,entry.manager)}${input("Team",`top4.${index}.team`,entry.team)}${input("Pts",`top4.${index}.points`,entry.points,"number")}</div></div>`).join("")}</div></details>
+        <details data-section="top4" ${openSection==="top4"?"open":""}><summary>The Top 4</summary><div class="fields"><div class="mini-label">Display style</div><div class="mode-switch" style="margin-top:10px"><button class="mode-choice ${state.podiumStyle!=="scoreboard"?"active":""}" data-podium-style="podium">Classic podium</button><button class="mode-choice ${state.podiumStyle==="scoreboard"?"active":""}" data-podium-style="scoreboard">Stair scoreboard</button></div>${state.top4.map((entry,index) => `<div class="mini-card"><div class="mini-label">Rank ${entry.rank}</div><div class="field-grid three">${input("Manager",`top4.${index}.manager`,entry.manager)}${input("Team",`top4.${index}.team`,entry.team)}${input("Pts",`top4.${index}.points`,entry.points,"number")}</div></div>`).join("")}</div></details>
         <details data-section="xi" ${openSection==="xi"?"open":""}><summary>The League XI</summary><div class="fields">
           <div class="field"><label>Formation</label><select data-formation>${Object.keys(FORMATIONS).map(f => `<option ${f===state.formation?"selected":""}>${f}</option>`).join("")}</select></div>
-          ${["GK","DEF","MID","FWD"].map(position => (state.xi[position] || []).map((player,index) => `<div class="mini-card"><div class="mini-label">${position} ${index+1}</div><div class="upload-row"><img src="${esc(player.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`xi.${position}.${index}.name`,player.name)}${input("Owned %",`xi.${position}.${index}.own`,player.own,"number",'step="0.1"')}${input("Pts",`xi.${position}.${index}.points`,player.points,"number")}</div></div><button class="upload-button" style="margin-top:8px" data-player-upload="${position}.${index}">Replace photo</button><input hidden id="playerUpload-${position}-${index}" type="file" accept="image/*"></div>`).join("")).join("")}
+          ${["GK","DEF","MID","FWD"].map(position => { const count=position==="GK"?1:(FORMATIONS[state.formation]||FORMATIONS["3-4-3"])[position]; return (state.xi[position] || []).slice(0,count).map((player,index) => `<div class="mini-card"><div class="mini-label">${position} ${index+1}</div><div class="upload-row"><img src="${esc(player.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`xi.${position}.${index}.name`,player.name)}${input("Owned %",`xi.${position}.${index}.own`,player.own,"number",'step="0.1"')}${input("Pts",`xi.${position}.${index}.points`,player.points,"number")}</div></div><button class="upload-button" style="margin-top:8px" data-player-upload="${position}.${index}">Replace photo</button><input hidden id="playerUpload-${position}-${index}" type="file" accept="image/*"></div>`).join("") }).join("")}
         </div></details>
-        <details data-section="chips" ${openSection==="chips"?"open":""}><summary>Chip Check</summary><div class="fields"><div class="field-grid">${input("Wildcard %","chips.wildcard",state.chips.wildcard,"number",'step="0.1"')}${input("Free Hit %","chips.freeHit",state.chips.freeHit,"number",'step="0.1"')}${input("Triple Captain %","chips.tripleCaptain",state.chips.tripleCaptain,"number",'step="0.1"')}${input("Bench Boost %","chips.benchBoost",state.chips.benchBoost,"number",'step="0.1"')}</div></div></details>
-        <details data-section="spicy" ${openSection==="spicy"?"open":""}><summary>Spicy Stats</summary><div class="fields"><div class="mini-label">Card design</div><div class="spicy-style-grid"><button class="spicy-style-choice ${state.spicyStyle==="spotlight"?"active":""}" data-spicy-style="spotlight"><b>01 Spotlight</b><small>Bright editorial tiles</small></button><button class="spicy-style-choice ${state.spicyStyle==="scoreboard"?"active":""}" data-spicy-style="scoreboard"><b>02 Scoreboard</b><small>Compact broadcast rows</small></button><button class="spicy-style-choice ${state.spicyStyle==="matchday"?"active":""}" data-spicy-style="matchday"><b>03 Matchday</b><small>Bold energetic cards</small></button></div>${state.spicy.map((item,index) => `<div class="mini-card"><div class="mini-label">Story ${index+1}</div><div class="field-grid">${input("Title",`spicy.${index}.title`,item.title)}${input("Manager",`spicy.${index}.manager`,item.manager)}${input("Points",`spicy.${index}.points`,item.points,"number")}${input("Detail",`spicy.${index}.detail`,item.detail)}</div><div class="spicy-editor-actions"><button class="upload-button danger-button" data-remove-spicy="${index}">Remove stat</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-spicy ${state.spicy.length>=6?"disabled":""}>+ Add Spicy Stat</button></div></details>`;
+        <details data-section="chips" ${openSection==="chips"?"open":""}><summary>Captain / Top Players</summary><div class="fields">${performanceEditorHTML()}</div></details>
+        <details data-section="spicy" ${openSection==="spicy"?"open":""}><summary>Spicy Stats</summary><div class="fields"><div class="mini-label">Card design</div><div class="spicy-style-grid"><button class="spicy-style-choice ${state.spicyStyle==="spotlight"?"active":""}" data-spicy-style="spotlight"><b>01 Spotlight</b><small>Bright editorial tiles</small></button><button class="spicy-style-choice ${state.spicyStyle==="scoreboard"?"active":""}" data-spicy-style="scoreboard"><b>02 Scoreboard</b><small>Compact broadcast steps</small></button><button class="spicy-style-choice ${state.spicyStyle==="matchday"?"active":""}" data-spicy-style="matchday"><b>03 Matchday</b><small>Bold energetic cards</small></button></div><div class="mini-label">Up to 3 stories · default 2</div>${state.spicy.map((item,index) => `<div class="mini-card"><div class="mini-label">Story ${index+1}</div><div class="field-grid">${input("Title",`spicy.${index}.title`,item.title)}${input("Manager",`spicy.${index}.manager`,item.manager)}${input("Points",`spicy.${index}.points`,item.points,"number")}${input("Accent color",`spicy.${index}.color`,storyAccent(item,index),"color")}${input("Detail",`spicy.${index}.detail`,item.detail)}</div><div class="spicy-editor-actions"><button class="upload-button danger-button" data-remove-spicy="${index}">Remove stat</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-spicy ${state.spicy.length>=3?"disabled":""}>+ Add Spicy Stat</button></div></details>`;
       bindEditor();
       syncSaveButtons();
     }
@@ -921,6 +1039,7 @@
       activeDraftId = id;
       state = Object.assign(clone(DEFAULT_STATE), clone(version.state));
       state.logoScale = Math.max(.9, Math.min(1.5, Number(state.logoScale || 1)));
+      normalizeCollections(state);
       saveWorking(); persistDrafts(); renderEditor(); renderPoster(); renderDraftLibrary(); syncSaveButtons();
       document.getElementById("saveStatus").textContent = `Editing ${version.name || `Draft ${version.number}`}`;
       toast(`${version.name || `Draft ${version.number}`} loaded`);
@@ -959,6 +1078,12 @@
       document.querySelectorAll("[data-spicy-style]").forEach(button => button.addEventListener("click", () => {
         state.spicyStyle = button.dataset.spicyStyle; renderEditor("spicy"); update();
       }));
+      document.querySelectorAll("[data-highlight-mode]").forEach(button => button.addEventListener("click", () => {
+        state.highlightMode = button.dataset.highlightMode; renderEditor("chips"); update();
+      }));
+      document.querySelectorAll("[data-podium-style]").forEach(button => button.addEventListener("click", () => {
+        state.podiumStyle = button.dataset.podiumStyle; renderEditor("top4"); update();
+      }));
       document.querySelectorAll("[data-logo-step]").forEach(button => button.addEventListener("click", () => {
         state.logoScale = Math.max(.9, Math.min(1.5, (state.logoScale || 1) + Number(button.dataset.logoStep)));
         renderEditor(); update();
@@ -978,13 +1103,32 @@
         fileInput.click();
         fileInput.onchange = event => readImage(event.target.files[0], data => { state.xi[position][index].photo = data; renderEditor(); update(); });
       }));
+      document.querySelectorAll("[data-performance-upload]").forEach(button => button.addEventListener("click", () => {
+        const [key,index] = button.dataset.performanceUpload.split(".");
+        const fileInput = document.getElementById(`performanceUpload-${key}-${index}`);
+        fileInput.click();
+        fileInput.onchange = event => readImage(event.target.files[0], data => { state[key][Number(index)].photo = data; renderEditor("chips"); update(); });
+      }));
+      document.querySelectorAll("[data-remove-performance]").forEach(button => button.addEventListener("click", () => {
+        const [key,index] = button.dataset.removePerformance.split(".");
+        const minimum = key === "captains" ? 1 : 3;
+        if (state[key].length <= minimum) return;
+        state[key].splice(Number(index),1); renderEditor("chips"); update();
+      }));
+      const addPerformance = document.querySelector("[data-add-performance]");
+      if (addPerformance) addPerformance.addEventListener("click", () => {
+        const key = addPerformance.dataset.addPerformance;
+        if (state[key].length >= 4) return;
+        state[key].push(key === "captains" ? {name:"New captain",points:0,captainPct:0,photo:""} : {name:"New player",points:0,own:0,photo:""});
+        renderEditor("chips"); update();
+      });
       document.querySelectorAll("[data-remove-spicy]").forEach(button => button.addEventListener("click", () => {
         state.spicy.splice(Number(button.dataset.removeSpicy),1); renderEditor("spicy"); update();
       }));
       const addSpicy = document.querySelector("[data-add-spicy]");
       if (addSpicy) addSpicy.addEventListener("click", () => {
-        if (state.spicy.length >= 6) return;
-        state.spicy.push({title:"NEW STORY",manager:"Manager name",points:0,detail:"add a short detail"});
+        if (state.spicy.length >= 3) return;
+        state.spicy.push({title:"NEW STORY",manager:"Manager name",points:0,detail:"add a short detail",color:SPICY_COLORS[state.spicy.length] || SPICY_COLORS[0]});
         renderEditor("spicy"); update();
       });
     }
@@ -1004,7 +1148,6 @@
       const required = FORMATIONS[formation];
       ["DEF","MID","FWD"].forEach(position => {
         while (state.xi[position].length < required[position]) state.xi[position].push({name:"New player",own:0,points:0,photo:""});
-        state.xi[position] = state.xi[position].slice(0, required[position]);
       });
       state.formation = formation;
     }
@@ -1166,6 +1309,7 @@
     document.getElementById("previewMiniButton").addEventListener("click", togglePreview);
     document.getElementById("openRecap").addEventListener("click", showEditor);
     document.getElementById("openGameweekData").addEventListener("click", () => { location.href = "Gameweek_Data_Mockup_v1.html"; });
+    document.getElementById("openDifferentials").addEventListener("click", () => { location.href = "Top_3_Differentials_Mockup_v1.html"; });
     document.getElementById("homeButton").addEventListener("click", showWelcome);
     document.getElementById("newRecapButton").addEventListener("click", newRecap);
     document.getElementById("resetButton").addEventListener("click", () => {
