@@ -1,7 +1,24 @@
-Gameweek_Data_Exports/
-Gameweek_Data_Imports/
+# User-generated exports
+exports/*
+!exports/.gitkeep
+!exports/recap/
+!exports/gameweek-data/
+!exports/differentials/
+exports/recap/*
+exports/gameweek-data/*
+exports/differentials/*
+!exports/recap/.gitkeep
+!exports/gameweek-data/.gitkeep
+!exports/differentials/.gitkeep
+
+# Uploaded working files
+imports/*
+!imports/.gitkeep
+!imports/gameweek-data/
+imports/gameweek-data/*
+!imports/gameweek-data/.gitkeep
+
+# Operating-system and inspection artifacts
 *.inspect.ndjson
-Open_Recap_Studio.bat
-GameWeekDataExample.jpeg
-Gameweek_1_Recap_FPL_Champions_League*.png
-Fantasy_League_Gameweek_Recap_Template.md
+Thumbs.db
+.DS_Store
