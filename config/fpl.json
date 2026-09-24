@@ -1,0 +1,7 @@
+{
+  "leagueId": 507749,
+  "requestConcurrency": 6,
+  "requestDelayMs": 120,
+  "outputDirectory": "data/gameweeks",
+  "recapOutputDirectory": "data/recaps"
+}

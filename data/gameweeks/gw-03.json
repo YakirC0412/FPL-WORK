@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "provider": "Fantasy Premier League public API",
+    "leagueId": 507749,
+    "syncedAt": "2026-09-06T08:11:53.258Z",
+    "gameweekStatus": {
+      "finished": false,
+      "dataChecked": false,
+      "deadline": "2026-09-04T17:30:00Z"
+    },
+    "privacy": "Aggregated data only. Manager IDs and the raw league roster are not stored."
+  },
+  "gameweekData": {
+    "league": "FPL Champions League- IL",
+    "gameweek": 3,
+    "participants": 60,
+    "formation": "3-4-3",
+    "xi": [
+      {
+        "position": "GK",
+        "name": "Verbruggen",
+        "own": 65,
+        "started": 33,
+        "owners": 39
+      },
+      {
+        "position": "DEF",
+        "name": "Calafiori",
+        "own": 76.7,
+        "started": 45,
+        "owners": 46
+      },
+      {
+        "position": "DEF",
+        "name": "Ajer",
+        "own": 35,
+        "started": 19,
+        "owners": 21
+      },
+      {
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 33.3,
+        "started": 19,
+        "owners": 20
+      },
+      {
+        "position": "MID",
+        "name": "B.Fernandes",
+        "own": 51.7,
+        "started": 31,
+        "owners": 31
+      },
+      {
+        "position": "MID",
+        "name": "Cherki",
+        "own": 48.3,
+        "started": 29,
+        "owners": 29
+      },
+      {
+        "position": "MID",
+        "name": "Szoboszlai",
+        "own": 40,
+        "started": 24,
+        "owners": 24
+      },
+      {
+        "position": "MID",
+        "name": "Groß",
+        "own": 36.7,
+        "started": 19,
+        "owners": 22
+      },
+      {
+        "position": "FWD",
+        "name": "Haaland",
+        "own": 96.7,
+        "started": 58,
+        "owners": 58
+      },
+      {
+        "position": "FWD",
+        "name": "João Pedro",
+        "own": 81.7,
+        "started": 40,
+        "owners": 49
+      },
+      {
+        "position": "FWD",
+        "name": "Calvert-Lewin",
+        "own": 38.3,
+        "started": 21,
+        "owners": 23
+      }
+    ],
+    "captains": [
+      {
+        "name": "Haaland",
+        "pct": 95
+      },
+      {
+        "name": "B.Fernandes",
+        "pct": 1.7
+      },
+      {
+        "name": "Cherki",
+        "pct": 1.7
+      },
+      {
+        "name": "Semenyo",
+        "pct": 1.7
+      }
+    ],
+    "transfersIn": [
+      {
+        "name": "Cherki",
+        "moved": 30,
+        "owners": 29
+      },
+      {
+        "name": "De Cuyper",
+        "moved": 18,
+        "owners": 20
+      },
+      {
+        "name": "Foden",
+        "moved": 17,
+        "owners": 17
+      }
+    ],
+    "transfersOut": [
+      {
+        "name": "Mbeumo",
+        "moved": 36,
+        "owners": 12
+      },
+      {
+        "name": "Tzolis",
+        "moved": 17,
+        "owners": 27
+      },
+      {
+        "name": "B.Fernandes",
+        "moved": 14,
+        "owners": 31
+      }
+    ],
+    "chips": [
+      {
+        "name": "Wildcard",
+        "pct": 16.7
+      },
+      {
+        "name": "Free Hit",
+        "pct": 11.7
+      },
+      {
+        "name": "Triple Captain",
+        "pct": 58.3
+      },
+      {
+        "name": "Bench Boost",
+        "pct": 0
+      }
+    ],
+    "eo": [
+      {
+        "name": "Haaland",
+        "pct": 248.3
+      },
+      {
+        "name": "Calafiori",
+        "pct": 75
+      },
+      {
+        "name": "João Pedro",
+        "pct": 66.7
+      },
+      {
+        "name": "Verbruggen",
+        "pct": 55
+      },
+      {
+        "name": "B.Fernandes",
+        "pct": 53.3
+      }
+    ]
+  }
+}

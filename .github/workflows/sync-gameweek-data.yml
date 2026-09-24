@@ -1,0 +1,44 @@
+name: Sync Gameweek Data
+
+on:
+  schedule:
+    - cron: "23 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      gameweek:
+        description: "Gameweek number (leave blank for the current gameweek)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Read and aggregate FPL data
+        env:
+          GAMEWEEK: ${{ inputs.gameweek }}
+          ALLOW_PENDING_STATUS: ${{ github.event_name == 'schedule' && '1' || '0' }}
+        run: node scripts/fpl/sync-gameweek-data.mjs
+
+      - name: Save the updated snapshot
+        run: |
+          if [ -z "$(git status --porcelain -- data/gameweeks)" ]; then
+            echo "No Gameweek Data changes to save."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gameweeks
+          git commit -m "Update synced Gameweek Data"
+          git push

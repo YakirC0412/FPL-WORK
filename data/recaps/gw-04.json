@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "provider": "Fantasy Premier League public API",
+    "leagueId": 507749,
+    "syncedAt": "2026-09-22T15:42:47.407Z",
+    "gameweekStatus": {
+      "finished": true,
+      "dataChecked": true,
+      "deadline": "2026-09-12T12:30:00Z"
+    },
+    "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs and raw squads are not stored."
+  },
+  "recapData": {
+    "league": "FPL Champions League- IL",
+    "gameweek": 4,
+    "participants": 60,
+    "average": 78.9,
+    "topPoints": {
+      "manager": "Sharon Erez",
+      "team": "Dinney in a bottle",
+      "points": 113
+    },
+    "lowestPoints": {
+      "manager": "GUY Bar-avi",
+      "team": "Romek F.C",
+      "points": 56
+    },
+    "top4": [
+      {
+        "rank": 1,
+        "manager": "Oded Rasiel",
+        "team": "Oded's Team",
+        "points": 394
+      },
+      {
+        "rank": 2,
+        "manager": "EYAL Karchmer",
+        "team": "Khalaili and Hass",
+        "points": 385
+      },
+      {
+        "rank": 3,
+        "manager": "Liad Cohen",
+        "team": "Arteta ball",
+        "points": 383
+      },
+      {
+        "rank": 4,
+        "manager": "Bar Shitrit",
+        "team": "Bar FC",
+        "points": 381
+      }
+    ],
+    "formation": "3-4-3",
+    "xi": [
+      {
+        "position": "GK",
+        "name": "Verbruggen",
+        "own": 65,
+        "points": 8
+      },
+      {
+        "position": "DEF",
+        "name": "Calafiori",
+        "own": 86.7,
+        "points": 6
+      },
+      {
+        "position": "DEF",
+        "name": "Konsa",
+        "own": 55,
+        "points": 6
+      },
+      {
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 38.3,
+        "points": 11
+      },
+      {
+        "position": "MID",
+        "name": "Palmer",
+        "own": 76.7,
+        "points": 5
+      },
+      {
+        "position": "MID",
+        "name": "Szoboszlai",
+        "own": 48.3,
+        "points": 3
+      },
+      {
+        "position": "MID",
+        "name": "Rogers",
+        "own": 45,
+        "points": 8
+      },
+      {
+        "position": "MID",
+        "name": "Tzolis",
+        "own": 33.3,
+        "points": 3
+      },
+      {
+        "position": "FWD",
+        "name": "João Pedro",
+        "own": 96.7,
+        "points": 12
+      },
+      {
+        "position": "FWD",
+        "name": "Haaland",
+        "own": 85,
+        "points": 9
+      },
+      {
+        "position": "FWD",
+        "name": "Isak",
+        "own": 38.3,
+        "points": 2
+      }
+    ],
+    "captains": [
+      {
+        "name": "Palmer",
+        "points": 10,
+        "captainPct": 71.7
+      },
+      {
+        "name": "João Pedro",
+        "points": 24,
+        "captainPct": 13.3
+      },
+      {
+        "name": "Haaland",
+        "points": 18,
+        "captainPct": 11.7
+      }
+    ],
+    "topPlayers": [
+      {
+        "name": "Groß",
+        "points": 17,
+        "own": 31.7
+      },
+      {
+        "name": "Schade",
+        "points": 15,
+        "own": 10
+      },
+      {
+        "name": "Bogle",
+        "points": 15,
+        "own": 0
+      }
+    ]
+  }
+}

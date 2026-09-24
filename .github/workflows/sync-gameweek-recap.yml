@@ -1,0 +1,45 @@
+name: Sync Gameweek Recap
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      gameweek:
+        description: "Completed gameweek number (leave blank for the latest final gameweek)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Read and aggregate the final FPL results
+        env:
+          GAMEWEEK: ${{ inputs.gameweek }}
+          CHECK_CURRENT_GAMEWEEK: ${{ github.event_name == 'schedule' && '1' || '0' }}
+          ALLOW_PENDING_STATUS: ${{ github.event_name == 'schedule' && '1' || '0' }}
+        run: node scripts/fpl/sync-gameweek-recap.mjs
+
+      - name: Save the updated recap snapshot
+        run: |
+          if [ -z "$(git status --porcelain -- data/recaps)" ]; then
+            echo "No Gameweek Recap changes to save."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/recaps
+          git commit -m "Update synced Gameweek Recap"
+          git push

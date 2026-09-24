@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "provider": "Fantasy Premier League public API",
+    "leagueId": 507749,
+    "syncedAt": "2026-09-10T14:02:25.120Z",
+    "gameweekStatus": {
+      "finished": true,
+      "dataChecked": true,
+      "deadline": "2026-09-04T17:30:00Z"
+    },
+    "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs and raw squads are not stored."
+  },
+  "recapData": {
+    "league": "FPL Champions League- IL",
+    "gameweek": 3,
+    "participants": 60,
+    "average": 53.8,
+    "topPoints": {
+      "manager": "Sivan Avitan",
+      "team": "Rice Rice Baby",
+      "points": 81
+    },
+    "lowestPoints": {
+      "manager": "Avihay Halak",
+      "team": "Kings Landing",
+      "points": 35
+    },
+    "top4": [
+      {
+        "rank": 1,
+        "manager": "Sivan Avitan",
+        "team": "Rice Rice Baby",
+        "points": 81
+      },
+      {
+        "rank": 2,
+        "manager": "lavi mizrahi",
+        "team": "mizrahi 11",
+        "points": 71
+      },
+      {
+        "rank": 3,
+        "manager": "moni harel",
+        "team": "Azriel ve Gabriel",
+        "points": 69
+      },
+      {
+        "rank": 4,
+        "manager": "Lidor Sofer",
+        "team": "Banzirim FC",
+        "points": 68
+      }
+    ],
+    "formation": "3-4-3",
+    "xi": [
+      {
+        "position": "GK",
+        "name": "Verbruggen",
+        "own": 65,
+        "points": 3
+      },
+      {
+        "position": "DEF",
+        "name": "Calafiori",
+        "own": 76.7,
+        "points": 2
+      },
+      {
+        "position": "DEF",
+        "name": "Ajer",
+        "own": 35,
+        "points": 2
+      },
+      {
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 33.3,
+        "points": 4
+      },
+      {
+        "position": "MID",
+        "name": "B.Fernandes",
+        "own": 51.7,
+        "points": 2
+      },
+      {
+        "position": "MID",
+        "name": "Cherki",
+        "own": 48.3,
+        "points": 3
+      },
+      {
+        "position": "MID",
+        "name": "Tzolis",
+        "own": 45,
+        "points": 5
+      },
+      {
+        "position": "MID",
+        "name": "Szoboszlai",
+        "own": 40,
+        "points": 3
+      },
+      {
+        "position": "FWD",
+        "name": "Haaland",
+        "own": 96.7,
+        "points": 9
+      },
+      {
+        "position": "FWD",
+        "name": "João Pedro",
+        "own": 81.7,
+        "points": 1
+      },
+      {
+        "position": "FWD",
+        "name": "Calvert-Lewin",
+        "own": 38.3,
+        "points": 1
+      }
+    ],
+    "captains": [
+      {
+        "name": "Haaland",
+        "points": 18,
+        "captainPct": 95
+      },
+      {
+        "name": "Semenyo",
+        "points": 12,
+        "captainPct": 1.7
+      },
+      {
+        "name": "Cherki",
+        "points": 6,
+        "captainPct": 1.7
+      }
+    ],
+    "topPlayers": [
+      {
+        "name": "Mitchell",
+        "points": 15,
+        "own": 0
+      },
+      {
+        "name": "Bogle",
+        "points": 14,
+        "own": 0
+      },
+      {
+        "name": "Isak",
+        "points": 13,
+        "own": 30
+      }
+    ]
+  }
+}

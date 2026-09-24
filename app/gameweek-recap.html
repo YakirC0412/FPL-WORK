@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="../data/recaps/latest.js"></script>
+  <script src="../data/recaps/status.js"></script>
   <style>
     :root {
       color-scheme: dark;
@@ -108,6 +110,13 @@
     body.preview-minimized .editor { grid-column: 2; border-left: 0; border-right: 1px solid var(--app-line); }
     .draft-sidebar { min-width: 0; border-right: 1px solid var(--app-line); background: rgba(9,13,20,.88); }
     .draft-sidebar-inner { position: sticky; top: 68px; max-height: calc(100vh - 68px); overflow: auto; padding: 18px 12px; }
+    .api-source { margin: 0 0 18px; padding: 14px; border: 1px solid rgba(83,219,154,.24); border-radius: 13px; background: linear-gradient(145deg,rgba(83,219,154,.09),rgba(255,255,255,.025)); }
+    .api-source-label { color: var(--success); font-size: 9px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .api-source p { margin: 6px 0 11px; color: var(--app-muted); font-size: 9px; line-height: 1.5; }
+    .api-source .button { width: 100%; min-height: 36px; padding: 7px 9px; font-size: 10px; }
+    .api-status { margin-top: 9px; color: #95a1b3; font-size: 9px; line-height: 1.45; }
+    .api-status.success { color: var(--success); }
+    .api-status.error { color: var(--danger); }
     .draft-sidebar-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 8px 15px; }
     .draft-sidebar-head h2 { margin: 0; font-size: 13px; }
     .draft-sidebar-head button { width: 28px; height: 28px; border: 1px solid var(--app-line); border-radius: 8px; color: var(--app-text); background: rgba(255,255,255,.04); }
@@ -240,6 +249,24 @@
     .title-style small { display: block; margin-top: 3px; color: var(--app-muted); font-size: 8px; }
     .danger-button { color: #ff8495; border-color: rgba(255,92,112,.28); }
     .spicy-editor-actions { display: flex; gap: 8px; margin-top: 9px; }
+    .ai-stats-box { margin-bottom: 14px; padding: 13px; border: 1px solid rgba(120,151,187,.3); border-radius: 12px; background: linear-gradient(145deg,rgba(120,151,187,.11),rgba(255,255,255,.025)); }
+    .ai-stats-box strong { display: block; color: #e8eef6; font-size: 11px; letter-spacing: .04em; }
+    .ai-stats-box p { margin: 6px 0 11px; color: var(--app-muted); font-size: 9px; line-height: 1.55; }
+    .ai-stats-actions { display: flex; gap: 7px; }
+    .ai-stats-actions .button { flex: 1; min-width: 0; padding-inline: 8px; font-size: 9px; }
+    .ai-insight-grid { display: grid; gap: 8px; margin: 16px 0; }
+    .ai-selector-card { max-height: 88vh; overflow-y: auto; }
+    .ai-insight-option { position: relative; display: grid; grid-template-columns: 26px minmax(0,1fr) auto; align-items: center; gap: 10px; padding: 11px 12px; border: 1px solid var(--app-line); border-radius: 11px; background: rgba(255,255,255,.035); cursor: pointer; }
+    .ai-insight-option:has(input:checked) { border-color: var(--insight-color); background: color-mix(in srgb,var(--insight-color) 10%,rgba(255,255,255,.035)); box-shadow: inset 3px 0 var(--insight-color); }
+    .ai-insight-option input { width: 17px; height: 17px; accent-color: var(--insight-color); }
+    .ai-insight-copy { min-width: 0; }
+    .ai-insight-copy b { display: block; color: #f0f4f9; font-size: 10px; }
+    .ai-insight-copy small { display: block; margin-top: 4px; overflow: hidden; color: var(--app-muted); font-size: 8px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+    .ai-insight-value { color: var(--insight-color); font-family: "Archivo Black"; font-size: 15px; text-align: right; }
+    .ai-insight-value small { display: block; color: var(--app-muted); font-family: Inter,sans-serif; font-size: 7px; }
+    .ai-selection-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .ai-selection-count { color: var(--app-muted); font-size: 9px; }
+    .ai-selection-count.ready { color: var(--success); }
     .spicy-style-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin: 10px 0 14px; }
     .spicy-style-choice { min-height: 64px; padding: 8px; border: 1px solid var(--app-line); border-radius: 10px; color: var(--app-text); background: #111824; text-align: left; }
     .spicy-style-choice.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(var(--accent-rgb),.12); }
@@ -252,6 +279,14 @@
     .modal-head h3 { margin: 0; font-size: 18px; }
     .modal-head p { margin: 5px 0 0; color: var(--app-muted); font-size: 11px; line-height: 1.5; }
     .modal-close { width: 34px; height: 34px; border: 1px solid var(--app-line); border-radius: 9px; color: var(--app-text); background: rgba(255,255,255,.04); font-size: 18px; }
+    .load-result-card { position: relative; overflow: hidden; text-align: center; padding: 30px 28px 24px; }
+    .load-result-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--result-color); box-shadow: 0 0 28px var(--result-color); }
+    .load-result-card.success { --result-color: var(--success); }
+    .load-result-card.error { --result-color: var(--danger); }
+    .load-result-icon { width: 58px; height: 58px; margin: 0 auto 17px; display: grid; place-items: center; border: 1px solid color-mix(in srgb,var(--result-color) 60%,transparent); border-radius: 50%; color: var(--result-color); background: color-mix(in srgb,var(--result-color) 12%,transparent); font-size: 27px; font-weight: 900; box-shadow: 0 0 34px color-mix(in srgb,var(--result-color) 18%,transparent); }
+    .load-result-card h3 { margin: 0; color: var(--app-text); font-family: "Archivo Black",Impact,sans-serif; font-size: 22px; line-height: 1.15; text-transform: uppercase; }
+    .load-result-card p { max-width: 390px; margin: 10px auto 22px; color: var(--app-muted); font-size: 12px; line-height: 1.6; }
+    .load-result-card .button { min-width: 150px; }
     .editor-footer { position: sticky; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8px; padding: 13px 20px; border-top: 1px solid var(--app-line); background: rgba(9,13,20,.96); }
     .save-status { grid-column: 1 / -1; color: var(--app-muted); font-size: 10px; }
 
@@ -298,6 +333,11 @@
     .abstract-player::after { content: ""; position: absolute; top: 62px; left: 31px; width: 12px; height: 86px; border-radius: 10px; background: var(--poster-accent-2); transform: rotate(18deg); box-shadow: -25px 5px 0 -2px var(--poster-accent),24px -6px 0 -2px var(--poster-accent),-18px 57px 0 -2px var(--poster-accent); }
     .abstract-player.one { left: 128px; bottom: 95px; transform: rotate(-12deg); }
     .abstract-player.two { right: 135px; bottom: 360px; transform: rotate(14deg) scale(.8); }
+    .poster.palette-plain {
+      background: linear-gradient(145deg,#111b28 0%,#0b121c 52%,#060a10 100%);
+    }
+    .poster.palette-plain .background-fx { display: none; }
+    .poster.palette-plain .poster-header::after { display: none; }
     .poster-header, .poster-grid, .poster-footer { position: relative; z-index: 1; }
     .poster::before {
       content: "";
@@ -408,7 +448,10 @@
       overflow: hidden;
     }
     .top4-panel { grid-area: top4; }
-    .xi-panel { grid-area: xi; display: flex; flex-direction: column; }
+    .xi-panel { position: relative; grid-area: xi; display: flex; flex-direction: column; }
+    .xi-total { position: absolute; top: 14px; right: 16px; min-width: 82px; padding: 7px 10px; border: 1px solid rgba(var(--poster-accent-rgb),.38); border-radius: 10px; color: #aeb9c9; background: rgba(3,9,16,.62); font-size: 8px; font-weight: 850; letter-spacing: .08em; line-height: 1.1; text-align: center; text-transform: uppercase; }
+    .xi-total strong { display: block; margin-bottom: 3px; color: var(--poster-accent); font-family: "Archivo Black"; font-size: 19px; letter-spacing: 0; }
+    .poster.layout-xi-focus .xi-total { top: 17px; right: 19px; }
     .data-panel { grid-area: data; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding: 0; border: 0; background: none; }
     .chips-panel { grid-area: chips; }
     .spicy-panel { grid-area: spicy; }
@@ -437,23 +480,26 @@
     .fourth-points { font-family: "Archivo Black"; font-size: 16px; color: #d6dce5; }
 
     .podium-scoreboard { height: calc(100% - 43px); max-width: 520px; margin: 9px auto 0; display: grid; align-content: center; gap: 7px; }
-    .podium-score-row { --rank-color: #9aa6b7; width: calc(100% - 36px); min-width: 0; display: grid; grid-template-columns: 34px minmax(0,1fr) auto; align-items: center; gap: 9px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.1); border-left: 4px solid var(--rank-color); border-radius: 9px; background: linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.025)); box-shadow: 0 5px 14px rgba(0,0,0,.16); }
+    .podium-score-row { --rank-color: #9aa6b7; width: calc(100% - 36px); min-width: 0; display: grid; grid-template-columns: 40px minmax(0,1fr) auto; align-items: center; gap: 11px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.1); border-left: 4px solid var(--rank-color); border-radius: 9px; background: linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.025)); box-shadow: 0 5px 14px rgba(0,0,0,.16); }
     .podium-score-row.rank-1 { --rank-color: var(--poster-accent); background: linear-gradient(90deg,rgba(var(--poster-accent-rgb),.18),rgba(255,255,255,.025)); }
     .podium-score-row.rank-2 { --rank-color: #d5dde7; margin-left: 12px; }
     .podium-score-row.rank-3 { --rank-color: #d18450; margin-left: 24px; background: linear-gradient(90deg,rgba(209,132,80,.13),rgba(255,255,255,.025)); }
     .podium-score-row.rank-4 { --rank-color: #65bfff; margin-left: 36px; background: linear-gradient(90deg,rgba(101,191,255,.11),rgba(255,255,255,.025)); }
-    .podium-score-icon { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--rank-color); border-radius: 50%; color: var(--rank-color); background: rgba(2,8,15,.52); font-size: 15px; line-height: 1; }
+    .podium-score-icon { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--rank-color); border-radius: 50%; color: var(--rank-color); background: rgba(2,8,15,.52); font-size: 19px; line-height: 1; }
     .podium-score-copy { min-width: 0; }
-    .podium-score-name { overflow: hidden; color: #fff; font-size: 12px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
-    .podium-score-team { margin-top: 2px; overflow: hidden; color: #a9b4c4; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
-    .podium-score-points { color: var(--rank-color); font-family: "Archivo Black"; font-size: 18px; white-space: nowrap; }
-    .podium-score-points small { color: #9ba7b8; font-family: Inter,sans-serif; font-size: 8px; letter-spacing: .08em; }
+    .podium-score-name { overflow: hidden; color: #fff; font-size: 15px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+    .podium-score-team { margin-top: 3px; overflow: hidden; color: #a9b4c4; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .podium-score-points { color: var(--rank-color); font-family: "Archivo Black"; font-size: 22px; white-space: nowrap; }
+    .podium-score-points small { color: #9ba7b8; font-family: Inter,sans-serif; font-size: 9px; letter-spacing: .08em; }
     .poster.layout-xi-focus .podium-scoreboard { height: calc(100% - 40px); gap: 5px; margin-top: 6px; }
-    .poster.layout-xi-focus .podium-score-row { grid-template-columns: 31px minmax(0,1fr) auto; gap: 7px; padding: 6px 8px; }
-    .poster.layout-xi-focus .podium-score-icon { width: 27px; height: 27px; font-size: 13px; }
+    .poster.layout-xi-focus .podium-score-row { grid-template-columns: 36px minmax(0,1fr) auto; gap: 9px; padding: 8px 10px; }
+    .poster.layout-xi-focus .podium-score-icon { width: 33px; height: 33px; font-size: 17px; }
     .poster.layout-podium-first .podium-scoreboard { height: calc(100% - 38px); gap: 4px; margin-top: 4px; }
-    .poster.layout-podium-first .podium-score-row { padding: 4px 10px; }
-    .poster.layout-podium-first .podium-score-icon { width: 26px; height: 26px; font-size: 12px; }
+    .poster.layout-podium-first .podium-score-row { grid-template-columns: 34px minmax(0,1fr) auto; padding: 6px 10px; }
+    .poster.layout-podium-first .podium-score-icon { width: 31px; height: 31px; font-size: 15px; }
+    .poster.layout-podium-first .podium-score-name { font-size: 13px; }
+    .poster.layout-podium-first .podium-score-team { font-size: 10px; }
+    .poster.layout-podium-first .podium-score-points { font-size: 19px; }
 
     .pitch {
       position: relative;
@@ -561,7 +607,7 @@
     .spicy-style-matchday .spicy-index { grid-column: 1; grid-row: 1; border-radius: 99px; background: rgba(4,10,17,.45); }
     .spicy-style-matchday .spicy-copy { grid-column: 1 / -1; grid-row: 2; align-self: end; }
     .spicy-style-matchday .spicy-score { grid-column: 2; grid-row: 1; font-size: 28px; }
-    .spicy-style-matchday .spicy-label { font-size: 8px; }
+    .spicy-style-matchday .spicy-label { font-size: 11px; line-height: 1.15; letter-spacing: .08em; }
     .spicy-style-matchday .spicy-name { font-size: 14px; }
     .poster-footer { flex: 0 0 30px; display: grid; place-items: center; color: #78869a; font-size: 10px; font-weight: 800; letter-spacing: .2em; }
 
@@ -637,6 +683,12 @@
   <main class="workspace">
     <aside class="draft-sidebar">
       <div class="draft-sidebar-inner">
+        <div class="api-source">
+          <div class="api-source-label">Final FPL connection</div>
+          <p>League 507749 · Completed gameweeks only · No API key</p>
+          <button class="button primary" id="loadFplRecapButton">Check & load current recap</button>
+          <div class="api-status" id="recapImportStatus">Checks whether the current gameweek is final before loading it.</div>
+        </div>
         <div class="draft-sidebar-head"><h2>Draft library</h2><button id="newRecapButton" aria-label="Start a new recap">+</button></div>
         <div id="draftLibrary"></div>
       </div>
@@ -679,6 +731,11 @@
     const STORAGE_KEY = "fpl-recap-mockup-v1";
     const DRAFTS_KEY = "fpl-recap-mockup-v2-drafts";
     const ACTIVE_DRAFT_KEY = "fpl-recap-mockup-v2-active";
+    const DRAFT_DB_NAME = "fpl-recap-draft-storage";
+    const DRAFT_DB_STORE = "archives";
+    const DRAFT_DB_KEY = "recap-drafts";
+    const FPL_RECAP_URL = "../data/recaps/latest.json";
+    const FPL_RECAP_STATUS_URL = "../data/recaps/status.json";
     const EXPORT_TRANSFER_PREFIX = "FPL_RECAP_EXPORT_TRANSFER:";
     const SAFE_EXPORT_URL = "http://127.0.0.1:4173/app/gameweek-recap.html?mode=export";
     const EXPORT_SCALE = 3;
@@ -700,7 +757,8 @@
       ice: { label: "Ice Blue", accent: "#58c7ff", accent2: "#ddf5ff", rgb: "88,199,255", a: "#08263a", b: "#071520", c: "#03090d", swatch: "linear-gradient(135deg,#08263a,#58c7ff,#ddf5ff)" },
       sunset: { label: "Sunset", accent: "#ff9f45", accent2: "#ffe6c7", rgb: "255,159,69", a: "#35130b", b: "#1b0b08", c: "#090403", swatch: "linear-gradient(135deg,#35130b,#ff9f45,#ffe6c7)" },
       teal: { label: "Teal", accent: "#36e1d1", accent2: "#d8fffb", rgb: "54,225,209", a: "#06272b", b: "#071618", c: "#02090a", swatch: "linear-gradient(135deg,#06272b,#36e1d1,#d8fffb)" },
-      silver: { label: "Silver", accent: "#aeb9c9", accent2: "#ffffff", rgb: "174,185,201", a: "#1a202a", b: "#0d1118", c: "#05070a", swatch: "linear-gradient(135deg,#1a202a,#aeb9c9,#ffffff)" }
+      silver: { label: "Silver", accent: "#aeb9c9", accent2: "#ffffff", rgb: "174,185,201", a: "#1a202a", b: "#0d1118", c: "#05070a", swatch: "linear-gradient(135deg,#1a202a,#aeb9c9,#ffffff)" },
+      plain: { label: "Plain", accent: "#7897bb", accent2: "#e0e8f1", rgb: "120,151,187", a: "#111b28", b: "#0b121c", c: "#060a10", swatch: "linear-gradient(135deg,#111b28,#0b121c,#060a10)" }
     };
     const LAYOUTS = {
       "xi-focus": "Default · XI focus",
@@ -717,6 +775,9 @@
       matchday: ["Matchday italic", "Fast and expressive"]
     };
     const SPICY_COLORS = ["#caa84b", "#ff7185", "#5cc8ff"];
+    const KNOWN_PHOTOS = {
+      "verbruggen":"../assets/players/Verbruggen.png","calafiori":"../assets/players/Calafiori.png","ajer":"../assets/players/Ajer.png","de cuyper":"../assets/players/De Cuyper.png","maguire":"../assets/players/Maguire.png","shaw":"../assets/players/Shaw.png","szoboszlai":"../assets/players/Szoboszlai.png","cherki":"../assets/players/Cherki.png","foden":"../assets/players/Foden.png","semenyo":"../assets/players/Semenyo.png","gross":"../assets/players/Groß.png","tzolis":"../assets/players/Tzolis.png","b fernandes":"../assets/players/B.Fernandes.png","mbeumo":"../assets/players/Mbeumo.png","calvert lewin":"../assets/players/Calvert Lewin.png","haaland":"../assets/players/Haaland.png","joao pedro":"../assets/players/Joao Pedro.png","palmer":"../assets/players/Palmer.png","sarr":"../assets/players/Sarr.png","isak":"../assets/players/Isak.png"
+    };
     const DEFAULT_STATE = {
       league: "FPL Champions League",
       logo: "../assets/brand/league-logo.jpg",
@@ -770,13 +831,17 @@
         { name: "Szoboszlai", points: 8, own: 33.3, photo: "../assets/players/Szoboszlai.png" }
       ],
       spicyStyle: "spotlight",
+      fplInsights: [],
+      aiSpicyActive: false,
+      manualSpicyBackup: null,
       spicy: [
-        { title: "NO-CHIP WARRIOR", manager: "Shahar Lugaccy", points: 72, detail: "points · no chip used", color: "#caa84b" },
-        { title: "BENCH DISASTER", manager: "Yehuda Sch", points: 26, detail: "points left on the bench", color: "#ff7185" }
+        { title: "NO-CHIP WARRIOR", manager: "Shahar Lugaccy", points: 72, metricLabel: "PTS", detail: "points · no chip used", color: "#caa84b" },
+        { title: "BENCH DISASTER", manager: "Yehuda Sch", points: 26, metricLabel: "PTS", detail: "points left on the bench", color: "#ff7185" }
       ]
     };
 
     const clone = value => JSON.parse(JSON.stringify(value));
+    const norm = value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/ß/g,"ss").replace(/[^a-z0-9]+/g," ").trim();
     const validHex = value => /^#[0-9a-f]{6}$/i.test(String(value || ""));
     function migrateAssetPath(value) {
       if (value === "LOGO.jpg") return "../assets/brand/league-logo.jpg";
@@ -790,11 +855,212 @@
       target.captains = (target.captains || []).map(player => ({...player,photo:migrateAssetPath(player.photo)}));
       target.topPlayers = (target.topPlayers || []).map(player => ({...player,photo:migrateAssetPath(player.photo)}));
       const spicyItems = Array.isArray(target.spicy) ? target.spicy : clone(DEFAULT_STATE.spicy);
-      target.spicy = spicyItems.slice(0,3).map((item,index) => ({...item,color:validHex(item.color) ? item.color : SPICY_COLORS[index]}));
+      target.spicy = spicyItems.slice(0,3).map((item,index) => ({...item,metricLabel:String(item.metricLabel || "PTS"),color:validHex(item.color) ? item.color : SPICY_COLORS[index]}));
+      const insightItems = Array.isArray(target.fplInsights) ? target.fplInsights : [];
+      target.fplInsights = insightItems.slice(0,8).map((item,index) => ({...item,metricLabel:String(item.metricLabel || "PTS"),color:validHex(item.color) ? item.color : SPICY_COLORS[index % SPICY_COLORS.length]}));
+      target.aiSpicyActive = Boolean(target.aiSpicyActive);
+      target.manualSpicyBackup = Array.isArray(target.manualSpicyBackup) ? target.manualSpicyBackup.slice(0,3) : null;
       const captainItems = Array.isArray(target.captains) ? target.captains : clone(DEFAULT_STATE.captains);
       target.captains = captainItems.map((item,index) => ({...item,captainPct:Number.isFinite(Number(item.captainPct)) ? Number(item.captainPct) : Number(DEFAULT_STATE.captains[index]?.captainPct || 0)}));
       target.podiumStyle = target.podiumStyle === "scoreboard" ? "scoreboard" : "podium";
       return target;
+    }
+
+    function currentPhotoMap() {
+      const photos = {...KNOWN_PHOTOS};
+      ["GK","DEF","MID","FWD"].forEach(position => (state.xi?.[position] || []).forEach(player => {
+        if (player.name && player.photo) photos[norm(player.name)] = player.photo;
+      }));
+      [...(state.captains || []), ...(state.topPlayers || [])].forEach(player => {
+        if (player.name && player.photo) photos[norm(player.name)] = player.photo;
+      });
+      return photos;
+    }
+
+    function validateRecapSnapshot(payload) {
+      const data = payload?.recapData || payload;
+      if (!data || !Number(data.gameweek) || !data.league) throw new Error("The recap snapshot is missing its league or gameweek.");
+      if (!Array.isArray(data.top4) || data.top4.length !== 4) throw new Error("The recap snapshot must contain four podium entries.");
+      if (!Array.isArray(data.xi) || data.xi.length !== 11) throw new Error("The recap snapshot must contain exactly eleven League XI players.");
+      if (!FORMATIONS[data.formation]) throw new Error("The recap snapshot contains an unsupported formation.");
+      if (!Array.isArray(data.captains) || !data.captains.length || !Array.isArray(data.topPlayers) || !data.topPlayers.length) throw new Error("Captain returns or top-player data is missing.");
+      return data;
+    }
+
+    function deriveFplInsights(data = state) {
+      const insights = [];
+      const differential = [...(data.topPlayers || [])]
+        .filter(player => Number(player.points) > 0)
+        .sort((a,b) => Number(b.points) - Number(a.points) || Number(a.own) - Number(b.own))[0];
+      if (differential) insights.push({
+        type:"differential", title:"DIFFERENTIAL HERO", manager:differential.name,
+        points:Number(differential.points) || 0, metricLabel:"PTS",
+        detail:`${pct(differential.own)}% league ownership · standout low-owned return`, color:"#5cc8ff"
+      });
+      const captain = [...(data.captains || [])].sort((a,b) => Number(b.captainPct) - Number(a.captainPct))[0];
+      if (captain) insights.push({
+        type:"captain", title:"CAPTAIN CONSENSUS", manager:captain.name,
+        points:Number(captain.points) || 0, metricLabel:"CAPTAIN PTS",
+        detail:`${pct(captain.captainPct)}% of the league trusted the armband`, color:"#48d891"
+      });
+      const xiPoints = Array.isArray(data.xi)
+        ? data.xi.reduce((sum,player) => sum + (Number(player.points) || 0),0)
+        : ["GK","DEF","MID","FWD"].reduce((sum,position) => sum + (data.xi?.[position] || []).reduce((row,player) => row + (Number(player.points) || 0),0),0);
+      if (xiPoints || insights.length < 3) insights.push({
+        type:"xi", title:"LEAGUE XI OUTPUT", manager:`GW${Number(data.gameweek) || ""} template`,
+        points:xiPoints, metricLabel:"TOTAL PTS", detail:"Combined score of the league's most-owned XI", color:"#caa84b"
+      });
+      const xiPlayers = Array.isArray(data.xi) ? data.xi : ["GK","DEF","MID","FWD"].flatMap(position => data.xi?.[position] || []);
+      const ownershipTrap = xiPlayers
+        .filter(player => Number(player.own) >= 50)
+        .sort((a,b) => Number(a.points) - Number(b.points) || Number(b.own) - Number(a.own))[0];
+      if (ownershipTrap) insights.push({
+        type:"ownership-trap", title:"OWNERSHIP TRAP", manager:ownershipTrap.name,
+        points:Number(ownershipTrap.points) || 0, metricLabel:"PTS",
+        detail:`${pct(ownershipTrap.own)}% owned · lowest return among highly owned players`, color:"#9b7cff"
+      });
+      const gap = Math.max(0,Math.round((Number(data.topPoints?.points) || 0) - (Number(data.average) || 0)));
+      if (data.topPoints?.manager) insights.push({
+        type:"overachiever", title:"ABOVE THE PACK", manager:data.topPoints.manager,
+        points:gap, metricLabel:"ABOVE AVG",
+        detail:`${data.topPoints.team || "Top manager"} · ${data.topPoints.points} gameweek points`, color:"#ff9f45"
+      });
+      return insights.slice(0,5);
+    }
+
+    function availableFplInsights() {
+      const nonDuplicativeTypes = new Set(["comeback","rank-crasher","chip-master","transfer-tangle","painful-hit","transfer","bench","hidden-gem","closest-call"]);
+      return (state.fplInsights || []).filter(item => nonDuplicativeTypes.has(item.type)).slice(0,8);
+    }
+
+    function generateAiStats() {
+      const insights = availableFplInsights();
+      if (insights.length < 3) {
+        showRecapLoadMessage("error","Not enough FPL insights","Load a finalized gameweek from FPL before selecting three data-driven stats.");
+        return;
+      }
+      const root = document.getElementById("modalRoot");
+      root.innerHTML = `<div class="modal-overlay" data-ai-overlay><div class="modal-card ai-selector-card"><div class="modal-head"><div><h3>Select 3 AI stats</h3><p>Choose exactly three verified insights that do not repeat the main recap panels. Your manual version remains saved.</p></div><button class="modal-close" data-close-modal>×</button></div><div class="ai-insight-grid">${insights.map((item,index) => `<label class="ai-insight-option" style="--insight-color:${validHex(item.color)?item.color:SPICY_COLORS[index%SPICY_COLORS.length]}"><input type="checkbox" data-ai-choice="${index}" ${index<3?"checked":""}><span class="ai-insight-copy"><b>${esc(item.title || "FPL INSIGHT")} · ${esc(item.manager || "—")}</b><small>${esc(item.detail || "Calculated from synchronized FPL data")}</small></span><span class="ai-insight-value">${esc(item.points)}<small>${esc(item.metricLabel || "PTS")}</small></span></label>`).join("")}</div><div class="ai-selection-footer"><span class="ai-selection-count ready" data-ai-count>3 of 3 selected</span><button class="button primary" data-apply-ai-stats>USE 3 SELECTED STATS</button></div></div></div>`;
+      const choices = [...root.querySelectorAll("[data-ai-choice]")];
+      const apply = root.querySelector("[data-apply-ai-stats]");
+      const count = root.querySelector("[data-ai-count]");
+      const syncSelection = changed => {
+        let selected = choices.filter(choice => choice.checked);
+        if (selected.length > 3 && changed) changed.checked = false;
+        selected = choices.filter(choice => choice.checked);
+        count.textContent = `${selected.length} of 3 selected`;
+        count.classList.toggle("ready",selected.length === 3);
+        apply.disabled = selected.length !== 3;
+      };
+      choices.forEach(choice => choice.addEventListener("change", () => syncSelection(choice)));
+      root.querySelector("[data-close-modal]").addEventListener("click",closeModal);
+      root.querySelector("[data-ai-overlay]").addEventListener("click",event => { if (event.target.dataset.aiOverlay !== undefined) closeModal(); });
+      apply.addEventListener("click",() => applyAiStats(choices.filter(choice => choice.checked).map(choice => insights[Number(choice.dataset.aiChoice)])));
+    }
+
+    function applyAiStats(insights) {
+      if (insights.length !== 3) return;
+      if (!state.aiSpicyActive) state.manualSpicyBackup = clone(state.spicy);
+      state.spicy = insights.map((item,index) => ({
+        title:item.title || "FPL INSIGHT", manager:item.manager || "—",
+        points:Number(item.points) || 0, metricLabel:item.metricLabel || "PTS",
+        detail:item.detail || "Calculated from synchronized FPL data",
+        color:validHex(item.color) ? item.color : SPICY_COLORS[index % SPICY_COLORS.length]
+      }));
+      state.aiSpicyActive = true;
+      closeModal();
+      renderEditor("spicy"); update();
+      toast(`${state.spicy.length} verified FPL stats generated`);
+    }
+
+    function restoreManualSpicyStats() {
+      if (!Array.isArray(state.manualSpicyBackup)) return;
+      state.spicy = clone(state.manualSpicyBackup);
+      state.manualSpicyBackup = null;
+      state.aiSpicyActive = false;
+      renderEditor("spicy"); update();
+      toast("Manual Spicy Stats restored");
+    }
+
+    function showRecapLoadMessage(type, title, message) {
+      const root = document.getElementById("modalRoot");
+      const success = type === "success";
+      root.innerHTML = `<div class="modal-overlay" data-load-result-overlay><div class="modal-card load-result-card ${success?"success":"error"}"><div class="load-result-icon">${success?"✓":"!"}</div><h3>${esc(title)}</h3><p>${esc(message)}</p><button class="button ${success?"primary":""}" data-close-modal>${success?"Continue editing":"Close"}</button></div></div>`;
+      root.querySelector("[data-close-modal]").addEventListener("click", closeModal);
+      root.querySelector("[data-load-result-overlay]").addEventListener("click", event => { if (event.target.dataset.loadResultOverlay !== undefined) closeModal(); });
+    }
+
+    async function loadFplRecap() {
+      const button = document.getElementById("loadFplRecapButton");
+      const status = document.getElementById("recapImportStatus");
+      const original = button.textContent;
+      button.disabled = true;
+      button.textContent = "Checking FPL status…";
+      status.className = "api-status";
+      status.textContent = "Reading the latest synchronized recap…";
+      try {
+        let syncStatus = window.FPL_RECAP_STATUS ? clone(window.FPL_RECAP_STATUS) : null;
+        if (location.protocol !== "file:") {
+          try {
+            const statusResponse = await fetch(`${FPL_RECAP_STATUS_URL}?v=${Date.now()}`, {cache:"no-store"});
+            if (statusResponse.ok) syncStatus = await statusResponse.json();
+          } catch (statusError) { console.warn("Live recap status could not be refreshed", statusError); }
+        }
+        if (!syncStatus) throw new Error("No FPL recap status is available yet. Run Sync Gameweek Recap first.");
+        if (!syncStatus.ready) {
+          const message = syncStatus.message || `Gameweek ${syncStatus.gameweek} data is not final yet.`;
+          status.className = "api-status error";
+          status.textContent = message;
+          showRecapLoadMessage("error", `Gameweek ${syncStatus.gameweek} is not ready`, message);
+          return;
+        }
+        let payload;
+        if (location.protocol === "file:" && window.FPL_RECAP_SNAPSHOT) {
+          payload = clone(window.FPL_RECAP_SNAPSHOT);
+        } else {
+          try {
+            const response = await fetch(`${FPL_RECAP_URL}?v=${Date.now()}`, {cache:"no-store"});
+            if (!response.ok) throw new Error(response.status === 404 ? "No recap snapshot found. Run Sync Gameweek Recap first." : `Recap data returned HTTP ${response.status}`);
+            payload = await response.json();
+          } catch (fetchError) {
+            if (!window.FPL_RECAP_SNAPSHOT) throw fetchError;
+            payload = clone(window.FPL_RECAP_SNAPSHOT);
+          }
+        }
+        if (!payload.source?.gameweekStatus?.finished || !payload.source?.gameweekStatus?.dataChecked) throw new Error("FPL has not marked this gameweek final yet.");
+        const incoming = validateRecapSnapshot(payload);
+        if (Number(incoming.gameweek) !== Number(syncStatus.gameweek)) throw new Error(`GW${syncStatus.gameweek} is marked ready, but its recap file is not available yet.`);
+        const photos = currentPhotoMap();
+        const withPhoto = player => ({...player, photo:photos[norm(player.name)] || ""});
+        const xi = {GK:[],DEF:[],MID:[],FWD:[]};
+        incoming.xi.forEach(player => { if (xi[player.position]) xi[player.position].push(withPhoto(player)); });
+        const manualSpicy = state.aiSpicyActive && Array.isArray(state.manualSpicyBackup) ? clone(state.manualSpicyBackup) : clone(state.spicy);
+        const appearance = {logo:state.logo,palette:state.palette,layout:state.layout,logoScale:state.logoScale,titleStyle:state.titleStyle,subtitle:state.subtitle,showChips:state.showChips,showSpicy:state.showSpicy,highlightMode:state.highlightMode,podiumStyle:state.podiumStyle,spicyStyle:state.spicyStyle,spicy:manualSpicy,aiSpicyActive:false,manualSpicyBackup:null};
+        state = {...clone(DEFAULT_STATE),...state,...clone(incoming),...appearance,fplInsights:clone(incoming.aiInsights || []),xi,captains:incoming.captains.map(withPhoto),topPlayers:incoming.topPlayers.map(withPhoto)};
+        normalizeCollections(state);
+        activeDraftId = "";
+        saveWorking();
+        persistDrafts();
+        renderEditor("gameweek");
+        renderPoster();
+        renderDraftLibrary();
+        syncSaveButtons();
+        const syncedAt = payload.source?.syncedAt ? new Date(payload.source.syncedAt).toLocaleString("en-GB",{dateStyle:"medium",timeStyle:"short"}) : "the latest sync";
+        status.className = "api-status success";
+        status.textContent = `GW${state.gameweek} loaded · ${incoming.participants} managers · synced ${syncedAt}.`;
+        document.getElementById("saveStatus").textContent = `GW${state.gameweek} FPL recap loaded · save as a new draft`;
+        showRecapLoadMessage("success", `Gameweek ${state.gameweek} loaded successfully`, `${incoming.participants} managers were synchronized. The recap is ready for review and editing.`);
+        toast(`Gameweek ${state.gameweek} final recap loaded`);
+      } catch (error) {
+        console.error(error);
+        status.className = "api-status error";
+        status.textContent = error.message || "The FPL recap could not be loaded.";
+        showRecapLoadMessage("error", "Recap load failed", status.textContent);
+        toast("FPL recap load failed");
+      } finally {
+        button.disabled = false;
+        button.textContent = original;
+      }
     }
     let state = (() => {
       try { return Object.assign(clone(DEFAULT_STATE), JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")); }
@@ -845,6 +1111,14 @@
       }).join("");
     }
 
+    function xiTotalPoints() {
+      const required = FORMATIONS[state.formation] || FORMATIONS["3-4-3"];
+      return ["GK","DEF","MID","FWD"].reduce((total,position) => {
+        const count = position === "GK" ? 1 : required[position];
+        return total + (state.xi[position] || []).slice(0,count).reduce((sum,player) => sum + (Number(player.points) || 0),0);
+      },0);
+    }
+
     function performancePanelHTML() {
       const captainsMode = state.highlightMode !== "topPlayers";
       const items = captainsMode ? state.captains : state.topPlayers;
@@ -891,7 +1165,7 @@
       const logoSize = Math.round(76 * Math.max(.9, Math.min(1.5, state.logoScale || 1)));
       const copyTop = 14 + logoSize + 9;
       const headerHeight = Math.max(210, copyTop + 86);
-      poster.className = `poster layout-${state.layout} ${visibilityClass}`;
+      poster.className = `poster palette-${state.palette} layout-${state.layout} ${visibilityClass}`;
       poster.style.cssText = `--poster-accent:${palette.accent};--poster-accent-2:${palette.accent2};--poster-accent-rgb:${palette.rgb};--poster-a:${palette.a};--poster-b:${palette.b};--poster-c:${palette.c};--logo-size:${logoSize}px;--copy-top:${copyTop}px;--header-height:${headerHeight}px`;
       poster.innerHTML = `
         <div class="background-fx" aria-hidden="true"><i class="floodlight left"></i><i class="floodlight right"></i><i class="energy-line one"></i><i class="energy-line two"></i><i class="crest-watermark"></i><i class="london-eye"></i><i class="big-ben"></i><i class="abstract-player one"></i><i class="abstract-player two"></i><span class="football-mark one">⚽</span><span class="football-mark two">⚽</span><span class="crown-mark">♛</span></div>
@@ -905,11 +1179,12 @@
         </header>
         <div class="poster-grid">
           <section class="panel top4-panel">
-            <div class="section-title display">THE <span>TOP 4</span></div><div class="section-sub">This gameweek's highest scoring managers</div>
+            <div class="section-title display">THE <span>TOP 4</span></div><div class="section-sub">Overall league standings after this gameweek</div>
             ${top4PanelHTML(ordered)}
           </section>
           <section class="panel xi-panel">
             <div class="section-title display">THE <span>LEAGUE XI</span></div><div class="section-sub">The 11 most-owned players in the league</div>
+            <div class="xi-total"><strong>${esc(xiTotalPoints())}</strong>Total pts</div>
             <div class="pitch">${pitchHTML()}</div><div class="formation">FORMATION <strong>${esc(state.formation)}</strong></div>
           </section>
           <section class="data-panel">
@@ -922,7 +1197,7 @@
           </section>` : ""}
           ${state.showSpicy ? `<section class="panel spicy-panel spicy-style-${esc(state.spicyStyle || "spotlight")}">
             <div class="section-title display">SPICY <span>STATS</span></div><div class="section-sub">This gameweek's standout storylines</div>
-            <div class="spicy-cards count-${Math.max(1,Math.min(3,state.spicy.length))}">${state.spicy.slice(0,3).map((item,index) => `<div class="spicy-card" style="--story-accent:${storyAccent(item,index)}"><span class="spicy-index">${String(index+1).padStart(2,"0")}</span><div class="spicy-copy"><div class="spicy-label">${esc(item.title)}</div><div class="spicy-name">${esc(item.manager)}</div><div class="spicy-detail">${esc(item.detail)}</div></div><div class="spicy-score">${esc(item.points)}<small>PTS</small></div></div>`).join("")}</div>
+            <div class="spicy-cards count-${Math.max(1,Math.min(3,state.spicy.length))}">${state.spicy.slice(0,3).map((item,index) => `<div class="spicy-card" style="--story-accent:${storyAccent(item,index)}"><span class="spicy-index">${String(index+1).padStart(2,"0")}</span><div class="spicy-copy"><div class="spicy-label">${esc(item.title)}</div><div class="spicy-name">${esc(item.manager)}</div><div class="spicy-detail">${esc(item.detail)}</div></div><div class="spicy-score">${esc(item.points)}<small>${esc(item.metricLabel || "PTS")}</small></div></div>`).join("")}</div>
           </section>` : ""}
         </div>
         <footer class="poster-footer">${esc(state.league.toUpperCase())} · GAMEWEEK ${esc(state.gameweek)}</footer>`;
@@ -962,13 +1237,13 @@
           <div class="mini-card"><div class="mini-label">Top points</div><div class="field-grid three">${input("Manager","topPoints.manager",state.topPoints.manager)}${input("Team","topPoints.team",state.topPoints.team)}${input("Pts","topPoints.points",state.topPoints.points,"number")}</div></div>
           <div class="mini-card"><div class="mini-label">Lowest points</div><div class="field-grid three">${input("Manager","lowestPoints.manager",state.lowestPoints.manager)}${input("Team","lowestPoints.team",state.lowestPoints.team)}${input("Pts","lowestPoints.points",state.lowestPoints.points,"number")}</div></div>
         </div></details>
-        <details data-section="top4" ${openSection==="top4"?"open":""}><summary>The Top 4</summary><div class="fields"><div class="mini-label">Display style</div><div class="mode-switch" style="margin-top:10px"><button class="mode-choice ${state.podiumStyle!=="scoreboard"?"active":""}" data-podium-style="podium">Classic podium</button><button class="mode-choice ${state.podiumStyle==="scoreboard"?"active":""}" data-podium-style="scoreboard">Stair scoreboard</button></div>${state.top4.map((entry,index) => `<div class="mini-card"><div class="mini-label">Rank ${entry.rank}</div><div class="field-grid three">${input("Manager",`top4.${index}.manager`,entry.manager)}${input("Team",`top4.${index}.team`,entry.team)}${input("Pts",`top4.${index}.points`,entry.points,"number")}</div></div>`).join("")}</div></details>
+        <details data-section="top4" ${openSection==="top4"?"open":""}><summary>The Top 4</summary><div class="fields"><div class="mini-label">Overall standings after the gameweek</div><div class="mini-label">Display style</div><div class="mode-switch" style="margin-top:10px"><button class="mode-choice ${state.podiumStyle!=="scoreboard"?"active":""}" data-podium-style="podium">Classic podium</button><button class="mode-choice ${state.podiumStyle==="scoreboard"?"active":""}" data-podium-style="scoreboard">Stair scoreboard</button></div>${state.top4.map((entry,index) => `<div class="mini-card"><div class="mini-label">Rank ${entry.rank}</div><div class="field-grid three">${input("Manager",`top4.${index}.manager`,entry.manager)}${input("Team",`top4.${index}.team`,entry.team)}${input("Total pts",`top4.${index}.points`,entry.points,"number")}</div></div>`).join("")}</div></details>
         <details data-section="xi" ${openSection==="xi"?"open":""}><summary>The League XI</summary><div class="fields">
           <div class="field"><label>Formation</label><select data-formation>${Object.keys(FORMATIONS).map(f => `<option ${f===state.formation?"selected":""}>${f}</option>`).join("")}</select></div>
           ${["GK","DEF","MID","FWD"].map(position => { const count=position==="GK"?1:(FORMATIONS[state.formation]||FORMATIONS["3-4-3"])[position]; return (state.xi[position] || []).slice(0,count).map((player,index) => `<div class="mini-card"><div class="mini-label">${position} ${index+1}</div><div class="upload-row"><img src="${esc(player.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`xi.${position}.${index}.name`,player.name)}${input("Owned %",`xi.${position}.${index}.own`,player.own,"number",'step="0.1"')}${input("Pts",`xi.${position}.${index}.points`,player.points,"number")}</div></div><button class="upload-button" style="margin-top:8px" data-player-upload="${position}.${index}">Replace photo</button><input hidden id="playerUpload-${position}-${index}" type="file" accept="image/*"></div>`).join("") }).join("")}
         </div></details>
         <details data-section="chips" ${openSection==="chips"?"open":""}><summary>Captain / Top Players</summary><div class="fields">${performanceEditorHTML()}</div></details>
-        <details data-section="spicy" ${openSection==="spicy"?"open":""}><summary>Spicy Stats</summary><div class="fields"><div class="mini-label">Card design</div><div class="spicy-style-grid"><button class="spicy-style-choice ${state.spicyStyle==="spotlight"?"active":""}" data-spicy-style="spotlight"><b>01 Spotlight</b><small>Bright editorial tiles</small></button><button class="spicy-style-choice ${state.spicyStyle==="scoreboard"?"active":""}" data-spicy-style="scoreboard"><b>02 Scoreboard</b><small>Compact broadcast steps</small></button><button class="spicy-style-choice ${state.spicyStyle==="matchday"?"active":""}" data-spicy-style="matchday"><b>03 Matchday</b><small>Bold energetic cards</small></button></div><div class="mini-label">Up to 3 stories · default 2</div>${state.spicy.map((item,index) => `<div class="mini-card"><div class="mini-label">Story ${index+1}</div><div class="field-grid">${input("Title",`spicy.${index}.title`,item.title)}${input("Manager",`spicy.${index}.manager`,item.manager)}${input("Points",`spicy.${index}.points`,item.points,"number")}${input("Accent color",`spicy.${index}.color`,storyAccent(item,index),"color")}${input("Detail",`spicy.${index}.detail`,item.detail)}</div><div class="spicy-editor-actions"><button class="upload-button danger-button" data-remove-spicy="${index}">Remove stat</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-spicy ${state.spicy.length>=3?"disabled":""}>+ Add Spicy Stat</button></div></details>`;
+        <details data-section="spicy" ${openSection==="spicy"?"open":""}><summary>Spicy Stats</summary><div class="fields"><div class="ai-stats-box"><strong>${state.aiSpicyActive?"AI stats are currently displayed":"Generate from synchronized FPL data"}</strong><p>Calculates verified storylines from the loaded gameweek. No values are invented, and your manual Spicy Stats are kept for restoration.</p><div class="ai-stats-actions"><button class="button primary" data-generate-ai-stats>GENERATE AI STATS</button>${state.aiSpicyActive&&state.manualSpicyBackup?'<button class="button" data-restore-spicy>Restore manual</button>':""}</div></div><div class="mini-label">Card design</div><div class="spicy-style-grid"><button class="spicy-style-choice ${state.spicyStyle==="spotlight"?"active":""}" data-spicy-style="spotlight"><b>01 Spotlight</b><small>Bright editorial tiles</small></button><button class="spicy-style-choice ${state.spicyStyle==="scoreboard"?"active":""}" data-spicy-style="scoreboard"><b>02 Scoreboard</b><small>Compact broadcast steps</small></button><button class="spicy-style-choice ${state.spicyStyle==="matchday"?"active":""}" data-spicy-style="matchday"><b>03 Matchday</b><small>Bold energetic cards</small></button></div><div class="mini-label">Up to 3 stories · default 2</div>${state.spicy.map((item,index) => `<div class="mini-card"><div class="mini-label">Story ${index+1}</div><div class="field-grid">${input("Title",`spicy.${index}.title`,item.title)}${input("Manager",`spicy.${index}.manager`,item.manager)}${input("Value",`spicy.${index}.points`,item.points,"number")}${input("Value label",`spicy.${index}.metricLabel`,item.metricLabel || "PTS","text",'maxlength="16"')}${input("Accent color",`spicy.${index}.color`,storyAccent(item,index),"color")}${input("Detail",`spicy.${index}.detail`,item.detail)}</div><div class="spicy-editor-actions"><button class="upload-button danger-button" data-remove-spicy="${index}">Remove stat</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-spicy ${state.spicy.length>=3?"disabled":""}>+ Add Spicy Stat</button></div></details>`;
       bindEditor();
       syncSaveButtons();
     }
@@ -986,13 +1261,89 @@
       saveTimer = setTimeout(saveWorking, 500);
     }
     function saveWorking() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      catch (error) {
+        console.warn("Working copy could not be stored in Local Storage", error);
+        const status = document.getElementById("saveStatus");
+        if (status) status.textContent = "Working copy is too large · use Save as new";
+      }
     }
     function update() { renderPoster(); scheduleSave(); }
 
+    function openDraftDatabase() {
+      return new Promise((resolve,reject) => {
+        if (!window.indexedDB) return reject(new Error("IndexedDB is unavailable"));
+        const request = indexedDB.open(DRAFT_DB_NAME,1);
+        request.onupgradeneeded = () => {
+          const database = request.result;
+          if (!database.objectStoreNames.contains(DRAFT_DB_STORE)) database.createObjectStore(DRAFT_DB_STORE,{keyPath:"key"});
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error("Draft database could not be opened"));
+      });
+    }
+
+    async function writeDraftArchive() {
+      const database = await openDraftDatabase();
+      return new Promise((resolve,reject) => {
+        const transaction = database.transaction(DRAFT_DB_STORE,"readwrite");
+        transaction.objectStore(DRAFT_DB_STORE).put({key:DRAFT_DB_KEY,updatedAt:Date.now(),activeDraftId,drafts:clone(drafts)});
+        transaction.oncomplete = () => { database.close(); resolve(); };
+        transaction.onerror = () => { database.close(); reject(transaction.error || new Error("Draft database write failed")); };
+        transaction.onabort = () => { database.close(); reject(transaction.error || new Error("Draft database write was aborted")); };
+      });
+    }
+
+    async function readDraftArchive() {
+      const database = await openDraftDatabase();
+      return new Promise((resolve,reject) => {
+        const transaction = database.transaction(DRAFT_DB_STORE,"readonly");
+        const request = transaction.objectStore(DRAFT_DB_STORE).get(DRAFT_DB_KEY);
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => reject(request.error || new Error("Draft database read failed"));
+        transaction.oncomplete = () => database.close();
+      });
+    }
+
+    function persistDraftsLocally() {
+      try {
+        localStorage.setItem(DRAFTS_KEY, JSON.stringify(drafts));
+        localStorage.setItem(ACTIVE_DRAFT_KEY, activeDraftId || "");
+        return true;
+      } catch (error) {
+        console.warn("Local Storage draft backup failed", error);
+        return false;
+      }
+    }
+
+    async function persistDraftsReliable() {
+      const localSaved = persistDraftsLocally();
+      let databaseSaved = false;
+      try { await writeDraftArchive(); databaseSaved = true; }
+      catch (error) { console.warn("IndexedDB draft save failed", error); }
+      if (!localSaved && !databaseSaved) throw new Error("Browser storage is unavailable");
+      return databaseSaved ? "database" : "local";
+    }
+
     function persistDrafts() {
-      localStorage.setItem(DRAFTS_KEY, JSON.stringify(drafts));
-      localStorage.setItem(ACTIVE_DRAFT_KEY, activeDraftId || "");
+      persistDraftsLocally();
+      writeDraftArchive().catch(error => console.warn("IndexedDB draft backup failed", error));
+    }
+
+    async function hydrateDraftArchive() {
+      try {
+        const archive = await readDraftArchive();
+        if (Array.isArray(archive?.drafts) && archive.drafts.length) {
+          const merged = new Map(drafts.map(draft => [draft.id,draft]));
+          archive.drafts.forEach(draft => { if (draft?.id) merged.set(draft.id,draft); });
+          drafts = [...merged.values()];
+          if (archive.activeDraftId && drafts.some(draft => draft.id === archive.activeDraftId)) activeDraftId = archive.activeDraftId;
+          renderDraftLibrary();
+          syncSaveButtons();
+        } else if (drafts.length) {
+          await writeDraftArchive();
+        }
+      } catch (error) { console.warn("Saved drafts could not be loaded from IndexedDB", error); }
     }
 
     function openSaveAsModal() {
@@ -1006,27 +1357,52 @@
       nameInput.focus(); nameInput.select();
     }
 
-    function createDraft(name) {
+    async function createDraft(name) {
       saveWorking();
       const gameweek = Number(state.gameweek || 1);
       const number = drafts.filter(draft => Number(draft.gameweek) === gameweek).length + 1;
       const version = { id: `${Date.now()}-${Math.random().toString(36).slice(2,7)}`, gameweek, number, name, savedAt: new Date().toISOString(), state: clone(state) };
       drafts.push(version);
       activeDraftId = version.id;
-      persistDrafts(); closeModal(); renderDraftLibrary(); syncSaveButtons();
-      document.getElementById("saveStatus").textContent = `Saved to ${name}`;
-      toast(`${name} created`);
+      const button = document.getElementById("confirmNewDraft");
+      if (button) { button.disabled = true; button.textContent = "Saving…"; }
+      try {
+        await persistDraftsReliable();
+        closeModal(); renderDraftLibrary(); syncSaveButtons();
+        document.getElementById("saveStatus").textContent = `Saved to ${name}`;
+        toast(`${name} created`);
+      } catch (error) {
+        console.error("Draft save failed", error);
+        drafts = drafts.filter(draft => draft.id !== version.id);
+        activeDraftId = "";
+        if (button) { button.disabled = false; button.textContent = "Create draft"; }
+        document.getElementById("saveStatus").textContent = "Draft could not be saved";
+        toast("Draft save failed — open the site through the local server or published address");
+      }
     }
 
-    function saveExistingDraft() {
+    async function saveExistingDraft() {
       const draft = drafts.find(item => item.id === activeDraftId);
       if (!draft) return openSaveAsModal();
+      const previous = clone(draft);
       draft.gameweek = Number(state.gameweek || 1);
       draft.state = clone(state);
       draft.savedAt = new Date().toISOString();
-      saveWorking(); persistDrafts(); renderDraftLibrary(); syncSaveButtons();
-      document.getElementById("saveStatus").textContent = `Saved to ${draft.name || `Draft ${draft.number}`}`;
-      toast("Draft updated");
+      const button = document.getElementById("saveExistingButton");
+      button.disabled = true; button.textContent = "Saving…";
+      try {
+        saveWorking(); await persistDraftsReliable(); renderDraftLibrary(); syncSaveButtons();
+        document.getElementById("saveStatus").textContent = `Saved to ${draft.name || `Draft ${draft.number}`}`;
+        toast("Draft updated");
+      } catch (error) {
+        console.error("Draft update failed", error);
+        Object.assign(draft,previous);
+        document.getElementById("saveStatus").textContent = "Draft update failed";
+        toast("Draft could not be updated");
+      } finally {
+        button.textContent = "Save changes";
+        syncSaveButtons();
+      }
     }
 
     function renderDraftLibrary() {
@@ -1088,6 +1464,10 @@
       document.querySelectorAll("[data-spicy-style]").forEach(button => button.addEventListener("click", () => {
         state.spicyStyle = button.dataset.spicyStyle; renderEditor("spicy"); update();
       }));
+      const generateStats = document.querySelector("[data-generate-ai-stats]");
+      if (generateStats) generateStats.addEventListener("click", generateAiStats);
+      const restoreSpicy = document.querySelector("[data-restore-spicy]");
+      if (restoreSpicy) restoreSpicy.addEventListener("click", restoreManualSpicyStats);
       document.querySelectorAll("[data-highlight-mode]").forEach(button => button.addEventListener("click", () => {
         state.highlightMode = button.dataset.highlightMode; renderEditor("chips"); update();
       }));
@@ -1138,14 +1518,14 @@
       const addSpicy = document.querySelector("[data-add-spicy]");
       if (addSpicy) addSpicy.addEventListener("click", () => {
         if (state.spicy.length >= 3) return;
-        state.spicy.push({title:"NEW STORY",manager:"Manager name",points:0,detail:"add a short detail",color:SPICY_COLORS[state.spicy.length] || SPICY_COLORS[0]});
+        state.spicy.push({title:"NEW STORY",manager:"Manager name",points:0,metricLabel:"PTS",detail:"add a short detail",color:SPICY_COLORS[state.spicy.length] || SPICY_COLORS[0]});
         renderEditor("spicy"); update();
       });
     }
 
     function openPaletteModal() {
       const root = document.getElementById("modalRoot");
-      root.innerHTML = `<div class="modal-overlay" data-modal-overlay><div class="modal-card"><div class="modal-head"><div><h3>Choose a brand palette</h3><p>Eight locked systems keep every recap consistent. Champions remains the default.</p></div><button class="modal-close" data-close-modal>×</button></div><div class="palette-grid">${Object.entries(PALETTES).map(([key,p]) => `<button class="palette ${state.palette===key?"active":""}" data-modal-palette="${key}" aria-label="${esc(p.label)}" style="background:${p.swatch}"></button>`).join("")}</div></div></div>`;
+      root.innerHTML = `<div class="modal-overlay" data-modal-overlay><div class="modal-card"><div class="modal-head"><div><h3>Choose a brand palette</h3><p>Nine locked systems keep every recap consistent. Champions remains the default.</p></div><button class="modal-close" data-close-modal>×</button></div><div class="palette-grid">${Object.entries(PALETTES).map(([key,p]) => `<button class="palette ${state.palette===key?"active":""}" data-modal-palette="${key}" aria-label="${esc(p.label)}" style="background:${p.swatch}"></button>`).join("")}</div></div></div>`;
       root.querySelector("[data-close-modal]").addEventListener("click", closeModal);
       root.querySelector("[data-modal-overlay]").addEventListener("click", event => { if (event.target.dataset.modalOverlay !== undefined) closeModal(); });
       root.querySelectorAll("[data-modal-palette]").forEach(button => button.addEventListener("click", () => {
@@ -1314,6 +1694,7 @@
 
     document.getElementById("saveExistingButton").addEventListener("click", saveExistingDraft);
     document.getElementById("saveNewButton").addEventListener("click", openSaveAsModal);
+    document.getElementById("loadFplRecapButton").addEventListener("click", loadFplRecap);
     document.getElementById("downloadButton").addEventListener("click", downloadPoster);
     document.getElementById("previewToggle").addEventListener("click", togglePreview);
     document.getElementById("previewMiniButton").addEventListener("click", togglePreview);
@@ -1331,6 +1712,7 @@
     renderDraftLibrary();
     renderEditor();
     renderPoster();
+    hydrateDraftArchive();
     if (transferredForExport) {
       showEditor();
       document.getElementById("saveStatus").textContent = "Export-safe copy loaded";

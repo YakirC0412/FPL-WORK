@@ -19,6 +19,9 @@ The three historical `*_Mockup_v1.html` files in the repository root are compati
 | `assets/players/` | Default player and club images. |
 | `assets/examples/` | Visual references only; never runtime dependencies. |
 | `assets/generated/` | Generated asset bundles. Do not hand-edit large data URLs. |
+| `config/` | Public integration settings such as the FPL league ID. |
+| `data/gameweeks/` | Aggregated, publishable FPL Gameweek Data snapshots. Raw manager data is not stored. |
+| `data/recaps/` | Final recap snapshots. Stores only the manager/team display names required by the recap graphic. |
 | `templates/` | Official downloadable input templates. |
 | `imports/gameweek-data/` | Latest user workbook when folder permission is granted. Ignored by Git. |
 | `exports/` | Generated graphics grouped by feature. Ignored by Git. |
@@ -32,13 +35,17 @@ The three historical `*_Mockup_v1.html` files in the repository root are compati
 
 File: `app/gameweek-data.html`
 
-Pre-deadline graphic driven primarily by the official Excel workbook. It contains the League XI, Captain Picks, Popular Transfers, Chip Usage and Effective Ownership. Player photos are assigned separately in the editor.
+Post-deadline graphic driven primarily by an aggregated public FPL snapshot. It contains the League XI, Captain Picks, Popular Transfers, Chip Usage and Effective Ownership. The guarded loader confirms which active gameweek was loaded and reports when post-deadline data is unavailable. A data-driven selector offers up to eight aggregated league insights; the user selects three or four to replace Chip Usage temporarily, and can restore the original panel. Excel remains available as a fallback and correction path. Player photos are assigned separately in the editor.
+
+The synchronization logic is in `scripts/fpl/sync-gameweek-data.mjs`, the public league setting is in `config/fpl.json`, and the scheduled/manual GitHub workflow is `.github/workflows/sync-gameweek-data.yml`. JSON and JavaScript fallback snapshots plus readiness status files are published under `data/gameweeks/`. See `docs/FPL_DATA_SYNC.md` for calculation and privacy rules.
 
 ### Gameweek Recap
 
 File: `app/gameweek-recap.html`
 
 Post-gameweek graphic with draft management, podium layouts, score summaries, League XI, Captain Returns or Top Players, and up to three Spicy Stats.
+
+The final-result synchronizer is `scripts/fpl/sync-gameweek-recap.mjs`, and its manual workflow is `.github/workflows/sync-gameweek-recap.yml`. It only accepts gameweeks marked both finished and data-checked by FPL. Spicy Stats remain editorial and are preserved when synchronized data is loaded.
 
 ### Top 3 Differentials
 
@@ -59,7 +66,7 @@ The site therefore works best with an internet connection. Default player and lo
 
 ## Browser storage
 
-Each studio has its own browser storage keys. Working state and drafts are not repository files. Storage is tied to the browser origin, which means a local file, the local HTTP server, GitHub Pages and a future custom domain are separate storage locations.
+Each studio has its own browser storage keys. Working state and drafts are not repository files. Recap drafts use IndexedDB with a Local Storage backup so larger uploaded images do not exhaust the smaller Local Storage quota. Storage is tied to the browser origin, which means a local file, the local HTTP server, GitHub Pages and a future custom domain are separate storage locations.
 
 Moving the folder or changing the website address does not migrate drafts. A future project backup feature should export and import drafts as JSON.
 
@@ -80,7 +87,8 @@ Moving the folder or changing the website address does not migrate drafts. A fut
 5. Test at least one draft save in the affected studio.
 6. Test PNG export at the intended high-resolution dimensions.
 7. If Gameweek Data changed, test the official Excel template.
-8. Update the related documentation.
+8. If FPL synchronization changed, run it against league `507749`. Confirm that Gameweek Data stores no manager IDs or raw roster fields, and Recap stores only the display names required by the final graphic.
+9. Update the related documentation.
 
 ## Known future improvements
 

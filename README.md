@@ -4,8 +4,8 @@ A portable, browser-based studio for creating weekly Fantasy Premier League grap
 
 ## Available studios
 
-- **Gameweek Data** — pre-deadline League XI, captaincy, transfers, chip usage and effective ownership. Supports Excel import.
-- **Gameweek Recap** — post-gameweek podium, League XI, captain returns, scorecards and standout stories.
+- **Gameweek Data** — post-deadline League XI, captaincy, transfers, chip usage and effective ownership. Supports guarded current-gameweek loading, selectable data-driven stories and Excel as a fallback.
+- **Gameweek Recap** — final-gameweek podium, League XI, captain returns, scorecards and standout stories. Supports synchronized FPL league results while keeping Spicy Stats editorial.
 - **Top 3 Differentials** — three ranked low-owned recommendations, editorial reasoning and last-gameweek statistics.
 
 ## Start the project
@@ -29,6 +29,8 @@ Drafts and uploaded images are stored in the current browser through Local Stora
 - [`docs/PROJECT_GUIDE.md`](docs/PROJECT_GUIDE.md) — architecture, folder map and product behavior.
 - [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) — user workflow in Hebrew.
 - [`docs/DATA_IMPORT.md`](docs/DATA_IMPORT.md) — Excel workbook schema.
+- [`docs/FPL_DATA_SYNC.md`](docs/FPL_DATA_SYNC.md) — public FPL connection and aggregation rules.
+- [`docs/FPL_RECAP_SYNC.md`](docs/FPL_RECAP_SYNC.md) — final-result recap synchronization and calculation rules.
 - [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — local and GitHub Pages deployment.
 - [`AGENTS.md`](AGENTS.md) — rules for AI coding agents.
 
