@@ -49,5 +49,5 @@ The top-10 calculations use only aggregate player counts from the ten highest-ra
 
 - Picks remain private until the gameweek deadline.
 - The FPL endpoints are public but undocumented and may change between seasons.
-- The first version does not download new player photos. Missing photos remain editable in the studio.
+- Player rows include the stable FPL player code. Gameweek Data resolves photos automatically through `data/players/manifest.js`, with legacy or manually uploaded images retained only as fallbacks.
 - The Excel import remains available as a fallback and correction path.

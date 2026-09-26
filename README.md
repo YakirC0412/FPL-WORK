@@ -8,6 +8,14 @@ A portable, browser-based studio for creating weekly Fantasy Premier League grap
 - **Gameweek Recap** — final-gameweek podium, League XI, captain returns, scorecards and standout stories. Supports synchronized FPL league results while keeping Spicy Stats editorial.
 - **Top 3 Differentials** — three ranked low-owned recommendations, editorial reasoning and last-gameweek statistics.
 
+## Gameweek Data V2 development route
+
+The existing Gameweek Data studio remains available at `app/gameweek-data.html`. Public-release work is developed separately at `app/gameweek-data-v2.html` so the legacy editor and its saved browser drafts remain unchanged. V2 currently has its own working-state, draft and remembered-folder storage identifiers, offers a neutral default league crest or a custom league-logo upload, and is not linked from the public home page yet. Its entry screen presents the wider FPL League Graphics Studio, loads the league once and then asks the user to choose Gameweek Data; Gameweek Summary remains visibly marked as coming soon.
+
+V2 mobile export renders the same 3240 × 4050 PNG as desktop, then offers the phone's native share sheet when file sharing is supported or a standard PNG download when it is not.
+
+Gameweek Data and Gameweek Recap use an automatically synchronized FPL player-image library. Player codes are kept in the synchronized snapshots, while normalized name aliases allow an edited player name to resolve to the correct local image without a manual upload.
+
 ## Start the project
 
 ### Published website
@@ -31,6 +39,7 @@ Drafts and uploaded images are stored in the current browser through Local Stora
 - [`docs/DATA_IMPORT.md`](docs/DATA_IMPORT.md) — Excel workbook schema.
 - [`docs/FPL_DATA_SYNC.md`](docs/FPL_DATA_SYNC.md) — public FPL connection and aggregation rules.
 - [`docs/FPL_RECAP_SYNC.md`](docs/FPL_RECAP_SYNC.md) — final-result recap synchronization and calculation rules.
+- [`docs/FPL_PLAYER_IMAGES.md`](docs/FPL_PLAYER_IMAGES.md) — player-image library, manifest and automatic matching rules.
 - [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — local and GitHub Pages deployment.
 - [`AGENTS.md`](AGENTS.md) — rules for AI coding agents.
 

@@ -3,5 +3,8 @@
   "requestConcurrency": 6,
   "requestDelayMs": 120,
   "outputDirectory": "data/gameweeks",
-  "recapOutputDirectory": "data/recaps"
+  "recapOutputDirectory": "data/recaps",
+  "playerImageDirectory": "assets/fpl-players",
+  "playerManifestDirectory": "data/players",
+  "playerImageConcurrency": 8
 }

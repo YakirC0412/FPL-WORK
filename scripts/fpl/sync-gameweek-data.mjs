@@ -128,6 +128,7 @@ function chooseLeagueXi(metadata, ownership, starters, participants) {
     if (!position) continue;
     byPosition[position].push({
       id: player.id,
+      code: player.code,
       name: player.web_name,
       position,
       owners: ownership.get(player.id) || 0,
@@ -155,6 +156,8 @@ function chooseLeagueXi(metadata, ownership, starters, participants) {
   return {
     formation: formation.name,
     players: selected.map(player => ({
+      id: player.id,
+      code: player.code,
       position: player.position,
       name: player.name,
       own: percentage(player.owners, participants),
@@ -256,21 +259,27 @@ for (const record of transfersByEntry) {
 
 const xi = chooseLeagueXi(metadata, ownership, starters, entries.length);
 const captainRanking = rankedPlayers(captainCounts.keys(), metadata, captainCounts);
-const captainTop = captainRanking.slice(0, 4).map(item => ({ name: item.meta.web_name, pct: percentage(item.primary, entries.length) }));
+const captainTop = captainRanking.slice(0, 4).map(item => ({ id: item.id, code: item.meta.code, name: item.meta.web_name, pct: percentage(item.primary, entries.length) }));
 const captainOther = captainRanking.slice(4).reduce((sum, item) => sum + item.primary, 0);
 const captainData = captainOther ? [...captainTop, { name: "Other", pct: percentage(captainOther, entries.length) }] : captainTop;
 
 const transferInData = rankedPlayers(transfersIn.keys(), metadata, transfersIn, ownership).slice(0, 3).map(item => ({
+  id: item.id,
+  code: item.meta.code,
   name: item.meta.web_name,
   moved: item.primary,
   owners: ownership.get(item.id) || 0
 }));
 const transferOutData = rankedPlayers(transfersOut.keys(), metadata, transfersOut, ownership).slice(0, 3).map(item => ({
+  id: item.id,
+  code: item.meta.code,
   name: item.meta.web_name,
   moved: item.primary,
   owners: ownership.get(item.id) || 0
 }));
 const eoData = rankedPlayers(effectiveOwnership.keys(), metadata, effectiveOwnership, ownership).slice(0, 5).map(item => ({
+  id: item.id,
+  code: item.meta.code,
   name: item.meta.web_name,
   pct: percentage(item.primary, entries.length)
 }));

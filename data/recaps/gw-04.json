@@ -1,15 +1,15 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "source": {
     "provider": "Fantasy Premier League public API",
     "leagueId": 507749,
-    "syncedAt": "2026-09-22T15:42:47.407Z",
+    "syncedAt": "2026-09-24T09:20:19.462Z",
     "gameweekStatus": {
       "finished": true,
       "dataChecked": true,
       "deadline": "2026-09-12T12:30:00Z"
     },
-    "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs and raw squads are not stored."
+    "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs, raw squads and individual transfer histories are not stored."
   },
   "recapData": {
     "league": "FPL Champions League- IL",
@@ -55,66 +55,88 @@
     "formation": "3-4-3",
     "xi": [
       {
+        "id": 109,
+        "code": 489639,
         "position": "GK",
         "name": "Verbruggen",
         "own": 65,
         "points": 8
       },
       {
+        "id": 8,
+        "code": 466075,
         "position": "DEF",
         "name": "Calafiori",
         "own": 86.7,
         "points": 6
       },
       {
+        "id": 31,
+        "code": 199798,
         "position": "DEF",
         "name": "Konsa",
         "own": 55,
         "points": 6
       },
       {
+        "id": 115,
+        "code": 465730,
         "position": "DEF",
         "name": "De Cuyper",
         "own": 38.3,
         "points": 11
       },
       {
+        "id": 154,
+        "code": 244851,
         "position": "MID",
         "name": "Palmer",
         "own": 76.7,
         "points": 5
       },
       {
+        "id": 368,
+        "code": 424876,
         "position": "MID",
         "name": "Szoboszlai",
         "own": 48.3,
         "points": 3
       },
       {
+        "id": 40,
+        "code": 244850,
         "position": "MID",
         "name": "Rogers",
         "own": 45,
         "points": 8
       },
       {
+        "id": 557,
+        "code": 439509,
         "position": "MID",
         "name": "Tzolis",
         "own": 33.3,
         "points": 3
       },
       {
+        "id": 165,
+        "code": 475168,
         "position": "FWD",
         "name": "João Pedro",
         "own": 96.7,
         "points": 12
       },
       {
+        "id": 411,
+        "code": 223094,
         "position": "FWD",
         "name": "Haaland",
         "own": 85,
         "points": 9
       },
       {
+        "id": 379,
+        "code": 219168,
         "position": "FWD",
         "name": "Isak",
         "own": 38.3,
@@ -123,16 +145,22 @@
     ],
     "captains": [
       {
+        "id": 154,
+        "code": 244851,
         "name": "Palmer",
         "points": 10,
         "captainPct": 71.7
       },
       {
+        "id": 165,
+        "code": 475168,
         "name": "João Pedro",
         "points": 24,
         "captainPct": 13.3
       },
       {
+        "id": 411,
+        "code": 223094,
         "name": "Haaland",
         "points": 18,
         "captainPct": 11.7
@@ -140,19 +168,99 @@
     ],
     "topPlayers": [
       {
+        "id": 124,
+        "code": 60307,
         "name": "Groß",
         "points": 17,
         "own": 31.7
       },
       {
+        "id": 94,
+        "code": 513418,
         "name": "Schade",
         "points": 15,
         "own": 10
       },
       {
+        "id": 330,
+        "code": 226182,
         "name": "Bogle",
         "points": 15,
         "own": 0
+      }
+    ],
+    "aiInsights": [
+      {
+        "type": "comeback",
+        "title": "COMEBACK KID",
+        "manager": "Shahar Lugaccy --",
+        "points": 25,
+        "metricLabel": "PLACES UP",
+        "detail": "Thunder Road · climbed from #40 to #15",
+        "color": "#48d891"
+      },
+      {
+        "type": "rank-crasher",
+        "title": "RANK CRASHER",
+        "manager": "Ohad Anaki",
+        "points": 24,
+        "metricLabel": "PLACES DOWN",
+        "detail": "XVI Riots · fell from #21 to #45",
+        "color": "#ff7185"
+      },
+      {
+        "type": "chip-master",
+        "title": "CHIP MASTER",
+        "manager": "Sharon Erez",
+        "points": 113,
+        "metricLabel": "PTS",
+        "detail": "Bench Boost · best chip-user score · 38.3% of managers used a chip",
+        "color": "#ff9f45"
+      },
+      {
+        "type": "transfer-tangle",
+        "title": "TRANSFER TANGLE",
+        "manager": "Ido Hasdai",
+        "points": 30,
+        "metricLabel": "PTS LOST",
+        "detail": "ViniTheGoat · worst net impact after transfer returns and hit costs",
+        "color": "#9b7cff"
+      },
+      {
+        "type": "painful-hit",
+        "title": "PAINFUL HIT",
+        "manager": "Yakir Manor",
+        "points": 4,
+        "metricLabel": "HIT COST",
+        "detail": "Ctrl Alt De Ligt · transfers returned -5 pts before the hit",
+        "color": "#ff6177"
+      },
+      {
+        "type": "transfer",
+        "title": "TRANSFER MASTERSTROKE",
+        "manager": "Groß IN",
+        "points": 14,
+        "metricLabel": "PTS GAIN",
+        "detail": "Gomez out · 3 managers made this move",
+        "color": "#48d891"
+      },
+      {
+        "type": "bench",
+        "title": "BENCH PAIN",
+        "manager": "Shir Cohavi",
+        "points": 27,
+        "metricLabel": "BENCH PTS",
+        "detail": "FCBJ Cohavi · highest unused bench score in the league",
+        "color": "#ff7185"
+      },
+      {
+        "type": "hidden-gem",
+        "title": "HIDDEN GEM",
+        "manager": "Davis",
+        "points": 14,
+        "metricLabel": "PTS",
+        "detail": "6.7% owned · best low-owned return not shown elsewhere in the recap",
+        "color": "#5cc8ff"
       }
     ]
   }

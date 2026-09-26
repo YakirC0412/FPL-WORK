@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Default fantasy league crest</title>
+  <desc id="description">A neutral navy and gold shield with a football and a star.</desc>
+  <defs>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14243d"/>
+      <stop offset="1" stop-color="#07101d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4dc83"/>
+      <stop offset="1" stop-color="#c39b35"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 15 224 51v70c0 62-38 102-96 124-58-22-96-62-96-124V51z" fill="url(#shield)" stroke="url(#gold)" stroke-width="8"/>
+  <path d="m128 38 8 16 18 3-13 13 3 18-16-9-16 9 3-18-13-13 18-3z" fill="url(#gold)"/>
+  <circle cx="128" cy="132" r="50" fill="#f7f9fc" stroke="url(#gold)" stroke-width="6"/>
+  <path d="m128 105 18 13-7 21h-22l-7-21z" fill="#14243d"/>
+  <path d="m128 105-4-20m22 33 19-7m-26 28 12 17m-34-17-12 17m5-38-19-7" fill="none" stroke="#14243d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M78 188h100" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M96 205h64" stroke="#f7f9fc" stroke-width="5" stroke-linecap="round" opacity=".88"/>
+</svg>

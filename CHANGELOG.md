@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Added a synchronized 667-player FPL media manifest and local transparent-PNG cache, with an official placeholder for players whose image is not yet published.
+- Added automatic player-photo resolution by stable FPL code and normalized name aliases in Gameweek Data and Gameweek Recap.
+- Added player autocomplete with full names, team abbreviations and stable-code selection so duplicate names cannot receive the wrong image.
+- Added a weekly/manual GitHub Action that refreshes the player image library without requiring local uploads.
 - Added guarded current-gameweek loading to Gameweek Data with designed success/error messages and `file://` fallbacks.
 - Added an eight-option pre-gameweek AI Stats selector that replaces Chip Usage with three or four chosen Data Stories, blocks a fifth selection, and supports restoring the original panel.
 - Enlarged Data Stories labels, subjects, descriptions and values for clearer poster and export readability.

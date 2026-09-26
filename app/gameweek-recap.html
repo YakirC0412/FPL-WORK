@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="../data/players/manifest.js"></script>
+  <script src="../assets/player-media.js"></script>
   <script src="../data/recaps/latest.js"></script>
   <script src="../data/recaps/status.js"></script>
   <style>
@@ -161,7 +163,8 @@
       border-left: 1px solid var(--app-line);
       background: rgba(12,16,24,.76);
     }
-    .editor-inner { position: sticky; top: 68px; max-height: calc(100vh - 68px); overflow: auto; }
+    .editor-inner { position: sticky; top: 68px; height: calc(100vh - 68px); max-height: calc(100vh - 68px); display: grid; grid-template-rows: auto minmax(0,1fr) auto; overflow: hidden; }
+    #editorFields { min-height: 0; overflow-y: auto; scrollbar-gutter: stable; }
     .editor-top { padding: 20px 20px 16px; border-bottom: 1px solid var(--app-line); }
     .editor-eyebrow { color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
     .editor-top h2 { margin: 7px 0 5px; font-size: 22px; }
@@ -186,7 +189,7 @@
     .fields { padding: 0 20px 18px; }
     .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .field-grid.three { grid-template-columns: 1fr 1fr 74px; }
-    .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; margin-top: 10px; }
+    .field { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; margin-top: 10px; }
     .field.full { grid-column: 1 / -1; }
     label { color: var(--app-muted); font-size: 10px; font-weight: 700; letter-spacing: .04em; }
     input, select {
@@ -201,6 +204,16 @@
       font-size: 12px;
     }
     input:focus, select:focus { border-color: rgba(var(--accent-rgb),.75); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.1); }
+    .upload-row .field-grid.three { grid-template-columns: minmax(130px,1fr) 68px 68px; }
+    .player-suggestions { position: absolute; z-index: 150; top: 100%; left: auto; right: 0; width: 180px; max-width: calc(100vw - 32px); max-height: 270px; overflow-x: hidden; overflow-y: auto; margin-top: 4px; padding: 5px; border: 1px solid rgba(var(--accent-rgb),.5); border-radius: 10px; background: #0b121d; box-shadow: 0 18px 40px rgba(0,0,0,.55); }
+    .player-suggestion { width: 100%; min-height: 48px; display: grid; grid-template-columns: 34px minmax(0,1fr) auto; align-items: center; gap: 9px; padding: 6px; border: 0; border-radius: 7px; color: var(--app-text); background: transparent; text-align: left; }
+    .player-suggestion:hover, .player-suggestion.active { background: rgba(var(--accent-rgb),.12); }
+    .player-suggestion img { width: 34px; height: 34px; object-fit: cover; object-position: top; border-radius: 50%; background: #182231; }
+    .player-suggestion-copy { min-width: 0; }
+    .player-suggestion-copy b, .player-suggestion-copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .player-suggestion-copy b { font-size: 10px; }
+    .player-suggestion-copy small { margin-top: 2px; color: var(--app-muted); font-size: 8px; }
+    .player-suggestion-team { min-width: 34px; padding: 4px 6px; border: 1px solid var(--app-line); border-radius: 5px; color: var(--accent); font-size: 8px; font-weight: 850; text-align: center; }
     input[type="color"] { padding: 4px; cursor: pointer; }
     input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
     input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 6px; }
@@ -287,7 +300,7 @@
     .load-result-card h3 { margin: 0; color: var(--app-text); font-family: "Archivo Black",Impact,sans-serif; font-size: 22px; line-height: 1.15; text-transform: uppercase; }
     .load-result-card p { max-width: 390px; margin: 10px auto 22px; color: var(--app-muted); font-size: 12px; line-height: 1.6; }
     .load-result-card .button { min-width: 150px; }
-    .editor-footer { position: sticky; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8px; padding: 13px 20px; border-top: 1px solid var(--app-line); background: rgba(9,13,20,.96); }
+    .editor-footer { position: static; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8px; padding: 13px 20px; border-top: 1px solid var(--app-line); background: #090d14; box-shadow: 0 -10px 24px rgba(0,0,0,.28); }
     .save-status { grid-column: 1 / -1; color: var(--app-muted); font-size: 10px; }
 
     /* Poster */
@@ -395,8 +408,8 @@
     .poster.layout-podium-first .poster-grid { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0,.72fr) minmax(0,1.34fr) minmax(0,.42fr) minmax(0,.58fr); grid-template-areas: "top4 top4" "xi xi" "data data" "chips spicy"; }
     .poster.layout-xi-focus .poster-grid { grid-template-columns: 36% 1fr; grid-template-rows: minmax(0,.8fr) minmax(0,.4fr) minmax(0,.37fr) minmax(0,.48fr); grid-template-areas: "top4 xi" "data xi" "chips xi" "chips spicy"; }
     .poster.layout-xi-focus .xi-panel { padding: 20px; }
-    .poster.layout-xi-focus .pitch { margin-top: 15px; padding: 20px 18px 16px; grid-template-rows: repeat(4,minmax(135px,1fr)); row-gap: 8px; }
-    .poster.layout-xi-focus .pitch-row { min-height: 135px; }
+    .poster.layout-xi-focus .pitch { margin-top: 15px; padding: 24px 18px 20px; grid-template-rows: repeat(4,max-content); align-content: space-between; row-gap: 18px; }
+    .poster.layout-xi-focus .pitch-row { min-height: 0; }
     .poster.layout-xi-focus .player { width: 92px; }
     .poster.layout-xi-focus .player-image-wrap { width: 60px; height: 60px; }
     .poster.layout-xi-focus .player-name { min-height: 0; margin-top: 4px; font-size: 12px; line-height: 1.08; }
@@ -618,7 +631,8 @@
       .workspace { grid-template-columns: 220px minmax(0,1fr); }
       .draft-sidebar { grid-row: 1 / 3; }
       .editor { grid-column: 2; border-left: 0; border-top: 1px solid var(--app-line); }
-      .editor-inner { position: static; max-height: none; }
+      .editor-inner { position: static; height: auto; max-height: none; display: block; overflow: visible; }
+      #editorFields { overflow: visible; }
       .preview-shell { padding: 20px; }
       .field-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       body.preview-minimized .workspace { grid-template-columns: 220px minmax(0,780px); }
@@ -776,7 +790,7 @@
     };
     const SPICY_COLORS = ["#caa84b", "#ff7185", "#5cc8ff"];
     const KNOWN_PHOTOS = {
-      "verbruggen":"../assets/players/Verbruggen.png","calafiori":"../assets/players/Calafiori.png","ajer":"../assets/players/Ajer.png","de cuyper":"../assets/players/De Cuyper.png","maguire":"../assets/players/Maguire.png","shaw":"../assets/players/Shaw.png","szoboszlai":"../assets/players/Szoboszlai.png","cherki":"../assets/players/Cherki.png","foden":"../assets/players/Foden.png","semenyo":"../assets/players/Semenyo.png","gross":"../assets/players/Groß.png","tzolis":"../assets/players/Tzolis.png","b fernandes":"../assets/players/B.Fernandes.png","mbeumo":"../assets/players/Mbeumo.png","calvert lewin":"../assets/players/Calvert Lewin.png","haaland":"../assets/players/Haaland.png","joao pedro":"../assets/players/Joao Pedro.png","palmer":"../assets/players/Palmer.png","sarr":"../assets/players/Sarr.png","isak":"../assets/players/Isak.png"
+      "verbruggen":"../assets/players/Verbruggen.png","calafiori":"../assets/players/Calafiori.png","ajer":"../assets/players/Ajer.png","de cuyper":"../assets/players/De Cuyper.png","maguire":"../assets/players/Maguire.png","shaw":"../assets/players/Shaw.png","szoboszlai":"../assets/players/Szoboszlai.png","cherki":"../assets/players/Cherki.png","foden":"../assets/players/Foden.png","semenyo":"../assets/players/Semenyo.png","gross":"../assets/players/Groß.png","tzolis":"../assets/players/Tzolis.png","b fernandes":"../assets/players/B.Fernandes.png","mbeumo":"../assets/players/Mbeumo.png","calvert lewin":"../assets/players/Calvert Lewin.png","haaland":"../assets/players/Haaland.png","joao pedro":"../assets/players/Joao Pedro.png","palmer":"../assets/players/Palmer.png","sarr":"../assets/players/Sarr.png","isak":"../assets/players/Isak.png","konsa":"../assets/players/Konsa.png"
     };
     const DEFAULT_STATE = {
       league: "FPL Champions League",
@@ -784,6 +798,7 @@
       gameweek: 1,
       palette: "champions",
       layout: "xi-focus",
+      layoutPreferenceSet: true,
       logoScale: 1,
       titleStyle: "editorial",
       subtitle: "OFFICIAL GAMEWEEK MEDIA RECAP",
@@ -875,6 +890,14 @@
         if (player.name && player.photo) photos[norm(player.name)] = player.photo;
       });
       return photos;
+    }
+
+    function resolvedPlayerPhoto(player) {
+      return window.FPLPlayerMedia?.photo(player?.name, player?.code)
+        || player?.photo
+        || KNOWN_PHOTOS[norm(player?.name)]
+        || window.FPLPlayerMedia?.photo(player?.name, player?.code, true)
+        || "";
     }
 
     function validateRecapSnapshot(payload) {
@@ -1031,7 +1054,7 @@
         const incoming = validateRecapSnapshot(payload);
         if (Number(incoming.gameweek) !== Number(syncStatus.gameweek)) throw new Error(`GW${syncStatus.gameweek} is marked ready, but its recap file is not available yet.`);
         const photos = currentPhotoMap();
-        const withPhoto = player => ({...player, photo:photos[norm(player.name)] || ""});
+        const withPhoto = player => ({...player, photo:window.FPLPlayerMedia?.photo(player.name,player.code) || photos[norm(player.name)] || window.FPLPlayerMedia?.photo(player.name,player.code,true) || ""});
         const xi = {GK:[],DEF:[],MID:[],FWD:[]};
         incoming.xi.forEach(player => { if (xi[player.position]) xi[player.position].push(withPhoto(player)); });
         const manualSpicy = state.aiSpicyActive && Array.isArray(state.manualSpicyBackup) ? clone(state.manualSpicyBackup) : clone(state.spicy);
@@ -1063,7 +1086,15 @@
       }
     }
     let state = (() => {
-      try { return Object.assign(clone(DEFAULT_STATE), JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")); }
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+        const merged = Object.assign(clone(DEFAULT_STATE), saved);
+        if (saved.layoutPreferenceSet !== true) {
+          merged.layout = "xi-focus";
+          merged.layoutPreferenceSet = true;
+        }
+        return merged;
+      }
       catch { return clone(DEFAULT_STATE); }
     })();
     state.logoScale = Math.max(.9, Math.min(1.5, Number(state.logoScale || 1)));
@@ -1093,10 +1124,68 @@
     const pct = value => Number(value || 0) % 1 ? Number(value).toFixed(1) : String(Number(value || 0));
     const storyAccent = (item,index) => validHex(item?.color) ? item.color : SPICY_COLORS[index] || SPICY_COLORS[0];
     const input = (label, path, value, type = "text", extra = "") => `<div class="field"><label>${label}</label><input data-path="${path}" type="${type}" value="${esc(value)}" ${extra}></div>`;
+    const playerInput = (label, path, item) => `<div class="field"><label>${label}</label><input data-path="${path}" data-player-path="${path}" type="text" value="${esc(item?.name || "")}" autocomplete="off" spellcheck="false"></div>`;
+
+    function bindPlayerAutocomplete() {
+      document.querySelectorAll("[data-player-path]").forEach(input => {
+        let active = -1;
+        let results = [];
+        const field = input.closest(".field");
+        const close = () => { field.querySelector(".player-suggestions")?.remove(); active = -1; };
+        const choose = index => {
+          const player = results[index];
+          if (!player) return;
+          const path = input.dataset.playerPath;
+          const item = getByPath(state,path.split(".").slice(0,-1).join("."));
+          item.name = player.webName;
+          item.code = player.code;
+          item.id = player.id;
+          item.photo = "";
+          input.value = player.webName;
+          const preview = input.closest(".upload-row")?.querySelector("img");
+          if (preview) preview.src = window.FPLPlayerMedia.photo(player.webName,player.code,true);
+          close();
+          update();
+          toast(`${player.webName} · ${player.teamShortName} selected`);
+        };
+        const draw = () => {
+          close();
+          results = window.FPLPlayerMedia?.search(input.value,8) || [];
+          if (!results.length) return;
+          const list = document.createElement("div");
+          list.className = "player-suggestions";
+          list.setAttribute("role","listbox");
+          list.innerHTML = results.map((player,index) => `<button type="button" class="player-suggestion" data-player-choice="${index}" role="option"><img src="${esc(window.FPLPlayerMedia.photo(player.webName,player.code,true))}" alt=""><span class="player-suggestion-copy"><b>${esc(player.webName)}</b><small>${esc(player.fullName)}</small></span><span class="player-suggestion-team">${esc(player.teamShortName || player.teamName || "—")}</span></button>`).join("");
+          field.appendChild(list);
+          list.querySelectorAll("[data-player-choice]").forEach(button => button.addEventListener("mousedown", event => { event.preventDefault(); choose(Number(button.dataset.playerChoice)); }));
+        };
+        input.addEventListener("input", () => {
+          const item = getByPath(state,input.dataset.playerPath.split(".").slice(0,-1).join("."));
+          if (item) { delete item.code; delete item.id; item.photo = ""; }
+          draw();
+        });
+        input.addEventListener("focus", draw);
+        input.addEventListener("keydown", event => {
+          const list = field.querySelector(".player-suggestions");
+          if (!list) return;
+          const buttons = [...list.querySelectorAll(".player-suggestion")];
+          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            active = (active + (event.key === "ArrowDown" ? 1 : -1) + buttons.length) % buttons.length;
+            buttons.forEach((button,index) => button.classList.toggle("active",index === active));
+            buttons[active]?.scrollIntoView({block:"nearest"});
+          } else if (event.key === "Enter" && active >= 0) {
+            event.preventDefault(); choose(active);
+          } else if (event.key === "Escape") close();
+        });
+        input.addEventListener("blur", () => setTimeout(close,120));
+      });
+    }
 
     function playerHTML(player) {
+      const photo = resolvedPlayerPhoto(player);
       return `<div class="player">
-        <div class="player-image-wrap">${player.photo?`<img src="${esc(player.photo)}" alt="">`:`<span class="player-placeholder">+</span>`}</div>
+        <div class="player-image-wrap">${photo?`<img src="${esc(photo)}" alt="">`:`<span class="player-placeholder">+</span>`}</div>
         <div class="player-name">${esc(player.name || "—")}</div>
         <div class="player-points">${esc(player.points)} PTS</div>
         <div class="player-owned">${pct(player.own)}% owned</div>
@@ -1124,7 +1213,7 @@
       const items = captainsMode ? state.captains : state.topPlayers;
       const title = captainsMode ? `CAPTAIN <span>RETURNS</span>` : `TOP <span>GAMEWEEK PLAYERS</span>`;
       const subtitle = captainsMode ? "Points shown already include the captain multiplier" : "The gameweek's highest-scoring players";
-      return `<div class="section-title display">${title}</div><div class="section-sub">${subtitle}</div><div class="performance-list count-${items.length}">${items.map(item => `<div class="performance-row">${item.photo?`<img src="${esc(item.photo)}" alt="">`:`<span class="performance-photo-placeholder">+</span>`}<div class="performance-copy"><div class="performance-name">${esc(item.name || "—")}</div><div class="performance-meta">${captainsMode ? `${pct(item.captainPct)}% captained` : `${pct(item.own)}% league ownership`}</div></div><div class="performance-score">${esc(item.points)}<small>PTS</small></div></div>`).join("")}</div>`;
+      return `<div class="section-title display">${title}</div><div class="section-sub">${subtitle}</div><div class="performance-list count-${items.length}">${items.map(item => {const photo=resolvedPlayerPhoto(item);return `<div class="performance-row">${photo?`<img src="${esc(photo)}" alt="">`:`<span class="performance-photo-placeholder">+</span>`}<div class="performance-copy"><div class="performance-name">${esc(item.name || "—")}</div><div class="performance-meta">${captainsMode ? `${pct(item.captainPct)}% captained` : `${pct(item.own)}% league ownership`}</div></div><div class="performance-score">${esc(item.points)}<small>PTS</small></div></div>`}).join("")}</div>`;
     }
 
     function podiumEntry(entry, ordinal) {
@@ -1209,7 +1298,7 @@
       const key = captainsMode ? "captains" : "topPlayers";
       const items = state[key];
       const minimum = captainsMode ? 1 : 3;
-      return `<div class="mini-label">Choose what this block shows</div><div class="mode-switch"><button class="mode-choice ${captainsMode?"active":""}" data-highlight-mode="captains">Captain returns</button><button class="mode-choice ${!captainsMode?"active":""}" data-highlight-mode="topPlayers">Top gameweek players</button></div><div class="mini-label" style="margin-top:12px">${captainsMode?"1–4 captain picks · default 3":"3–4 leading players"}</div>${items.map((item,index) => `<div class="mini-card"><div class="mini-label">${captainsMode?"Captain":"Player"} ${index+1}</div><div class="upload-row"><img src="${esc(item.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`${key}.${index}.name`,item.name)}${input(captainsMode?"Captain pts":"Pts",`${key}.${index}.points`,item.points,"number")}${captainsMode?input("Captain %",`${key}.${index}.captainPct`,item.captainPct,"number",'min="0" max="100" step="0.1"'):input("Owned %",`${key}.${index}.own`,item.own,"number",'step="0.1"')}</div></div><div class="performance-editor-actions"><button class="upload-button" data-performance-upload="${key}.${index}">Replace photo</button><input hidden id="performanceUpload-${key}-${index}" type="file" accept="image/*"><button class="upload-button danger-button" data-remove-performance="${key}.${index}" ${items.length<=minimum?"disabled":""}>Remove</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-performance="${key}" ${items.length>=4?"disabled":""}>+ Add ${captainsMode?"captain":"player"}</button>`;
+      return `<div class="mini-label">Choose what this block shows</div><div class="mode-switch"><button class="mode-choice ${captainsMode?"active":""}" data-highlight-mode="captains">Captain returns</button><button class="mode-choice ${!captainsMode?"active":""}" data-highlight-mode="topPlayers">Top gameweek players</button></div><div class="mini-label" style="margin-top:12px">${captainsMode?"1–4 captain picks · default 3":"3–4 leading players"}</div>${items.map((item,index) => `<div class="mini-card"><div class="mini-label">${captainsMode?"Captain":"Player"} ${index+1}</div><div class="upload-row"><img src="${esc(resolvedPlayerPhoto(item))}" alt=""><div class="field-grid three" style="flex:1">${playerInput("Name",`${key}.${index}.name`,item)}${input(captainsMode?"Captain pts":"Pts",`${key}.${index}.points`,item.points,"number")}${captainsMode?input("Captain %",`${key}.${index}.captainPct`,item.captainPct,"number",'min="0" max="100" step="0.1"'):input("Owned %",`${key}.${index}.own`,item.own,"number",'step="0.1"')}</div></div><div class="performance-editor-actions"><button class="upload-button" data-performance-upload="${key}.${index}">Replace photo</button><input hidden id="performanceUpload-${key}-${index}" type="file" accept="image/*"><button class="upload-button danger-button" data-remove-performance="${key}.${index}" ${items.length<=minimum?"disabled":""}>Remove</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-performance="${key}" ${items.length>=4?"disabled":""}>+ Add ${captainsMode?"captain":"player"}</button>`;
     }
 
     function renderEditor(openSection = "brand") {
@@ -1240,7 +1329,7 @@
         <details data-section="top4" ${openSection==="top4"?"open":""}><summary>The Top 4</summary><div class="fields"><div class="mini-label">Overall standings after the gameweek</div><div class="mini-label">Display style</div><div class="mode-switch" style="margin-top:10px"><button class="mode-choice ${state.podiumStyle!=="scoreboard"?"active":""}" data-podium-style="podium">Classic podium</button><button class="mode-choice ${state.podiumStyle==="scoreboard"?"active":""}" data-podium-style="scoreboard">Stair scoreboard</button></div>${state.top4.map((entry,index) => `<div class="mini-card"><div class="mini-label">Rank ${entry.rank}</div><div class="field-grid three">${input("Manager",`top4.${index}.manager`,entry.manager)}${input("Team",`top4.${index}.team`,entry.team)}${input("Total pts",`top4.${index}.points`,entry.points,"number")}</div></div>`).join("")}</div></details>
         <details data-section="xi" ${openSection==="xi"?"open":""}><summary>The League XI</summary><div class="fields">
           <div class="field"><label>Formation</label><select data-formation>${Object.keys(FORMATIONS).map(f => `<option ${f===state.formation?"selected":""}>${f}</option>`).join("")}</select></div>
-          ${["GK","DEF","MID","FWD"].map(position => { const count=position==="GK"?1:(FORMATIONS[state.formation]||FORMATIONS["3-4-3"])[position]; return (state.xi[position] || []).slice(0,count).map((player,index) => `<div class="mini-card"><div class="mini-label">${position} ${index+1}</div><div class="upload-row"><img src="${esc(player.photo)}" alt=""><div class="field-grid three" style="flex:1">${input("Name",`xi.${position}.${index}.name`,player.name)}${input("Owned %",`xi.${position}.${index}.own`,player.own,"number",'step="0.1"')}${input("Pts",`xi.${position}.${index}.points`,player.points,"number")}</div></div><button class="upload-button" style="margin-top:8px" data-player-upload="${position}.${index}">Replace photo</button><input hidden id="playerUpload-${position}-${index}" type="file" accept="image/*"></div>`).join("") }).join("")}
+          ${["GK","DEF","MID","FWD"].map(position => { const count=position==="GK"?1:(FORMATIONS[state.formation]||FORMATIONS["3-4-3"])[position]; return (state.xi[position] || []).slice(0,count).map((player,index) => `<div class="mini-card"><div class="mini-label">${position} ${index+1}</div><div class="upload-row"><img src="${esc(resolvedPlayerPhoto(player))}" alt=""><div class="field-grid three" style="flex:1">${playerInput("Name",`xi.${position}.${index}.name`,player)}${input("Owned %",`xi.${position}.${index}.own`,player.own,"number",'step="0.1"')}${input("Pts",`xi.${position}.${index}.points`,player.points,"number")}</div></div><button class="upload-button" style="margin-top:8px" data-player-upload="${position}.${index}">Replace photo</button><input hidden id="playerUpload-${position}-${index}" type="file" accept="image/*"></div>`).join("") }).join("")}
         </div></details>
         <details data-section="chips" ${openSection==="chips"?"open":""}><summary>Captain / Top Players</summary><div class="fields">${performanceEditorHTML()}</div></details>
         <details data-section="spicy" ${openSection==="spicy"?"open":""}><summary>Spicy Stats</summary><div class="fields"><div class="ai-stats-box"><strong>${state.aiSpicyActive?"AI stats are currently displayed":"Generate from synchronized FPL data"}</strong><p>Calculates verified storylines from the loaded gameweek. No values are invented, and your manual Spicy Stats are kept for restoration.</p><div class="ai-stats-actions"><button class="button primary" data-generate-ai-stats>GENERATE AI STATS</button>${state.aiSpicyActive&&state.manualSpicyBackup?'<button class="button" data-restore-spicy>Restore manual</button>':""}</div></div><div class="mini-label">Card design</div><div class="spicy-style-grid"><button class="spicy-style-choice ${state.spicyStyle==="spotlight"?"active":""}" data-spicy-style="spotlight"><b>01 Spotlight</b><small>Bright editorial tiles</small></button><button class="spicy-style-choice ${state.spicyStyle==="scoreboard"?"active":""}" data-spicy-style="scoreboard"><b>02 Scoreboard</b><small>Compact broadcast steps</small></button><button class="spicy-style-choice ${state.spicyStyle==="matchday"?"active":""}" data-spicy-style="matchday"><b>03 Matchday</b><small>Bold energetic cards</small></button></div><div class="mini-label">Up to 3 stories · default 2</div>${state.spicy.map((item,index) => `<div class="mini-card"><div class="mini-label">Story ${index+1}</div><div class="field-grid">${input("Title",`spicy.${index}.title`,item.title)}${input("Manager",`spicy.${index}.manager`,item.manager)}${input("Value",`spicy.${index}.points`,item.points,"number")}${input("Value label",`spicy.${index}.metricLabel`,item.metricLabel || "PTS","text",'maxlength="16"')}${input("Accent color",`spicy.${index}.color`,storyAccent(item,index),"color")}${input("Detail",`spicy.${index}.detail`,item.detail)}</div><div class="spicy-editor-actions"><button class="upload-button danger-button" data-remove-spicy="${index}">Remove stat</button></div></div>`).join("")}<button class="button" style="width:100%;margin-top:10px" data-add-spicy ${state.spicy.length>=3?"disabled":""}>+ Add Spicy Stat</button></div></details>`;
@@ -1455,8 +1544,9 @@
         if (path === "gameweek") document.querySelector(".editor-top h2").textContent = `Gameweek ${state.gameweek}`;
         update();
       }));
+      bindPlayerAutocomplete();
       document.querySelectorAll("[data-layout]").forEach(button => button.addEventListener("click", () => {
-        state.layout = button.dataset.layout; renderEditor(); update();
+        state.layout = button.dataset.layout; state.layoutPreferenceSet = true; renderEditor(); update();
       }));
       document.querySelectorAll("[data-title-style]").forEach(button => button.addEventListener("click", () => {
         state.titleStyle = button.dataset.titleStyle; renderEditor(); update();

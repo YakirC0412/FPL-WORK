@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" role="img" aria-labelledby="title">
+  <title id="title">Abstract lion watermark</title>
+  <g fill="none" stroke="#d2b354" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="15" d="M160 24 121 50 78 46 54 83 24 110l13 45-13 45 30 27 24 37 43-4 39 27 39-27 43 4 24-37 30-27-13-45 13-45-30-27-24-37-43 4z"/>
+    <path stroke-width="12" d="M101 116c15-28 41-42 59-42s44 14 59 42v70c0 61-27 104-59 122-32-18-59-61-59-122z"/>
+    <path stroke-width="11" d="M105 120 72 102m143 18 33-18M114 176l27-8m65 8-27-8m-47 60 28 18 28-18"/>
+    <path stroke-width="9" d="M160 134v78m-26-10 26 10 26-10M132 275c8 34 28 56 28 56s20-22 28-56"/>
+    <circle cx="128" cy="174" r="7" fill="#d2b354" stroke="none"/>
+    <circle cx="192" cy="174" r="7" fill="#d2b354" stroke="none"/>
+  </g>
+</svg>

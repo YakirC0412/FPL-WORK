@@ -109,6 +109,7 @@ function chooseLeagueXi(metadata, ownership, livePoints, participants) {
     if (!position) continue;
     byPosition[position].push({
       id: player.id,
+      code: player.code,
       name: player.web_name,
       position,
       owners: ownership.get(player.id) || 0,
@@ -134,6 +135,8 @@ function chooseLeagueXi(metadata, ownership, livePoints, participants) {
   return {
     formation: formation.name,
     players: players.map(player => ({
+      id: player.id,
+      code: player.code,
       position: player.position,
       name: player.name,
       own: percentage(player.owners, participants),
@@ -237,6 +240,8 @@ const captainData = [...captainCounts.entries()]
   .sort((a, b) => b.count - a.count || b.points - a.points || a.meta.web_name.localeCompare(b.meta.web_name))
   .slice(0, 3)
   .map(item => ({
+    id: item.id,
+    code: item.meta.code,
     name: item.meta.web_name,
     points: item.points * 2,
     captainPct: percentage(item.count, entries.length)
@@ -252,7 +257,7 @@ const topPlayers = [...metadata.values()]
   .filter(player => player.points > 0)
   .sort((a, b) => b.points - a.points || b.owners - a.owners || a.name.localeCompare(b.name))
   .slice(0, 3)
-  .map(player => ({ name: player.name, points: player.points, own: percentage(player.owners, entries.length) }));
+  .map(player => ({ id: player.id, code: metadata.get(player.id)?.code, name: player.name, points: player.points, own: percentage(player.owners, entries.length) }));
 
 const differentialPool = [...metadata.values()]
   .map(player => ({

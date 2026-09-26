@@ -25,6 +25,8 @@ Run locally with `node scripts/fpl/sync-gameweek-recap.mjs`. Add `--gameweek 3` 
 - **Top Gameweek Players:** the three highest-scoring FPL players, with ownership inside this league.
 - **Spicy Stats:** intentionally not generated. Existing editorial stories and styling are preserved when a snapshot is loaded.
 
+Player rows in League XI, Captain Returns and Top Gameweek Players contain stable FPL player codes. The Recap studio resolves their local transparent PNG automatically through the shared player manifest. An edited player name is also matched against normalized aliases.
+
 ## Privacy
 
 The published recap snapshot contains aggregated player data plus the manager and team display names needed for the podium and score-summary cards. It does not contain FPL entry IDs, the complete league roster, or any raw individual squad.

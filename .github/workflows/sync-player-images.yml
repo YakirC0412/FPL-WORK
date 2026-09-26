@@ -1,0 +1,44 @@
+name: Sync FPL Player Images
+
+on:
+  schedule:
+    - cron: "41 4 * * 2"
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Recheck and refresh existing player images"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Synchronize the FPL player image library
+        env:
+          FORCE_REFRESH: ${{ inputs.refresh && '1' || '0' }}
+        run: node scripts/fpl/sync-player-images.mjs
+
+      - name: Save player image updates
+        run: |
+          if [ -z "$(git status --porcelain -- assets/fpl-players data/players)" ]; then
+            echo "No player image changes to save."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/fpl-players data/players
+          git commit -m "Update FPL player image library"
+          git push
