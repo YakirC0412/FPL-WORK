@@ -1,6 +1,6 @@
 window.FPL_PLAYER_MEDIA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T09:28:27.176Z",
+  "generatedAt": "2026-09-29T10:52:43.949Z",
   "source": {
     "provider": "Fantasy Premier League public API and official player image CDN",
     "apiUrl": "https://fantasy.premierleague.com/api/bootstrap-static/",
@@ -5383,8 +5383,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/114283.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"b46071b41744adcdf5e0f3b56f3107fc\""
     },
     {
@@ -8545,8 +8545,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/438234.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"88a36fb9a0ae33bede1cdfa718ff3c85\""
     },
     {
@@ -9676,8 +9676,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/465920.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"39b18fc54d4161ee266148b6499cd975\""
     },
     {
@@ -11246,8 +11246,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/231065.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"6422b23410c5f061f5a4cf067571fa44\""
     },
     {
