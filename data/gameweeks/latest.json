@@ -3,64 +3,55 @@
   "source": {
     "provider": "Fantasy Premier League public API",
     "leagueId": 507749,
-    "syncedAt": "2026-09-24T09:20:03.214Z",
+    "syncedAt": "2026-10-10T12:42:08.242Z",
     "gameweekStatus": {
-      "finished": true,
-      "dataChecked": true,
-      "deadline": "2026-09-18T17:30:00Z"
+      "finished": false,
+      "dataChecked": false,
+      "deadline": "2026-10-10T10:00:00Z"
     },
     "privacy": "Aggregated data only. Manager IDs, manager names and the raw league roster are not stored."
   },
   "gameweekData": {
     "league": "FPL Champions League- IL",
-    "gameweek": 5,
+    "gameweek": 6,
     "participants": 60,
-    "formation": "3-4-3",
+    "formation": "3-5-2",
     "xi": [
       {
-        "id": 496,
-        "code": 485055,
+        "id": 1,
+        "code": 154561,
         "position": "GK",
-        "name": "Kinsky",
-        "own": 48.3,
-        "started": 29,
-        "owners": 29
+        "name": "Raya",
+        "own": 40,
+        "started": 24,
+        "owners": 24
       },
       {
         "id": 8,
         "code": 466075,
         "position": "DEF",
         "name": "Calafiori",
-        "own": 85,
-        "started": 50,
-        "owners": 51
+        "own": 96.7,
+        "started": 58,
+        "owners": 58
+      },
+      {
+        "id": 115,
+        "code": 465730,
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 46.7,
+        "started": 27,
+        "owners": 28
       },
       {
         "id": 31,
         "code": 199798,
         "position": "DEF",
         "name": "Konsa",
-        "own": 71.7,
-        "started": 37,
-        "owners": 43
-      },
-      {
-        "id": 391,
-        "code": 477424,
-        "position": "DEF",
-        "name": "Gvardiol",
-        "own": 26.7,
-        "started": 16,
-        "owners": 16
-      },
-      {
-        "id": 154,
-        "code": 244851,
-        "position": "MID",
-        "name": "Palmer",
-        "own": 66.7,
-        "started": 40,
-        "owners": 40
+        "own": 58.3,
+        "started": 23,
+        "owners": 35
       },
       {
         "id": 480,
@@ -72,49 +63,58 @@
         "owners": 37
       },
       {
+        "id": 154,
+        "code": 244851,
+        "position": "MID",
+        "name": "Palmer",
+        "own": 60,
+        "started": 36,
+        "owners": 36
+      },
+      {
         "id": 40,
         "code": 244850,
         "position": "MID",
         "name": "Rogers",
-        "own": 48.3,
-        "started": 29,
-        "owners": 29
+        "own": 56.7,
+        "started": 34,
+        "owners": 34
       },
       {
-        "id": 368,
-        "code": 424876,
+        "id": 124,
+        "code": 60307,
         "position": "MID",
-        "name": "Szoboszlai",
-        "own": 35,
-        "started": 21,
-        "owners": 21
+        "name": "Groß",
+        "own": 55,
+        "started": 32,
+        "owners": 33
+      },
+      {
+        "id": 12,
+        "code": 223340,
+        "position": "MID",
+        "name": "Saka",
+        "own": 36.7,
+        "started": 22,
+        "owners": 22
       },
       {
         "id": 411,
         "code": 223094,
         "position": "FWD",
         "name": "Haaland",
-        "own": 95,
-        "started": 57,
-        "owners": 57
+        "own": 98.3,
+        "started": 58,
+        "owners": 59
       },
       {
-        "id": 346,
-        "code": 177815,
+        "id": 165,
+        "code": 475168,
         "position": "FWD",
-        "name": "Calvert-Lewin",
-        "own": 40,
-        "started": 24,
-        "owners": 24
-      },
-      {
-        "id": 379,
-        "code": 219168,
-        "position": "FWD",
-        "name": "Isak",
-        "own": 30,
-        "started": 18,
-        "owners": 18
+        "name": "João Pedro",
+        "own": 83.3,
+        "started": 46,
+        "owners": 50
       }
     ],
     "captains": [
@@ -122,75 +122,85 @@
         "id": 411,
         "code": 223094,
         "name": "Haaland",
-        "pct": 93.3
+        "pct": 28.3
+      },
+      {
+        "id": 154,
+        "code": 244851,
+        "name": "Palmer",
+        "pct": 21.7
+      },
+      {
+        "id": 12,
+        "code": 223340,
+        "name": "Saka",
+        "pct": 21.7
       },
       {
         "id": 426,
         "code": 141746,
         "name": "B.Fernandes",
-        "pct": 3.3
+        "pct": 11.7
       },
       {
-        "id": 480,
-        "code": 222531,
-        "name": "Gibbs-White",
-        "pct": 3.3
+        "name": "Other",
+        "pct": 16.7
       }
     ],
     "transfersIn": [
       {
-        "id": 480,
-        "code": 222531,
-        "name": "Gibbs-White",
-        "moved": 22,
-        "owners": 37
+        "id": 569,
+        "code": 551466,
+        "name": "Gonzalo",
+        "moved": 21,
+        "owners": 19
+      },
+      {
+        "id": 268,
+        "code": 577725,
+        "name": "King",
+        "moved": 20,
+        "owners": 15
+      },
+      {
+        "id": 12,
+        "code": 223340,
+        "name": "Saka",
+        "moved": 16,
+        "owners": 22
+      }
+    ],
+    "transfersOut": [
+      {
+        "id": 379,
+        "code": 219168,
+        "name": "Isak",
+        "moved": 15,
+        "owners": 4
       },
       {
         "id": 31,
         "code": 199798,
         "name": "Konsa",
-        "moved": 11,
-        "owners": 43
-      },
-      {
-        "id": 40,
-        "code": 244850,
-        "name": "Rogers",
-        "moved": 8,
-        "owners": 29
-      }
-    ],
-    "transfersOut": [
-      {
-        "id": 165,
-        "code": 475168,
-        "name": "João Pedro",
-        "moved": 12,
-        "owners": 45
+        "moved": 14,
+        "owners": 35
       },
       {
         "id": 557,
         "code": 439509,
         "name": "Tzolis",
-        "moved": 8,
-        "owners": 15
-      },
-      {
-        "id": 398,
-        "code": 209244,
-        "name": "Foden",
-        "moved": 8,
-        "owners": 0
+        "moved": 14,
+        "owners": 2
       }
     ],
     "chips": [
       {
         "name": "Wildcard",
-        "pct": 10
+        "pct": 21.7
       },
       {
         "name": "Free Hit",
-        "pct": 5
+        "pct": 1.7
       },
       {
         "name": "Triple Captain",
@@ -206,50 +216,50 @@
         "id": 411,
         "code": 223094,
         "name": "Haaland",
-        "pct": 188.3
+        "pct": 125
       },
       {
         "id": 8,
         "code": 466075,
         "name": "Calafiori",
-        "pct": 83.3
+        "pct": 96.7
       },
       {
         "id": 154,
         "code": 244851,
         "name": "Palmer",
-        "pct": 66.7
+        "pct": 81.7
+      },
+      {
+        "id": 165,
+        "code": 475168,
+        "name": "João Pedro",
+        "pct": 78.3
       },
       {
         "id": 480,
         "code": 222531,
         "name": "Gibbs-White",
         "pct": 65
-      },
-      {
-        "id": 31,
-        "code": 199798,
-        "name": "Konsa",
-        "pct": 61.7
       }
     ],
     "aiInsights": [
       {
         "type": "differential",
         "title": "DIFFERENTIAL RADAR",
-        "subject": "Dewsbury-Hall",
+        "subject": "Maguire",
         "value": 4,
         "metricLabel": "STARTS",
-        "detail": "6.7% owned · 4 managers own him",
+        "detail": "8.3% owned · 5 managers own him",
         "color": "#5cc8ff"
       },
       {
         "type": "hits",
         "title": "HIT PARADE",
         "subject": "League transfer cost",
-        "value": 4,
+        "value": 3,
         "metricLabel": "MANAGERS",
-        "detail": "16 points spent on hits before the deadline",
+        "detail": "76 points spent on hits before the deadline",
         "color": "#ff7185"
       },
       {
@@ -258,32 +268,32 @@
         "subject": "Haaland",
         "value": 10,
         "metricLabel": "OF TOP 10",
-        "detail": "95% ownership across the full league",
+        "detail": "98.3% ownership across the full league",
         "color": "#caa84b"
       },
       {
         "type": "bench-risk",
         "title": "BENCH RISK",
-        "subject": "João Pedro",
-        "value": 45,
+        "subject": "Kinsky",
+        "value": 14,
         "metricLabel": "BENCHED",
-        "detail": "0 started out of 45 owners",
+        "detail": "8 started out of 22 owners",
         "color": "#ff9f45"
       },
       {
         "type": "elite-bias",
         "title": "ELITE BIAS",
-        "subject": "Groß",
-        "value": 26.7,
+        "subject": "Palmer",
+        "value": 20,
         "metricLabel": "PP GAP",
-        "detail": "60% owned in the top 10 vs 33.3% league-wide",
+        "detail": "80% owned in the top 10 vs 60% league-wide",
         "color": "#9b7cff"
       },
       {
         "type": "template-core",
         "title": "TEMPLATE CORE",
         "subject": "Highly owned players",
-        "value": 7,
+        "value": 8,
         "metricLabel": "PLAYERS",
         "detail": "Owned by at least half of the league",
         "color": "#48d891"
@@ -291,19 +301,19 @@
       {
         "type": "formation",
         "title": "FORMATION FAVOURITE",
-        "subject": "4-4-2",
-        "value": 29,
+        "subject": "3-4-3",
+        "value": 31,
         "metricLabel": "MANAGERS",
-        "detail": "48.3% of the league started this shape",
+        "detail": "51.7% of the league started this shape",
         "color": "#58c7ff"
       },
       {
         "type": "transfer-activity",
         "title": "TRANSFER ACTIVITY",
         "subject": "Moves before deadline",
-        "value": 45,
+        "value": 38,
         "metricLabel": "MANAGERS",
-        "detail": "202 total transfers across the league",
+        "detail": "353 total transfers across the league",
         "color": "#aeb9c9"
       }
     ]
