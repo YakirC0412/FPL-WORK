@@ -14,7 +14,7 @@ Supported formations are `3-4-3`, `3-5-2`, `4-3-3`, `4-4-2`, `4-5-1` and `5-3-2`
 
 Columns: `Position`, `Player`, `Ownership %`, `Started By`, `Owners`.
 
-`Position` must be `GK`, `DEF`, `MID` or `FWD`. The importer reads at most 11 players. `Started By / Owners` represents how many managers started the player out of all managers who own him. Images are assigned separately.
+`Position` must be `GK`, `DEF`, `MID` or `FWD`. The importer reads at most 11 players. `Started By / Owners` represents how many managers started the player out of all managers who own him. Player images are matched automatically from the synchronized FPL player library.
 
 ## Captains
 
@@ -40,4 +40,4 @@ Columns: `Player`, `EO %`. The five highest EO rows are displayed in descending 
 
 ## Validation behavior
 
-The importer warns when the formation is unknown, the XI does not contain 11 players, captain shares do not total approximately 100%, or fewer than five EO players are supplied. Missing player images must be assigned manually after import.
+The importer warns when the formation is unknown, the XI does not contain 11 players, captain shares do not total approximately 100%, or fewer than five EO players are supplied. When a player name is ambiguous, choose the correct player and club from the editor autocomplete after import so the stable FPL player code is stored.

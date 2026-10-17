@@ -2,7 +2,7 @@
 
 ## Scope
 
-This integration is intentionally limited to the Gameweek Data studio. It reads public, post-deadline FPL data for classic league `507749` and generates an aggregated JSON snapshot.
+The scheduled snapshot integration is intentionally limited to the Gameweek Data studio. It reads public, post-deadline FPL data for classic league `507749` and generates an aggregated JSON snapshot. Gameweek Data V2 additionally supports live loading of other public classic leagues through the separate read-only proxy described in `LIVE_LEAGUE_API.md`.
 
 No API key, FPL password or authenticated cookie is used. Raw manager names, entry IDs and the full league roster are never written to disk.
 
@@ -51,3 +51,4 @@ The top-10 calculations use only aggregate player counts from the ten highest-ra
 - The FPL endpoints are public but undocumented and may change between seasons.
 - Player rows include the stable FPL player code. Gameweek Data resolves photos automatically through `data/players/manifest.js`, with legacy or manually uploaded images retained only as fallbacks.
 - The Excel import remains available as a fallback and correction path.
+- Live V2 loading supports public classic leagues with up to 1,000 managers. Larger global leagues are rejected before manager picks and transfers are requested.

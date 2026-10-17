@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Added Firebase Google sign-in and named Guest access to the Gameweek Data V2 welcome flow while keeping drafts local to the browser.
+- Added live Gameweek Data aggregation for public classic-league IDs up to 1,000 managers, with larger global leagues rejected before expensive manager-data requests.
+- Added portable single-draft and all-drafts JSON downloads plus restore support for either JSON format; no draft database is used.
+- Added the separate Gameweek Recap V2 route with Google/Guest entry, live final-gameweek aggregation for public leagues up to 1,000 managers, progress/error states, and Local Storage plus portable JSON drafts. Gameweek Data V2 can now hand the selected league directly to Summary V2.
+- Recap V2 now verifies completed fixtures and published rankings when FPL's `finished` and `data_checked` event flags are delayed, preventing completed gameweeks such as GW6 from being rejected incorrectly.
+- Unified the V2 entry flow so login, league loading and the Data/Summary product choice happen once. Summary now opens directly from that shared home, uses the same five palettes and slide-out draft drawer as Gameweek Data, and shows a Spicy Stats skeleton until the user explicitly generates and selects the stories.
+- Kept league `507749`'s bundled snapshot as an offline fallback when the live proxy is unavailable.
 - Added a synchronized 667-player FPL media manifest and local transparent-PNG cache, with an official placeholder for players whose image is not yet published.
 - Added automatic player-photo resolution by stable FPL code and normalized name aliases in Gameweek Data and Gameweek Recap.
 - Added player autocomplete with full names, team abbreviations and stable-code selection so duplicate names cannot receive the wrong image.
