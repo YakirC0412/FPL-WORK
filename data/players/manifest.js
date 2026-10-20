@@ -1,12 +1,12 @@
 window.FPL_PLAYER_MEDIA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T12:07:36.758Z",
+  "generatedAt": "2026-10-20T09:36:13.858Z",
   "source": {
     "provider": "Fantasy Premier League public API and official player image CDN",
     "apiUrl": "https://fantasy.premierleague.com/api/bootstrap-static/",
     "imageBaseUrl": "https://resources.premierleague.com/premierleague25/photos/players/110x140"
   },
-  "count": 667,
+  "count": 668,
   "players": [
     {
       "id": 350,
@@ -3087,7 +3087,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/440089.png",
       "imageAvailable": true,
-      "etag": "\"1d415f2a8e7f570bab49f292a09df2c0\""
+      "etag": "\"063363e7acfb84cf0f51660c5ca0b567\""
     },
     {
       "id": 382,
@@ -5383,8 +5383,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/114283.png",
+      "imageAvailable": true,
       "etag": "\"b46071b41744adcdf5e0f3b56f3107fc\""
     },
     {
@@ -8545,8 +8545,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/438234.png",
+      "imageAvailable": true,
       "etag": "\"88a36fb9a0ae33bede1cdfa718ff3c85\""
     },
     {
@@ -9676,8 +9676,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/465920.png",
+      "imageAvailable": true,
       "etag": "\"39b18fc54d4161ee266148b6499cd975\""
     },
     {
@@ -11246,8 +11246,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/231065.png",
+      "imageAvailable": true,
       "etag": "\"6422b23410c5f061f5a4cf067571fa44\""
     },
     {
@@ -13572,6 +13572,28 @@ window.FPL_PLAYER_MEDIA = {
       "image": "assets/fpl-players/214285.png",
       "imageAvailable": true,
       "etag": "\"536bc87667a1f790dd416f28ba264346\""
+    },
+    {
+      "id": 668,
+      "code": 604211,
+      "firstName": "Tymur",
+      "secondName": "Tutierov",
+      "fullName": "Tymur Tutierov",
+      "webName": "Tutierov",
+      "aliases": [
+        "Tutierov",
+        "Tymur Tutierov",
+        "Tymur",
+        "T Tutierov",
+        "T.Tutierov"
+      ],
+      "teamId": 20,
+      "teamName": "Sunderland",
+      "teamShortName": "SUN",
+      "temporaryCode": false,
+      "image": "assets/fpl-players/604211.png",
+      "imageAvailable": true,
+      "etag": "\"0b0db475dc898274f9bad221869c1d95\""
     },
     {
       "id": 137,
