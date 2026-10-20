@@ -1,8 +1,8 @@
 window.FPL_RECAP_STATUS = {
   "leagueId": 507749,
   "gameweek": 7,
-  "ready": false,
-  "finished": false,
-  "dataChecked": false,
-  "message": "Gameweek 7 is not final yet. FPL finished=false, data_checked=false."
+  "ready": true,
+  "finished": true,
+  "dataChecked": true,
+  "message": "Gameweek 7 final recap is ready."
 };
