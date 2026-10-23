@@ -1,7 +1,7 @@
 window.FPL_GAMEWEEK_STATUS = {
   "leagueId": 507749,
-  "gameweek": 7,
+  "gameweek": 8,
   "ready": true,
   "deadlinePassed": true,
-  "message": "Gameweek 7 post-deadline data is ready."
+  "message": "Gameweek 8 post-deadline data is ready."
 };
