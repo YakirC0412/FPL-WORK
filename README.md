@@ -4,7 +4,7 @@ A portable, browser-based studio for creating weekly Fantasy Premier League grap
 
 ## Available studios
 
-- **Gameweek Data** — post-deadline League XI, captaincy, transfers, chip usage and effective ownership. Supports guarded current-gameweek loading, selectable data-driven stories and Excel as a fallback.
+- **Gameweek Data** — post-deadline League XI, captaincy, transfers, conditional chip usage and effective ownership. Supports guarded current-gameweek loading, a dedicated selectable Data Stories panel and Excel as a fallback. Non-zero chip usage appears as a compact line beneath Popular Transfers and stays hidden when every chip is unused.
 - **Gameweek Recap** — final-gameweek podium, League XI, captain returns, scorecards and standout stories. Supports synchronized FPL league results while keeping Spicy Stats editorial.
 - **Top 3 Differentials** — three ranked low-owned recommendations, editorial reasoning and last-gameweek statistics.
 
