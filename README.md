@@ -8,9 +8,11 @@ A portable, browser-based studio for creating weekly Fantasy Premier League grap
 - **Gameweek Recap** — final-gameweek podium, League XI, captain returns, scorecards and standout stories. Supports synchronized FPL league results while keeping Spicy Stats editorial.
 - **Top 3 Differentials** — three ranked low-owned recommendations, editorial reasoning and last-gameweek statistics.
 
-## Gameweek Data V2 development route
+## Public studio and admin legacy routes
 
-The existing Gameweek Data and Gameweek Recap studios remain available at `app/gameweek-data.html` and `app/gameweek-recap.html`. Public-release work is developed separately at `app/gameweek-data-v2.html` and `app/gameweek-recap-v2.html`, so the private legacy editors and their saved browser drafts remain unchanged. The V2 entry flow can load any supported public classic-league ID with up to 1,000 managers through the live read-only proxy, then opens either Gameweek Data or the completed-gameweek Summary editor. Summary V2 accepts FPL's official final flags or independently confirms that every fixture is finished and ranked results are available; this avoids false negatives when FPL updates its event flags late. On desktop, the official Excel workbook remains an explained Gameweek Data fallback; Excel controls are hidden on mobile. Local and Cloudflare deployment instructions for the live loader are in `docs/LIVE_LEAGUE_API.md`.
+V2 is the current public product. The root `index.html` redirects to the V2 homepage at `app/gameweek-data-v2.html`, which handles sign-in, league loading and the choice between Gameweek Data and Gameweek Summary. The former V1 editors remain available only through their direct admin URLs at `app/gameweek-data.html` and `app/gameweek-recap.html`; they are not linked from the public interface and are marked `noindex`. Because this is a static site, those admin routes are hidden rather than password-protected.
+
+The V2 entry flow can load any supported public classic-league ID with up to 1,000 managers through the live read-only proxy, then opens either Gameweek Data or the completed-gameweek Summary editor. Summary V2 accepts FPL's official final flags or independently confirms that every fixture is finished and ranked results are available; this avoids false negatives when FPL updates its event flags late. On desktop, the official Excel workbook remains an explained Gameweek Data fallback; Excel controls are hidden on mobile. Local and Cloudflare deployment instructions for the live loader are in `docs/LIVE_LEAGUE_API.md`.
 
 V2 mobile export renders the same 3240 × 4050 PNG as desktop, then offers the phone's native share sheet when file sharing is supported or a standard PNG download when it is not.
 
@@ -22,7 +24,7 @@ Gameweek Data and Gameweek Recap use an automatically synchronized FPL player-im
 
 ### Published website
 
-Open [FPL Champions League Studio on GitHub Pages](https://yakirc0412.github.io/FPL-WORK/). The root `index.html` is the only official entry point.
+Open the single official link: [FPL League Graphics Studio Homepage](https://yakirc0412.github.io/FPL-WORK/). It automatically opens the current V2 homepage.
 
 ### Windows local mode
 

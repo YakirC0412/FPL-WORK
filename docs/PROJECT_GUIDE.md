@@ -6,9 +6,11 @@ FPL Champions League Studio creates consistent weekly graphics for a private Fan
 
 ## Official entry point
 
-`index.html` is the home page and the only official entry point. It links to all three studios inside `app/`.
+`index.html` is the only official public entry point. It redirects to `app/gameweek-data-v2.html`, which contains the V2 homepage, authorization, league loader and tool chooser for Gameweek Data and Gameweek Summary.
 
-The three historical `*_Mockup_v1.html` files in the repository root are compatibility redirects. They preserve existing bookmarks and published GitHub Pages links but contain no application logic.
+The V1 editors at `app/gameweek-data.html` and `app/gameweek-recap.html` are admin legacy routes. They remain available through direct URLs for the owner, but are excluded from public navigation and marked `noindex`. This is route separation, not access control; static hosting does not make those files private.
+
+The three historical `*_Mockup_v1.html` files in the repository root are compatibility redirects. The Gameweek Data and Recap bookmarks now forward to the public V2 homepage; the files contain no application logic. The V1 editors themselves remain available only through their direct `app/` admin routes.
 
 ## Folder map
 
@@ -33,7 +35,7 @@ The three historical `*_Mockup_v1.html` files in the repository root are compati
 
 ## Applications
 
-### Gameweek Data
+### Gameweek Data V1 — admin legacy
 
 File: `app/gameweek-data.html`
 
@@ -45,7 +47,7 @@ The synchronization logic is in `scripts/fpl/sync-gameweek-data.mjs`, the public
 
 File: `app/gameweek-data-v2.html`
 
-The public-release redesign is developed on separate V2 routes and is intentionally not linked from `index.html` while it is under development. The legacy Gameweek Data and Gameweek Recap applications remain unchanged. V2 uses separate Local Storage keys, so its working state and saved drafts cannot overwrite either legacy editor. Player images in Data V2 are supplied only by the synchronized FPL image library; the public editor does not expose player-photo upload or replacement controls. League branding starts with a neutral studio crest, while Brand & Setup lets the user keep that default or upload a custom PNG, JPG or WebP league logo. The V2 home opens with the FPL League Graphics Studio overview and walkthrough. The League ID starts empty. A progress transition runs after the ID is submitted. Desktop users can instead expand a secondary Excel fallback for Gameweek Data; Excel controls are intentionally unavailable on mobile. After loading succeeds, one product chooser opens Gameweek Data or passes the selected league directly into `app/gameweek-recap-v2.html`; Summary does not ask the user to repeat login or league entry. Guest identity is retained for the current browser tab and Google sessions remain persistent. Both V2 tools accept public classic leagues with up to 1,000 managers and reject larger global leagues before manager-level requests. Summary uses the same five palettes and slide-out draft drawer as Gameweek Data. Its Spicy Stats panel remains a loading skeleton until the user generates and selects three verified stories. A tightly restricted read-only proxy supplies browser CORS headers; aggregation happens in the visitor's browser and raw manager data is not persisted. See `docs/LIVE_LEAGUE_API.md`.
+V2 is the primary public application and the destination of `index.html`. It uses separate Local Storage keys, so its working state and saved drafts cannot overwrite either legacy editor. Player images in Data V2 are supplied only by the synchronized FPL image library; the public editor does not expose player-photo upload or replacement controls. League branding starts with a neutral studio crest, while Brand & Setup lets the user keep that default or upload a custom PNG, JPG or WebP league logo. The V2 home opens with the FPL League Graphics Studio overview and walkthrough. The League ID starts empty. A progress transition runs after the ID is submitted. Desktop users can instead expand a secondary Excel fallback for Gameweek Data; Excel controls are intentionally unavailable on mobile. After loading succeeds, one product chooser opens Gameweek Data or passes the selected league directly into `app/gameweek-recap-v2.html`; Summary does not ask the user to repeat login or league entry. Guest identity is retained for the current browser tab and Google sessions remain persistent. Both V2 tools accept public classic leagues with up to 1,000 managers and reject larger global leagues before manager-level requests. Summary uses the same five palettes and slide-out draft drawer as Gameweek Data. Its Spicy Stats panel remains a loading skeleton until the user generates and selects three verified stories. A tightly restricted read-only proxy supplies browser CORS headers; aggregation happens in the visitor's browser and raw manager data is not persisted. See `docs/LIVE_LEAGUE_API.md`.
 
 The landing-page title is intentionally placed outside the bordered workflow card and uses a matchday-style two-part treatment so the studio identity remains visually separate from the loading controls.
 
@@ -59,7 +61,7 @@ V2 keeps the studio title, product summary and animated walkthrough visible befo
 
 For deterministic pre-deadline QA, open V2 with `?qa=no-gameweek`. After guest or Google access, submitting any valid numeric League ID runs the loading presentation and then returns the styled `Gameweek is not ready` response. This test mode does not replace or edit the synchronized snapshot files.
 
-### Gameweek Recap
+### Gameweek Recap V1 — admin legacy
 
 File: `app/gameweek-recap.html`
 
