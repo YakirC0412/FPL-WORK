@@ -3,96 +3,104 @@ window.FPL_RECAP_SNAPSHOT = {
   "source": {
     "provider": "Fantasy Premier League public API",
     "leagueId": 507749,
-    "syncedAt": "2026-10-20T17:01:30.674Z",
+    "syncedAt": "2026-10-26T19:56:19.715Z",
     "gameweekStatus": {
       "finished": true,
       "dataChecked": true,
-      "deadline": "2026-10-17T10:00:00Z"
+      "deadline": "2026-10-23T17:30:00Z"
     },
     "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs, raw squads and individual transfer histories are not stored."
   },
   "recapData": {
     "league": "FPL Champions League- IL",
-    "gameweek": 7,
+    "gameweek": 8,
     "participants": 60,
-    "average": 72.5,
+    "average": 47.7,
     "topPoints": {
-      "manager": "-hadar hason--",
-      "team": "HPT HASON",
-      "points": 93
+      "manager": "Vadim G.",
+      "team": "Wernerite",
+      "points": 64
     },
     "lowestPoints": {
-      "manager": "Shai Saadon",
-      "team": "Shai's Team",
-      "points": 53
+      "manager": "Oz Uzan",
+      "team": "Morinioz",
+      "points": 26
     },
     "top4": [
       {
         "rank": 1,
-        "manager": "Oded Rasiel",
-        "team": "Oded's Team",
-        "points": 546
+        "manager": "-hadar hason--",
+        "team": "HPT HASON",
+        "points": 583
       },
       {
         "rank": 2,
-        "manager": "EYAL Karchmer",
-        "team": "Khalaili and Hass",
-        "points": 537
+        "manager": "Oded Rasiel",
+        "team": "Oded's Team",
+        "points": 582
       },
       {
         "rank": 3,
-        "manager": "-hadar hason--",
-        "team": "HPT HASON",
-        "points": 532
+        "manager": "Nir Schachter",
+        "team": "FC TinkerBelle",
+        "points": 580
       },
       {
         "rank": 4,
-        "manager": "lavi mizrahi",
-        "team": "mizrahi 11",
-        "points": 532
+        "manager": "Bar Shitrit",
+        "team": "Bar FC",
+        "points": 578
       }
     ],
-    "formation": "3-5-2",
+    "formation": "3-4-3",
     "xi": [
       {
-        "id": 109,
-        "code": 489639,
+        "id": 1,
+        "code": 154561,
         "position": "GK",
-        "name": "Verbruggen",
-        "own": 41.7,
-        "points": 6
+        "name": "Raya",
+        "own": 48.3,
+        "points": 7
       },
       {
         "id": 8,
         "code": 466075,
         "position": "DEF",
         "name": "Calafiori",
-        "own": 93.3,
-        "points": 6
-      },
-      {
-        "id": 115,
-        "code": 465730,
-        "position": "DEF",
-        "name": "De Cuyper",
-        "own": 61.7,
-        "points": 6
+        "own": 95,
+        "points": 1
       },
       {
         "id": 31,
         "code": 199798,
         "position": "DEF",
         "name": "Konsa",
-        "own": 58.3,
-        "points": 9
+        "own": 63.3,
+        "points": 14
+      },
+      {
+        "id": 115,
+        "code": 465730,
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 60,
+        "points": 1
       },
       {
         "id": 40,
         "code": 244850,
         "position": "MID",
         "name": "Rogers",
-        "own": 65,
-        "points": 2
+        "own": 73.3,
+        "points": 1
+      },
+      {
+        "id": 154,
+        "code": 244851,
+        "position": "MID",
+        "name": "Palmer",
+        "own": 73.3,
+        "points": -1
       },
       {
         "id": 124,
@@ -100,46 +108,38 @@ window.FPL_RECAP_SNAPSHOT = {
         "position": "MID",
         "name": "Groß",
         "own": 61.7,
-        "points": 5
-      },
-      {
-        "id": 154,
-        "code": 244851,
-        "position": "MID",
-        "name": "Palmer",
-        "own": 60,
-        "points": 2
-      },
-      {
-        "id": 12,
-        "code": 223340,
-        "position": "MID",
-        "name": "Saka",
-        "own": 46.7,
-        "points": 3
+        "points": 0
       },
       {
         "id": 480,
         "code": 222531,
         "position": "MID",
         "name": "Gibbs-White",
-        "own": 43.3,
-        "points": 0
+        "own": 50,
+        "points": 2
       },
       {
         "id": 411,
         "code": 223094,
         "position": "FWD",
         "name": "Haaland",
-        "own": 100,
-        "points": 13
+        "own": 98.3,
+        "points": 8
       },
       {
         "id": 165,
         "code": 475168,
         "position": "FWD",
         "name": "João Pedro",
-        "own": 91.7,
+        "own": 95,
+        "points": 0
+      },
+      {
+        "id": 346,
+        "code": 177815,
+        "position": "FWD",
+        "name": "Calvert-Lewin",
+        "own": 36.7,
         "points": 2
       }
     ],
@@ -148,29 +148,43 @@ window.FPL_RECAP_SNAPSHOT = {
         "id": 411,
         "code": 223094,
         "name": "Haaland",
-        "points": 26,
-        "captainPct": 100
+        "points": 16,
+        "captainPct": 71.7
+      },
+      {
+        "id": 154,
+        "code": 244851,
+        "name": "Palmer",
+        "points": -2,
+        "captainPct": 15
+      },
+      {
+        "id": 165,
+        "code": 475168,
+        "name": "João Pedro",
+        "points": 0,
+        "captainPct": 10
       }
     ],
     "topPlayers": [
       {
-        "id": 156,
-        "code": 247632,
-        "name": "Neto",
-        "points": 15,
-        "own": 0
+        "id": 4,
+        "code": 226597,
+        "name": "Gabriel",
+        "points": 17,
+        "own": 8.3
       },
       {
-        "id": 411,
-        "code": 223094,
-        "name": "Haaland",
-        "points": 13,
-        "own": 100
+        "id": 31,
+        "code": 199798,
+        "name": "Konsa",
+        "points": 14,
+        "own": 63.3
       },
       {
-        "id": 129,
-        "code": 509416,
-        "name": "Ayari",
+        "id": 166,
+        "code": 517052,
+        "name": "N.Jackson",
         "points": 13,
         "own": 0
       }
@@ -179,74 +193,74 @@ window.FPL_RECAP_SNAPSHOT = {
       {
         "type": "comeback",
         "title": "COMEBACK KID",
-        "manager": "Israel Hamo",
-        "points": 16,
+        "manager": "H F",
+        "points": 17,
         "metricLabel": "PLACES UP",
-        "detail": "Morning Flori · climbed from #47 to #31",
+        "detail": "Spartak Carmel · climbed from #47 to #30",
         "color": "#48d891"
       },
       {
         "type": "rank-crasher",
         "title": "RANK CRASHER",
-        "manager": "Shai Saadon",
-        "points": 17,
+        "manager": "Oz Uzan",
+        "points": 23,
         "metricLabel": "PLACES DOWN",
-        "detail": "Shai's Team · fell from #28 to #45",
+        "detail": "Morinioz · fell from #19 to #42",
         "color": "#ff7185"
-      },
-      {
-        "type": "chip-master",
-        "title": "CHIP MASTER",
-        "manager": "-hadar hason--",
-        "points": 93,
-        "metricLabel": "PTS",
-        "detail": "Triple Captain · best chip-user score · 28.3% of managers used a chip",
-        "color": "#ff9f45"
       },
       {
         "type": "transfer-tangle",
         "title": "TRANSFER TANGLE",
-        "manager": "Yehonatan Anaki",
-        "points": 8,
+        "manager": "Dor Gershony",
+        "points": 10,
         "metricLabel": "PTS LOST",
-        "detail": "XGA 27.3 · worst net impact after transfer returns and hit costs",
+        "detail": "The Dor's · worst net impact after transfer returns and hit costs",
         "color": "#9b7cff"
       },
       {
         "type": "painful-hit",
         "title": "PAINFUL HIT",
-        "manager": "Sivan Avitan",
+        "manager": "Dan Bofman",
         "points": 4,
         "metricLabel": "HIT COST",
-        "detail": "Rice Rice Baby · transfers returned 2 pts before the hit",
+        "detail": "DefConor · transfers returned 2 pts before the hit",
         "color": "#ff6177"
       },
       {
         "type": "transfer",
         "title": "TRANSFER MASTERSTROKE",
-        "manager": "Haaland IN",
-        "points": 11,
+        "manager": "Gabriel IN",
+        "points": 16,
         "metricLabel": "PTS GAIN",
-        "detail": "João Pedro out · 1 manager made this move",
+        "detail": "Gvardiol out · 1 manager made this move",
         "color": "#48d891"
       },
       {
         "type": "bench",
         "title": "BENCH PAIN",
-        "manager": "nevo hershkovitz",
-        "points": 25,
+        "manager": "EYAL Karchmer",
+        "points": 21,
         "metricLabel": "BENCH PTS",
-        "detail": "ZupiAvdija · highest unused bench score in the league",
+        "detail": "Khalaili and Hass · highest unused bench score in the league",
         "color": "#ff7185"
       },
       {
         "type": "hidden-gem",
         "title": "HIDDEN GEM",
-        "manager": "Kostoulas",
-        "points": 12,
+        "manager": "Dedić",
+        "points": 11,
         "metricLabel": "PTS",
-        "detail": "6.7% owned · best low-owned return not shown elsewhere in the recap",
+        "detail": "3.3% owned · best low-owned return not shown elsewhere in the recap",
         "color": "#5cc8ff"
+      },
+      {
+        "type": "closest-call",
+        "title": "CLOSEST CALL",
+        "manager": "Shir Cohavi / Dima Shleifman",
+        "points": 0,
+        "metricLabel": "PTS APART",
+        "detail": "League positions #14 and #15",
+        "color": "#aeb9c9"
       }
     ]
   }
