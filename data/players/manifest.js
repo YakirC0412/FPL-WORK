@@ -1,12 +1,12 @@
 window.FPL_PLAYER_MEDIA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T09:36:13.858Z",
+  "generatedAt": "2026-10-27T10:00:30.330Z",
   "source": {
     "provider": "Fantasy Premier League public API and official player image CDN",
     "apiUrl": "https://fantasy.premierleague.com/api/bootstrap-static/",
     "imageBaseUrl": "https://resources.premierleague.com/premierleague25/photos/players/110x140"
   },
-  "count": 668,
+  "count": 669,
   "players": [
     {
       "id": 350,
@@ -5383,8 +5383,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/114283.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"b46071b41744adcdf5e0f3b56f3107fc\""
     },
     {
@@ -8547,7 +8547,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/438234.png",
       "imageAvailable": true,
-      "etag": "\"88a36fb9a0ae33bede1cdfa718ff3c85\""
+      "etag": "\"8ee05bd7edcf42199f9d3d2be186744a\""
     },
     {
       "id": 18,
@@ -9676,8 +9676,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/465920.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"39b18fc54d4161ee266148b6499cd975\""
     },
     {
@@ -11246,8 +11246,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/231065.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"6422b23410c5f061f5a4cf067571fa44\""
     },
     {
@@ -12488,6 +12488,28 @@ window.FPL_PLAYER_MEDIA = {
       "image": "assets/fpl-players/553746.png",
       "imageAvailable": true,
       "etag": "\"a66113ddd26ab08f2b80d04cf73ca64e\""
+    },
+    {
+      "id": 669,
+      "code": 499857,
+      "firstName": "Teddy",
+      "secondName": "Sharman-Lowe",
+      "fullName": "Teddy Sharman-Lowe",
+      "webName": "Sharman-Lowe",
+      "aliases": [
+        "Sharman-Lowe",
+        "Teddy Sharman-Lowe",
+        "Teddy",
+        "T Sharman-Lowe",
+        "T.Sharman-Lowe"
+      ],
+      "teamId": 6,
+      "teamName": "Chelsea",
+      "teamShortName": "CHE",
+      "temporaryCode": false,
+      "image": "assets/fpl-players/499857.png",
+      "imageAvailable": true,
+      "etag": "\"f92cc2d0ca45ed9badc5fbf938f376b9\""
     },
     {
       "id": 423,
