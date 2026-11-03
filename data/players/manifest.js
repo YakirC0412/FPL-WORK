@@ -1,12 +1,12 @@
 window.FPL_PLAYER_MEDIA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T10:00:30.330Z",
+  "generatedAt": "2026-11-03T12:17:43.720Z",
   "source": {
     "provider": "Fantasy Premier League public API and official player image CDN",
     "apiUrl": "https://fantasy.premierleague.com/api/bootstrap-static/",
     "imageBaseUrl": "https://resources.premierleague.com/premierleague25/photos/players/110x140"
   },
-  "count": 669,
+  "count": 670,
   "players": [
     {
       "id": 350,
@@ -5383,8 +5383,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/114283.png",
+      "imageAvailable": true,
       "etag": "\"b46071b41744adcdf5e0f3b56f3107fc\""
     },
     {
@@ -6421,8 +6421,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/490094.png",
-      "imageAvailable": true,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
       "etag": "\"d9a998dcc6f73edeba815c48f7bf5a47\""
     },
     {
@@ -9676,8 +9676,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/465920.png",
+      "imageAvailable": true,
       "etag": "\"39b18fc54d4161ee266148b6499cd975\""
     },
     {
@@ -11246,8 +11246,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/231065.png",
+      "imageAvailable": true,
       "etag": "\"6422b23410c5f061f5a4cf067571fa44\""
     },
     {
@@ -12910,6 +12910,28 @@ window.FPL_PLAYER_MEDIA = {
       "image": "assets/fpl-players/222694.png",
       "imageAvailable": true,
       "etag": "\"d357387af865d2bb1942ba4ed6e1d9ce\""
+    },
+    {
+      "id": 670,
+      "code": 616109,
+      "firstName": "Olutayo",
+      "secondName": "Subuloye",
+      "fullName": "Olutayo Subuloye",
+      "webName": "Subuloye",
+      "aliases": [
+        "Subuloye",
+        "Olutayo Subuloye",
+        "Olutayo",
+        "O Subuloye",
+        "O.Subuloye"
+      ],
+      "teamId": 6,
+      "teamName": "Chelsea",
+      "teamShortName": "CHE",
+      "temporaryCode": false,
+      "image": "assets/fpl-players/616109.png",
+      "imageAvailable": true,
+      "etag": "\"c79f87b95a80e6b3f856320a5d2c3d1f\""
     },
     {
       "id": 597,
