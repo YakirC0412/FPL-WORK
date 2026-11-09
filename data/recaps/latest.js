@@ -3,53 +3,53 @@ window.FPL_RECAP_SNAPSHOT = {
   "source": {
     "provider": "Fantasy Premier League public API",
     "leagueId": 507749,
-    "syncedAt": "2026-11-03T16:14:05.131Z",
+    "syncedAt": "2026-11-09T20:42:23.202Z",
     "gameweekStatus": {
       "finished": true,
       "dataChecked": true,
-      "deadline": "2026-10-31T11:00:00Z"
+      "deadline": "2026-11-06T18:30:00Z"
     },
     "privacy": "Only aggregated player data and the manager/team names required by the recap graphic are stored. Entry IDs, raw squads and individual transfer histories are not stored."
   },
   "recapData": {
     "league": "FPL Champions League- IL",
-    "gameweek": 9,
+    "gameweek": 10,
     "participants": 60,
-    "average": 58.9,
+    "average": 63.5,
     "topPoints": {
-      "manager": "Avihay Halak",
-      "team": "Kings Landing",
-      "points": 88
+      "manager": "Lion Zocowitzky",
+      "team": "Lion's Team",
+      "points": 89
     },
     "lowestPoints": {
-      "manager": "Vadim G.",
-      "team": "Wernerite",
-      "points": 39
+      "manager": "Shahar Lugaccy --",
+      "team": "Thunder Road",
+      "points": 36
     },
     "top4": [
       {
         "rank": 1,
         "manager": "Oded Rasiel",
         "team": "Oded's Team",
-        "points": 651
+        "points": 725
       },
       {
         "rank": 2,
         "manager": "Hadar Hason",
         "team": "HPT HASON",
-        "points": 646
+        "points": 706
       },
       {
         "rank": 3,
         "manager": "Bar Shitrit",
         "team": "Bar FC",
-        "points": 643
+        "points": 706
       },
       {
         "rank": 4,
-        "manager": "lavi mizrahi",
-        "team": "mizrahi 11",
-        "points": 639
+        "manager": "דדי הינדי",
+        "team": "DeDoN",
+        "points": 698
       }
     ],
     "formation": "3-4-3",
@@ -59,15 +59,23 @@ window.FPL_RECAP_SNAPSHOT = {
         "code": 154561,
         "position": "GK",
         "name": "Raya",
-        "own": 48.3,
-        "points": 5
+        "own": 50,
+        "points": 6
       },
       {
         "id": 8,
         "code": 466075,
         "position": "DEF",
         "name": "Calafiori",
-        "own": 88.3,
+        "own": 93.3,
+        "points": 6
+      },
+      {
+        "id": 115,
+        "code": 465730,
+        "position": "DEF",
+        "name": "De Cuyper",
+        "own": 68.3,
         "points": 6
       },
       {
@@ -75,24 +83,16 @@ window.FPL_RECAP_SNAPSHOT = {
         "code": 199798,
         "position": "DEF",
         "name": "Konsa",
-        "own": 60,
-        "points": 10
-      },
-      {
-        "id": 115,
-        "code": 465730,
-        "position": "DEF",
-        "name": "De Cuyper",
-        "own": 56.7,
-        "points": 9
+        "own": 66.7,
+        "points": 8
       },
       {
         "id": 40,
         "code": 244850,
         "position": "MID",
         "name": "Rogers",
-        "own": 73.3,
-        "points": 9
+        "own": 81.7,
+        "points": 2
       },
       {
         "id": 154,
@@ -100,30 +100,30 @@ window.FPL_RECAP_SNAPSHOT = {
         "position": "MID",
         "name": "Palmer",
         "own": 70,
-        "points": 8
+        "points": 2
       },
       {
         "id": 124,
         "code": 60307,
         "position": "MID",
         "name": "Groß",
-        "own": 58.3,
-        "points": 2
+        "own": 61.7,
+        "points": 10
       },
       {
-        "id": 480,
-        "code": 222531,
+        "id": 68,
+        "code": 201658,
         "position": "MID",
-        "name": "Gibbs-White",
-        "own": 48.3,
-        "points": 2
+        "name": "Tavernier",
+        "own": 40,
+        "points": 3
       },
       {
         "id": 411,
         "code": 223094,
         "position": "FWD",
         "name": "Haaland",
-        "own": 98.3,
+        "own": 96.7,
         "points": 2
       },
       {
@@ -131,15 +131,15 @@ window.FPL_RECAP_SNAPSHOT = {
         "code": 517052,
         "position": "FWD",
         "name": "N.Jackson",
-        "own": 75,
-        "points": 9
+        "own": 78.3,
+        "points": 11
       },
       {
         "id": 346,
         "code": 177815,
         "position": "FWD",
         "name": "Calvert-Lewin",
-        "own": 38.3,
+        "own": 36.7,
         "points": 2
       }
     ],
@@ -149,99 +149,108 @@ window.FPL_RECAP_SNAPSHOT = {
         "code": 223094,
         "name": "Haaland",
         "points": 4,
-        "captainPct": 91.7
+        "captainPct": 68.3
       },
       {
-        "id": 166,
-        "code": 517052,
-        "name": "N.Jackson",
-        "points": 18,
-        "captainPct": 3.3
-      },
-      {
-        "id": 154,
-        "code": 244851,
-        "name": "Palmer",
+        "id": 379,
+        "code": 219168,
+        "name": "Isak",
         "points": 16,
-        "captainPct": 3.3
+        "captainPct": 11.7
+      },
+      {
+        "id": 8,
+        "code": 466075,
+        "name": "Calafiori",
+        "points": 12,
+        "captainPct": 6.7
       }
     ],
     "topPlayers": [
       {
-        "id": 112,
-        "code": 469142,
-        "name": "Van Hecke",
-        "points": 15,
-        "own": 18.3
+        "id": 249,
+        "code": 586309,
+        "name": "Barry",
+        "points": 16,
+        "own": 16.7
       },
       {
-        "id": 295,
-        "code": 169432,
-        "name": "McBurnie",
-        "points": 12,
+        "id": 52,
+        "code": 653481,
+        "name": "Alysson",
+        "points": 16,
         "own": 0
       },
       {
-        "id": 109,
-        "code": 489639,
-        "name": "Verbruggen",
-        "points": 11,
-        "own": 38.3
+        "id": 167,
+        "code": 463034,
+        "name": "Delap",
+        "points": 13,
+        "own": 0
       }
     ],
     "aiInsights": [
       {
         "type": "comeback",
         "title": "COMEBACK KID",
-        "manager": "Dan Bofman",
-        "points": 20,
+        "manager": "Lion Zocowitzky",
+        "points": 23,
         "metricLabel": "PLACES UP",
-        "detail": "DefConor · climbed from #40 to #20",
+        "detail": "Lion's Team · climbed from #42 to #19",
         "color": "#48d891"
       },
       {
         "type": "rank-crasher",
         "title": "RANK CRASHER",
-        "manager": "Vadim G.",
-        "points": 14,
+        "manager": "Shahar Lugaccy --",
+        "points": 16,
         "metricLabel": "PLACES DOWN",
-        "detail": "Wernerite · fell from #8 to #22",
+        "detail": "Thunder Road · fell from #35 to #51",
         "color": "#ff7185"
+      },
+      {
+        "type": "transfer-tangle",
+        "title": "TRANSFER TANGLE",
+        "manager": "Liad Livneh",
+        "points": 3,
+        "metricLabel": "PTS LOST",
+        "detail": "Hull Of Fame · worst net impact after transfer returns and hit costs",
+        "color": "#9b7cff"
       },
       {
         "type": "transfer",
         "title": "TRANSFER MASTERSTROKE",
-        "manager": "Van Hecke IN",
-        "points": 14,
+        "manager": "N.Jackson IN",
+        "points": 9,
         "metricLabel": "PTS GAIN",
-        "detail": "N.Williams out · 1 manager made this move",
+        "detail": "Gonzalo out · 3 managers made this move",
         "color": "#48d891"
       },
       {
         "type": "bench",
         "title": "BENCH PAIN",
-        "manager": "Lion Zocowitzky",
-        "points": 36,
+        "manager": "Sivan Avitan",
+        "points": 25,
         "metricLabel": "BENCH PTS",
-        "detail": "Lion's Team · highest unused bench score in the league",
+        "detail": "Rice Rice Baby · highest unused bench score in the league",
         "color": "#ff7185"
       },
       {
         "type": "hidden-gem",
         "title": "HIDDEN GEM",
-        "manager": "Rudoni",
-        "points": 9,
+        "manager": "Vuskovic",
+        "points": 12,
         "metricLabel": "PTS",
-        "detail": "5% owned · best low-owned return not shown elsewhere in the recap",
+        "detail": "6.7% owned · best low-owned return not shown elsewhere in the recap",
         "color": "#5cc8ff"
       },
       {
         "type": "closest-call",
         "title": "CLOSEST CALL",
-        "manager": "Nadav Gershman / shahar Halamish",
+        "manager": "Hadar Hason / Bar Shitrit",
         "points": 0,
         "metricLabel": "PTS APART",
-        "detail": "League positions #16 and #17",
+        "detail": "League positions #2 and #3",
         "color": "#aeb9c9"
       }
     ]
