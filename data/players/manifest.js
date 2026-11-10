@@ -1,12 +1,12 @@
 window.FPL_PLAYER_MEDIA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-03T12:17:43.720Z",
+  "generatedAt": "2026-11-10T12:55:57.704Z",
   "source": {
     "provider": "Fantasy Premier League public API and official player image CDN",
     "apiUrl": "https://fantasy.premierleague.com/api/bootstrap-static/",
     "imageBaseUrl": "https://resources.premierleague.com/premierleague25/photos/players/110x140"
   },
-  "count": 670,
+  "count": 672,
   "players": [
     {
       "id": 350,
@@ -246,9 +246,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Fulham",
       "teamShortName": "FUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/442299.png",
+      "imageAvailable": true,
+      "etag": "\"bf20256fbe2ac489161912c4e04ecf5a\""
     },
     {
       "id": 633,
@@ -268,9 +268,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/605972.png",
+      "imageAvailable": true,
+      "etag": "\"0a16a1b2ed3b6a5b2459ab0ee3eaae8d\""
     },
     {
       "id": 613,
@@ -290,9 +290,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Sunderland",
       "teamShortName": "SUN",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/696104.png",
+      "imageAvailable": true,
+      "etag": "\"ff32e9ba05d721c019fc16713b734443\""
     },
     {
       "id": 473,
@@ -491,7 +491,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/201895.png",
       "imageAvailable": true,
-      "etag": "\"9585deaf7ffa92add4078b659c6dc377\""
+      "etag": "\"f92cabde1f1d85d027f718ab02e6b7bb\""
     },
     {
       "id": 628,
@@ -511,9 +511,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Man City",
       "teamShortName": "MCI",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/624777.png",
+      "imageAvailable": true,
+      "etag": "\"e259d83046cd69eae39249315330f15a\""
     },
     {
       "id": 394,
@@ -711,9 +711,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brighton",
       "teamShortName": "BHA",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/592984.png",
+      "imageAvailable": true,
+      "etag": "\"9b66cc8b30fc11789e56c2409ebc23a1\""
     },
     {
       "id": 192,
@@ -779,9 +779,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Fulham",
       "teamShortName": "FUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/500033.png",
+      "imageAvailable": true,
+      "etag": "\"db1e0573bcdd2cc1d6c79d2091fd1f39\""
     },
     {
       "id": 632,
@@ -801,9 +801,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/626751.png",
+      "imageAvailable": true,
+      "etag": "\"a627c2345f6f0f721918ab9025b59a7e\""
     },
     {
       "id": 561,
@@ -867,9 +867,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Liverpool",
       "teamShortName": "LIV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/445087.png",
+      "imageAvailable": true,
+      "etag": "\"3c1ab279e8a5404145cccfe97001eaca\""
     },
     {
       "id": 244,
@@ -956,9 +956,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/210156.png",
+      "imageAvailable": true,
+      "etag": "\"c754700b6ea971f09960121e2ebb10f4\""
     },
     {
       "id": 129,
@@ -1000,9 +1000,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brighton",
       "teamShortName": "BHA",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/471551.png",
+      "imageAvailable": true,
+      "etag": "\"d793dbaa03e2b046ed83292470d281ca\""
     },
     {
       "id": 235,
@@ -1090,9 +1090,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Leeds",
       "teamShortName": "LEE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/587982.png",
+      "imageAvailable": true,
+      "etag": "\"b626963149d1c6a3e9710ac643df3425\""
     },
     {
       "id": 44,
@@ -1201,9 +1201,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Man Utd",
       "teamShortName": "MUN",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/535301.png",
+      "imageAvailable": true,
+      "etag": "\"1615f70e1002c9bf5a899dfcd01548e8\""
     },
     {
       "id": 532,
@@ -1289,9 +1289,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Liverpool",
       "teamShortName": "LIV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/482616.png",
+      "imageAvailable": true,
+      "etag": "\"3b1d352209ae168ebc4a5591eca92b6d\""
     },
     {
       "id": 641,
@@ -1311,9 +1311,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Leeds",
       "teamShortName": "LEE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/437497.png",
+      "imageAvailable": true,
+      "etag": "\"184bcdadb892dd310d2d48a0a81965df\""
     },
     {
       "id": 46,
@@ -1579,7 +1579,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/79602.png",
       "imageAvailable": true,
-      "etag": "\"55485958f2a6a79014327a50691c8e0b\""
+      "etag": "\"5c2ce2573edad3daa503bad7ec99a370\""
     },
     {
       "id": 265,
@@ -1908,9 +1908,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Man City",
       "teamShortName": "MCI",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/637238.png",
+      "imageAvailable": true,
+      "etag": "\"9abb878f3c75d411722b7d3e9ba23601\""
     },
     {
       "id": 360,
@@ -2640,9 +2640,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/627221.png",
+      "imageAvailable": true,
+      "etag": "\"18f3b2e2572babebc3a090c006e2b8f3\""
     },
     {
       "id": 399,
@@ -2706,9 +2706,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/172850.png",
+      "imageAvailable": true,
+      "etag": "\"fd3c1f9b10da474692549b7668c9cfc3\""
     },
     {
       "id": 617,
@@ -2728,9 +2728,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/490884.png",
+      "imageAvailable": true,
+      "etag": "\"e7e29a53ec7072dbf8b0be62adcec01d\""
     },
     {
       "id": 75,
@@ -2753,6 +2753,28 @@ window.FPL_PLAYER_MEDIA = {
       "image": "assets/fpl-players/158499.png",
       "imageAvailable": true,
       "etag": "\"10e84d6c002deabdce4cb3e9a6743f21\""
+    },
+    {
+      "id": 672,
+      "code": 671103,
+      "firstName": "Modou Kéba",
+      "secondName": "Cissé",
+      "fullName": "Modou Kéba Cissé",
+      "webName": "Cissé",
+      "aliases": [
+        "Cissé",
+        "Modou Kéba Cissé",
+        "Modou Kéba",
+        "M Cissé",
+        "M.Cissé"
+      ],
+      "teamId": 2,
+      "teamName": "Aston Villa",
+      "teamShortName": "AVL",
+      "temporaryCode": false,
+      "image": "assets/fpl-players/671103.png",
+      "imageAvailable": true,
+      "etag": "\"e94a0c307569a143397e46960cb70298\""
     },
     {
       "id": 313,
@@ -2908,7 +2930,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/451490.png",
       "imageAvailable": true,
-      "etag": "\"03b969e01c8b193a166fe7fcf600c441\""
+      "etag": "\"bdf52825e5f0ecf414503c7cbe40b557\""
     },
     {
       "id": 280,
@@ -3107,9 +3129,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Liverpool",
       "teamShortName": "LIV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/500058.png",
+      "imageAvailable": true,
+      "etag": "\"6571829c52bf17f485c472dbcc46ecea\""
     },
     {
       "id": 501,
@@ -3217,9 +3239,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brighton",
       "teamShortName": "BHA",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/538007.png",
+      "imageAvailable": true,
+      "etag": "\"41f086e584e5401558868f590041e0c3\""
     },
     {
       "id": 355,
@@ -3397,7 +3419,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/463034.png",
       "imageAvailable": true,
-      "etag": "\"9ac7cc052357d8a236acfbd584581999\""
+      "etag": "\"02032619eb12f068604b52c5ab38336d\""
     },
     {
       "id": 59,
@@ -3505,9 +3527,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Bournemouth",
       "teamShortName": "BOU",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/230650.png",
+      "imageAvailable": true,
+      "etag": "\"eea69f5ac13d898829d056bf69929222\""
     },
     {
       "id": 62,
@@ -3659,9 +3681,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brentford",
       "teamShortName": "BRE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/613804.png",
+      "imageAvailable": true,
+      "etag": "\"359ea4e8df3b7275da28a91fd400b87f\""
     },
     {
       "id": 153,
@@ -3681,9 +3703,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/220362.png",
+      "imageAvailable": true,
+      "etag": "\"9150c13a729798911416b830ec0b4cd2\""
     },
     {
       "id": 400,
@@ -3860,7 +3882,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/616077.png",
       "imageAvailable": true,
-      "etag": "\"e1aa951022493f476c949ccc1f7aa4af\""
+      "etag": "\"7f8581ebbe2ac9c7c6042d74cc8b0c18\""
     },
     {
       "id": 221,
@@ -4144,9 +4166,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Leeds",
       "teamShortName": "LEE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/173774.png",
+      "imageAvailable": true,
+      "etag": "\"c82edf6dc2b30508d084cd931dd7906a\""
     },
     {
       "id": 170,
@@ -4276,9 +4298,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Man City",
       "teamShortName": "MCI",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/448047.png",
+      "imageAvailable": true,
+      "etag": "\"cc45f296e67a714ba5064ebccc2a3319\""
     },
     {
       "id": 216,
@@ -4498,9 +4520,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Newcastle",
       "teamShortName": "NEW",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/613221.png",
+      "imageAvailable": true,
+      "etag": "\"cf0389adc21e57494dfbb37ecbf11cbf\""
     },
     {
       "id": 640,
@@ -4520,9 +4542,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Ipswich Town",
       "teamShortName": "IPS",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/431639.png",
+      "imageAvailable": true,
+      "etag": "\"85f0d590c4db699eb7a568a3499991ea\""
     },
     {
       "id": 438,
@@ -4631,9 +4653,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Sunderland",
       "teamShortName": "SUN",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/549940.png",
+      "imageAvailable": true,
+      "etag": "\"5ed56949caf674e98eb2811eff5ad1f6\""
     },
     {
       "id": 58,
@@ -5251,9 +5273,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Aston Villa",
       "teamShortName": "AVL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/119090.png",
+      "imageAvailable": true,
+      "etag": "\"e4d3f8884977452fc4d5eecd365c6a8f\""
     },
     {
       "id": 589,
@@ -5295,9 +5317,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/559152.png",
+      "imageAvailable": true,
+      "etag": "\"380ba9833c3a0dff2315a417b310bc3e\""
     },
     {
       "id": 654,
@@ -5317,9 +5339,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/629068.png",
+      "imageAvailable": true,
+      "etag": "\"35e87da64cd627db2a09646262e894a8\""
     },
     {
       "id": 371,
@@ -5385,7 +5407,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/114283.png",
       "imageAvailable": true,
-      "etag": "\"b46071b41744adcdf5e0f3b56f3107fc\""
+      "etag": "\"4754e21f769cfe29dadbcf2dc58c8599\""
     },
     {
       "id": 306,
@@ -5542,6 +5564,28 @@ window.FPL_PLAYER_MEDIA = {
       "etag": "\"9d4319bf8883f83cfbb005aa7ab502cb\""
     },
     {
+      "id": 671,
+      "code": 536108,
+      "firstName": "Luca",
+      "secondName": "Gunter",
+      "fullName": "Luca Gunter",
+      "webName": "Gunter",
+      "aliases": [
+        "Gunter",
+        "Luca Gunter",
+        "Luca",
+        "L Gunter",
+        "L.Gunter"
+      ],
+      "teamId": 19,
+      "teamName": "Spurs",
+      "teamShortName": "TOT",
+      "temporaryCode": false,
+      "image": "assets/fpl-players/placeholder.png",
+      "imageAvailable": false,
+      "etag": ""
+    },
+    {
       "id": 144,
       "code": 482609,
       "firstName": "Malo",
@@ -5691,9 +5735,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brighton",
       "teamShortName": "BHA",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/512123.png",
+      "imageAvailable": true,
+      "etag": "\"725db8302949278f5532a47e4a95bc64\""
     },
     {
       "id": 449,
@@ -5735,9 +5779,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/196100.png",
+      "imageAvailable": true,
+      "etag": "\"5719a7eeb53ee3892956789f99ed65c7\""
     },
     {
       "id": 342,
@@ -5779,9 +5823,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Aston Villa",
       "teamShortName": "AVL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/245719.png",
+      "imageAvailable": true,
+      "etag": "\"89ad9cb8fb6641729b3629a1a5e74658\""
     },
     {
       "id": 148,
@@ -6421,8 +6465,8 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
+      "image": "assets/fpl-players/490094.png",
+      "imageAvailable": true,
       "etag": "\"d9a998dcc6f73edeba815c48f7bf5a47\""
     },
     {
@@ -7021,9 +7065,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/242898.png",
+      "imageAvailable": true,
+      "etag": "\"d477360df0c5d715fbc9830d3a164222\""
     },
     {
       "id": 307,
@@ -7507,9 +7551,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Arsenal",
       "teamShortName": "ARS",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/199798.png",
+      "imageAvailable": true,
+      "etag": "\"39a96b37708eb943dad514a42a4d8679\""
     },
     {
       "id": 138,
@@ -7531,7 +7575,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/647850.png",
       "imageAvailable": true,
-      "etag": "\"70195ed78758b333ba7bd2b61ee2fa59\""
+      "etag": "\"1ae64bd15048eae8e23e617c7184642b\""
     },
     {
       "id": 381,
@@ -7772,9 +7816,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Fulham",
       "teamShortName": "FUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/551050.png",
+      "imageAvailable": true,
+      "etag": "\"d225150f7789193b3579a7f961dc6f32\""
     },
     {
       "id": 179,
@@ -7907,7 +7951,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/152551.png",
       "imageAvailable": true,
-      "etag": "\"e74685b2e27308cf84ba9f75fa8d4a20\""
+      "etag": "\"d455be020856d85592eb4e40bb7f6046\""
     },
     {
       "id": 395,
@@ -8434,9 +8478,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Everton",
       "teamShortName": "EVE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/154043.png",
+      "imageAvailable": true,
+      "etag": "\"9e635b78b9f5b0b483391412fe8caaad\""
     },
     {
       "id": 351,
@@ -8591,9 +8635,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Chelsea",
       "teamShortName": "CHE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/98980.png",
+      "imageAvailable": true,
+      "etag": "\"5761a2c770d48c727cff7ae18a047017\""
     },
     {
       "id": 419,
@@ -8836,9 +8880,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Aston Villa",
       "teamShortName": "AVL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/638987.png",
+      "imageAvailable": true,
+      "etag": "\"8bed4c3eb77c59a1e43cc4a9f8c51e4b\""
     },
     {
       "id": 427,
@@ -8992,7 +9036,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/491501.png",
       "imageAvailable": true,
-      "etag": "\"35c1dffecb6d8d8ea3dfa201120fa7e4\""
+      "etag": "\"22c1f116f0b7f742e35b42c978b28b01\""
     },
     {
       "id": 45,
@@ -9190,9 +9234,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Sunderland",
       "teamShortName": "SUN",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/638411.png",
+      "imageAvailable": true,
+      "etag": "\"ee0cd4ff954fc88078d5f7017f2c2af2\""
     },
     {
       "id": 541,
@@ -9234,9 +9278,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/566213.png",
+      "imageAvailable": true,
+      "etag": "\"804c1bdd587572a5c50d92319e7438d2\""
     },
     {
       "id": 169,
@@ -9322,9 +9366,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Newcastle",
       "teamShortName": "NEW",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/665243.png",
+      "imageAvailable": true,
+      "etag": "\"8f7c25d35d2d8cdea379b091a62d022b\""
     },
     {
       "id": 287,
@@ -9457,7 +9501,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/592031.png",
       "imageAvailable": true,
-      "etag": "\"abec0518bce94c6f597c8501eff31327\""
+      "etag": "\"12a7375bf3643a4cd31fe100627f6c52\""
     },
     {
       "id": 204,
@@ -9654,9 +9698,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/647839.png",
+      "imageAvailable": true,
+      "etag": "\"04e3726aed0d24662fc77476d6faf146\""
     },
     {
       "id": 578,
@@ -9678,7 +9722,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/465920.png",
       "imageAvailable": true,
-      "etag": "\"39b18fc54d4161ee266148b6499cd975\""
+      "etag": "\"d2fe9ae1247ba454eef4c11dec167bf4\""
     },
     {
       "id": 334,
@@ -9832,9 +9876,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Nott'm Forest",
       "teamShortName": "NFO",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/247348.png",
+      "imageAvailable": true,
+      "etag": "\"e3db61e6606d9a5af9a1a91516692189\""
     },
     {
       "id": 472,
@@ -9900,7 +9944,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/536661.png",
       "imageAvailable": true,
-      "etag": "\"e9859adcc0da603b55eb2861b17ab5b7\""
+      "etag": "\"56d531baf2a998844209fdb29ff4cc30\""
     },
     {
       "id": 405,
@@ -9943,9 +9987,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Aston Villa",
       "teamShortName": "AVL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/517052.png",
+      "imageAvailable": true,
+      "etag": "\"ac17dbc66e0cd70875aeb0e4cd258b54\""
     },
     {
       "id": 469,
@@ -10252,9 +10296,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/496181.png",
+      "imageAvailable": true,
+      "etag": "\"b41bf42ee601e533e0b0ebfd9cb8c536\""
     },
     {
       "id": 657,
@@ -10716,9 +10760,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Brighton",
       "teamShortName": "BHA",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/556637.png",
+      "imageAvailable": true,
+      "etag": "\"d9c93fa0c792af9060a191741494451c\""
     },
     {
       "id": 600,
@@ -10760,9 +10804,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/533646.png",
+      "imageAvailable": true,
+      "etag": "\"f1594dca469a0bd45563cd94ec3e4c36\""
     },
     {
       "id": 465,
@@ -10871,9 +10915,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Ipswich Town",
       "teamShortName": "IPS",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/218543.png",
+      "imageAvailable": true,
+      "etag": "\"26429d48ca3af746b03d1da363f40054\""
     },
     {
       "id": 152,
@@ -11050,7 +11094,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/441164.png",
       "imageAvailable": true,
-      "etag": "\"e935dbc0b05b8fc6d89add437a514add\""
+      "etag": "\"a3161bec3e395ee26645183462f81cce\""
     },
     {
       "id": 560,
@@ -11226,7 +11270,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/111234.png",
       "imageAvailable": true,
-      "etag": "\"f1e678f3aa2fbdd58e45a1170a55bbe2\""
+      "etag": "\"6fe99008de94dd7ef378cc292544785f\""
     },
     {
       "id": 91,
@@ -11248,7 +11292,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/231065.png",
       "imageAvailable": true,
-      "etag": "\"6422b23410c5f061f5a4cf067571fa44\""
+      "etag": "\"6aaea7f9869a6b2901f0bd4c7a53add8\""
     },
     {
       "id": 348,
@@ -11290,9 +11334,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Newcastle",
       "teamShortName": "NEW",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/578512.png",
+      "imageAvailable": true,
+      "etag": "\"08a5a07420a8324e22c5b1d7fb696a17\""
     },
     {
       "id": 442,
@@ -11314,7 +11358,7 @@ window.FPL_PLAYER_MEDIA = {
       "temporaryCode": false,
       "image": "assets/fpl-players/98747.png",
       "imageAvailable": true,
-      "etag": "\"69bb932d960a03f560c538ab6a1cfa08\""
+      "etag": "\"630f852a8a8a4f637a8e11fedb83a55d\""
     },
     {
       "id": 164,
@@ -12153,9 +12197,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/510281.png",
+      "imageAvailable": true,
+      "etag": "\"25def26f544718449a4d202e2ffe0ea0\""
     },
     {
       "id": 475,
@@ -13304,9 +13348,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/243951.png",
+      "imageAvailable": true,
+      "etag": "\"0bd2f9fc507ce50923f2b9fd267d4807\""
     },
     {
       "id": 194,
@@ -13392,9 +13436,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Crystal Palace",
       "teamShortName": "CRY",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/450063.png",
+      "imageAvailable": true,
+      "etag": "\"ecdb17bef200de760fd57562e1064d0f\""
     },
     {
       "id": 577,
@@ -13480,9 +13524,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/109646.png",
+      "imageAvailable": true,
+      "etag": "\"9638a77263cb9fa8f6742bf81ca28094\""
     },
     {
       "id": 76,
@@ -13926,9 +13970,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Hull City",
       "teamShortName": "HUL",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/631000.png",
+      "imageAvailable": true,
+      "etag": "\"ab0720b8afb018af152f6ca67b3c9b5a\""
     },
     {
       "id": 109,
@@ -14258,9 +14302,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Spurs",
       "teamShortName": "TOT",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/611917.png",
+      "imageAvailable": true,
+      "etag": "\"c1c287e89235cf0faa8e318d4e085fa4\""
     },
     {
       "id": 460,
@@ -14677,9 +14721,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Coventry City",
       "teamShortName": "COV",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/661888.png",
+      "imageAvailable": true,
+      "etag": "\"34139a09dba3e875ba40fa404dbcad78\""
     },
     {
       "id": 135,
@@ -14787,9 +14831,9 @@ window.FPL_PLAYER_MEDIA = {
       "teamName": "Leeds",
       "teamShortName": "LEE",
       "temporaryCode": false,
-      "image": "assets/fpl-players/placeholder.png",
-      "imageAvailable": false,
-      "etag": ""
+      "image": "assets/fpl-players/155465.png",
+      "imageAvailable": true,
+      "etag": "\"fb9e9384de16ee8fedc589d09f13251d\""
     },
     {
       "id": 440,
